@@ -1,0 +1,11 @@
+from salesia.modules.seguridad.infrastructure.models.factores import AuthFactor as AuthFactor
+from salesia.modules.seguridad.infrastructure.models.factores import RecoveryCode as RecoveryCode
+from salesia.modules.seguridad.infrastructure.models.identidad import ApiCredential as ApiCredential
+from salesia.modules.seguridad.infrastructure.models.identidad import AuthMail as AuthMail
+from salesia.modules.seguridad.infrastructure.models.identidad import CustomRole as CustomRole
+from salesia.modules.seguridad.infrastructure.models.identidad import SupportGrant as SupportGrant
+from salesia.modules.seguridad.infrastructure.models.identidad import UserModel as UserModel
+from salesia.modules.seguridad.infrastructure.models.sesiones import AuthChallenge as AuthChallenge
+from salesia.modules.seguridad.infrastructure.models.sesiones import AuthSession as AuthSession
+from salesia.modules.seguridad.infrastructure.models.sesiones import LoginThrottle as LoginThrottle
+from salesia.modules.seguridad.infrastructure.models.sesiones import RevokedTokenModel as RevokedTokenModel

@@ -1,0 +1,17 @@
+.function-separation-description { color: var(--profile-muted); font-size: 0.8125rem; line-height: 1.7; }
+.function-separation-lock { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border-radius: 8px; background: rgb(59 130 246 / 10%); color: #2563eb; }
+.function-separation .operating-profile-area-label { align-items: flex-start; }
+.function-separation input[role="switch"] { margin-top: 3px; }
+.function-separation input[role="switch"]:disabled:checked { opacity: 0.7; }
+.function-separation button[class*="border-slate-300"] { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.function-separation-history-action { padding-top: 18px; border-top: 1px solid var(--profile-border); }
+.function-separation .function-separation-modal { position: fixed; inset: 0; margin: auto; width: min(850px, calc(100vw - 32px)); max-height: calc(100dvh - 40px); color: var(--profile-text); }
+.function-separation-dialog { display: flex; flex-direction: column; max-height: calc(100dvh - 40px); border: 1px solid var(--profile-border); border-radius: 22px; overflow: hidden; background: var(--profile-surface); box-shadow: 0 24px 80px rgb(0 0 0 / 30%); }
+.function-separation-dialog > header, .function-separation-dialog > footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; }
+.function-separation-dialog > header { border-bottom: 1px solid var(--profile-border); }
+.function-separation-dialog > header h2 { font-size: 1rem; font-weight: 700; }
+.function-separation-dialog > footer { border-top: 1px solid var(--profile-border); background: var(--profile-soft); font-size: 0.8125rem; color: var(--profile-muted); }
+.function-separation-dialog > footer > div { display: flex; gap: 8px; }
+.function-separation-history-body { display: grid; gap: 12px; min-height: 150px; padding: 24px; overflow-y: auto; }
+html:is(.dark, [data-theme="dark"]) .function-separation-lock { color: #93c5fd; }
+@media (max-width: 640px) { .function-separation-dialog > header, .function-separation-dialog > footer, .function-separation-history-body { padding: 16px; } }

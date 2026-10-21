@@ -1,0 +1,12 @@
+tmp/
+docs/
+docker-compose.override.yml
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+desktop.ini
+scripts/
+.vscode/
+.idea/

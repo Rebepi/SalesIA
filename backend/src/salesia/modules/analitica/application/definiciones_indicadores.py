@@ -1,0 +1,29 @@
+from datetime import timedelta
+
+from salesia.modules.organizacion.application.calendario_operativo import effective_calendar
+
+
+def measurement_context(db, user, currency, branch_id, period, now, category=None):
+    calendar = effective_calendar(db, user.company_id, branch_id)
+    days = 365 if period == "12m" else None if period == "all" else int(period[:-1])
+    return {"date_basis": "sale", "date_reference": "Fecha de confirmación de venta", "timezone": calendar["timezone"], "from": (now - timedelta(days=days)).isoformat() if days else None, "to": now.isoformat(), "period_definition": "Todo el historial disponible" if days is None else f"Ventana móvil de {days} días hasta el instante de consulta", "currency": currency, "currency_policy": "Solo documentos de la moneda indicada. No se suman monedas distintas ni se aplica conversión automática.", "states_included": ["confirmed", "paid"], "cancellations": "Se excluyen ventas cuyo estado actual es anulado, borrador o reembolsado. El estado se evalúa al consultar; los importes de esta vista no representan un cierre histórico congelado.", "branch_id": str(branch_id) if branch_id else None, "category": category, "calendar_version": calendar["version"], "company_calendar_version": calendar["company_version"], "comparability": "Compare únicamente la misma definición, moneda, sede y base temporal. La comparación estándar usa días transcurridos; no garantiza igual cantidad de jornadas hábiles."}
+
+
+def dashboard_definitions(currency):
+    common = {"date_reference": "Confirmación de venta", "states": ["confirmed", "paid"], "currency": currency, "unit": currency, "responsible": "Analítica de operación", "null_policy": "Promedio y mediana nulos sin observaciones; los acumulados sin movimientos son cero.", "rounding": "Los acumulados conservan la precisión de registro; promedio, mediana y porcentajes se presentan a dos decimales.", "cancellations": "Se excluyen según su estado actual.", "version": 2}
+    definitions = {
+        "total_revenue": {"name": "Facturación confirmada", "formula": "Suma de total_amount de las ventas seleccionadas; incluye impuestos y ya refleja descuentos.", "grain": "Ticket completo. Al filtrar categoría, se seleccionan tickets que contienen esa categoría, aunque incluyan otras líneas."},
+        "gross_revenue": {"name": "Facturación bruta de la vista", "formula": "Es el mismo importe de facturación confirmada, antes del ajuste separado por reembolsos.", "grain": "Ticket"},
+        "net_revenue": {"name": "Facturación menos reembolsos ejecutados", "formula": "Facturación de ventas seleccionadas menos reembolsos efectivamente registrados en el período, en la misma moneda y excluyendo devoluciones de anticipos sin aplicar.", "grain": "Ajuste operativo con fechas distintas: confirmación para ventas y registro para reembolsos.", "date_reference": "Confirmación de venta y registro del reembolso", "limitations": "Puede incluir reembolsos de ventas de períodos anteriores. No equivale al efectivo cobrado ni a ventas netas de todas las devoluciones comerciales; las compensaciones y saldos de tienda no son desembolsos."},
+        "refunds_amount": {"name": "Reembolsos aplicados a ventas", "formula": "Suma de importes en la moneda seleccionada y estados confirmed, approved, processed o completed. Se excluye unapplied_only.", "grain": "Reembolso", "date_reference": "Registro del reembolso", "states": ["confirmed", "approved", "processed", "completed"]},
+        "tax_amount": {"name": "Impuestos de ventas seleccionadas", "formula": "Suma de tax_amount de los tickets seleccionados, sin descontar impuestos de devoluciones en esta cifra.", "grain": "Ticket"},
+        "orders_count": {"name": "Número de ventas confirmadas", "formula": "Cantidad de tickets seleccionados. Este campo no cuenta pedidos del módulo Pedidos.", "grain": "Venta"},
+        "average_ticket": {"name": "Ticket promedio", "formula": "Facturación confirmada dividida entre cantidad de ventas. Sin ventas, el valor es nulo.", "grain": "Ticket"},
+        "median_ticket": {"name": "Ticket mediano", "formula": "Mediana del total de cada venta seleccionada. Sin observaciones, el valor es nulo.", "grain": "Ticket"},
+        "active_customers": {"name": "Clientes activos del catálogo", "formula": "Cantidad de clientes activos de la empresa al consultar; no equivale a compradores del período y no depende de moneda, sede o categoría del filtro comercial.", "grain": "Cliente", "date_reference": "Estado actual del catálogo", "states": ["is_active"]},
+        "active_purchasing_customers": {"name": "Clientes con compra en el período", "formula": "Cantidad de clientes distintos en las ventas seleccionadas.", "grain": "Cliente comprador"},
+        "active_products": {"name": "Referencias activas del catálogo", "formula": "Cantidad de productos activos de la empresa al consultar; no representa unidades físicas ni referencias vendidas durante el período.", "grain": "Producto", "date_reference": "Estado actual del catálogo", "states": ["is_active"]},
+        "inventory_valuation": {"name": "Valuación registrada del inventario", "formula": "Suma de existencia física multiplicada por el costo promedio registrado. Es una fotografía actual y no cambia de moneda automáticamente al filtrar las ventas.", "grain": "Producto y almacén", "date_reference": "Instante de consulta", "limitations": "La lectura de costos requiere permiso. La cifra depende de los costos registrados y de su conciliación histórica de monedas; no se debe interpretar como una conversión a la moneda de venta seleccionada."},
+    }
+    codes = {"total_revenue": "KPI_REV_TOTAL", "average_ticket": "KPI_TKT_AVG", "median_ticket": "KPI_TKT_MED"}
+    return {key: {**common, "code": codes.get(key, "KPI_" + key.upper()), **value} for key, value in definitions.items()}

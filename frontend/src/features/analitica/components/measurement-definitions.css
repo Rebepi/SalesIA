@@ -1,0 +1,5 @@
+.measurement-definitions { --definition-border: #e2e8f0; --definition-surface: #f8fafc; --definition-text: #334155; --definition-muted: #64748b; color: var(--definition-text); font-size: 0.875rem; line-height: 1.75; }
+.measurement-definitions > article { padding: 18px 20px; border: 1px solid var(--definition-border); border-radius: 16px; background: var(--definition-surface); }
+.measurement-definitions > article strong { display: block; margin-bottom: 8px; color: var(--definition-text); font-size: 0.9375rem; font-weight: 700; }
+.measurement-definitions > article p { color: var(--definition-muted); }
+html:is(.dark, [data-theme="dark"]) .measurement-definitions { --definition-border: #243449; --definition-surface: #0d1727; --definition-text: #e2e8f0; --definition-muted: #91a4bb; }

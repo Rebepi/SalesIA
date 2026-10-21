@@ -1,0 +1,79 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_DB: salesia
+      POSTGRES_USER: salesia_owner
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U salesia_owner -d salesia"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+  migrate:
+    build: ./backend
+    command: ["sh", "-c", "python -m salesia.manage provision-role && alembic upgrade head"]
+    environment: &backend_environment
+      ENVIRONMENT: production
+      DATABASE_URL: postgresql+asyncpg://salesia_owner:${POSTGRES_PASSWORD}@postgres:5432/salesia
+      APP_DATABASE_PASSWORD: ${APP_DB_PASSWORD:?APP_DB_PASSWORD is required}
+      SECRET_KEY: ${SECRET_KEY:?SECRET_KEY is required}
+      AUTH_ENCRYPTION_KEY: ${AUTH_ENCRYPTION_KEY:?AUTH_ENCRYPTION_KEY is required}
+      BACKUP_ENCRYPTION_KEY: ${BACKUP_ENCRYPTION_KEY:?BACKUP_ENCRYPTION_KEY is required}
+      SOURCE_REVISION: ${SOURCE_REVISION:?SOURCE_REVISION is required}
+      PRIVATE_STORAGE_PATH: /app/private_storage
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:8080}
+      CORS_ORIGINS: ${CORS_ORIGINS:-["http://localhost:8080"]}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      SMTP_STARTTLS: ${SMTP_STARTTLS:-true}
+      REPORT_DELIVERY_ALLOWED_DOMAINS: ${REPORT_DELIVERY_ALLOWED_DOMAINS:-[]}
+    depends_on:
+      postgres:
+        condition: service_healthy
+  api:
+    build: ./backend
+    environment:
+      <<: *backend_environment
+      DATABASE_URL: postgresql+asyncpg://salesia_app:${APP_DB_PASSWORD}@postgres:5432/salesia
+    volumes:
+      - private_storage:/app/private_storage
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health/ready', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+  worker:
+    build: ./backend
+    command: ["python", "-m", "salesia.manage", "worker"]
+    environment:
+      <<: *backend_environment
+      DATABASE_URL: postgresql+asyncpg://salesia_app:${APP_DB_PASSWORD}@postgres:5432/salesia
+      BACKUP_DATABASE_URL: postgresql+asyncpg://salesia_owner:${POSTGRES_PASSWORD}@postgres:5432/salesia
+    volumes:
+      - private_storage:/app/private_storage
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+  web:
+    build: ./frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+volumes:
+  postgres_data:
+  private_storage:

@@ -1,0 +1,34 @@
+.customers-table { table-layout: fixed; min-width: 1100px; }
+.customers-table-scroll { overflow: auto; }
+.customers-table th, .customers-table td { vertical-align: middle; }
+.customer-card-modal::backdrop { background: rgb(2 6 23 / 65%); backdrop-filter: blur(7px); }
+.customer-commercial-card { --cc-bg: #fff; --cc-soft: #f8fafc; --cc-border: #e2e8f0; --cc-text: #1e293b; --cc-muted: #64748b; --cc-hover: #e6f5f2; --cc-accent: #0f766e; background: var(--cc-bg); border-color: var(--cc-border); color: var(--cc-text); }
+html:is(.dark, [data-theme="dark"]) .customer-commercial-card { --cc-bg: #111c2e; --cc-soft: #0c1625; --cc-border: #26364b; --cc-text: #e2e8f0; --cc-muted: #a4b5c9; --cc-hover: #163b40; --cc-accent: #5eead4; }
+.customer-commercial-card > header, .customer-commercial-card > nav, .customer-commercial-card > div { border-color: var(--cc-border); }
+.customer-commercial-card .customer-card-secondary { background: var(--cc-bg) !important; color: var(--cc-text) !important; border-color: var(--cc-border) !important; }
+.customer-commercial-card .customer-card-secondary:hover { background: var(--cc-hover) !important; color: var(--cc-accent) !important; border-color: var(--cc-accent) !important; }
+.customer-commercial-card .customer-card-primary { background: #0f766e !important; color: #fff !important; border-color: #0f766e !important; }
+.customer-commercial-card .customer-card-primary:hover { background: #115e59 !important; color: #fff !important; }
+.customer-commercial-card .customer-card-tabs { background: var(--cc-soft); }
+.customer-commercial-card .customer-card-tab { color: var(--cc-muted) !important; background: transparent; border: 1px solid transparent; }
+.customer-commercial-card .customer-card-tab:hover, .customer-commercial-card .customer-card-tab[aria-current="page"] { background: var(--cc-hover) !important; color: var(--cc-accent) !important; border-color: var(--cc-border); }
+.customer-commercial-card button:focus-visible { outline: 2px solid #14b8a6; outline-offset: 3px; }
+.customer-commercial-card button:disabled { opacity: .5; cursor: not-allowed; }
+.customer-commercial-card .text-slate-400 { color: var(--cc-muted) !important; }
+.customer-purchase-section { padding: 18px; border: 1px solid var(--cc-border); border-radius: 14px; background: var(--cc-soft); }
+.customer-purchase-section h3 { font-size: .95rem; font-weight: 700; margin-bottom: 12px; }
+.customer-purchase-section table { min-width: 650px; width: 100%; font-size: .8125rem; text-align: left; }
+.customer-purchase-section th { color: var(--cc-muted); font-weight: 600; }
+.customer-purchase-section th, .customer-purchase-section td { padding: 12px 10px; border-bottom: 1px solid var(--cc-border); }
+.customer-purchase-section .amount { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.customer-purchase-metric { border: 1px solid var(--cc-border); border-radius: 12px; padding: 14px; background: var(--cc-bg); }
+.customer-purchase-metric span { color: var(--cc-muted); font-size: .75rem; }
+.customer-purchase-metric strong { display: block; margin-top: 6px; font-size: 1rem; }
+.customer-purchase-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.customer-purchase-meta dt { color: var(--cc-muted); font-size: .75rem; }
+.customer-purchase-meta dd { margin-top: 4px; font-weight: 600; overflow-wrap: anywhere; }
+@media (max-width: 640px) { .customer-commercial-card > header, .customer-commercial-card > nav, .customer-commercial-card > div { padding-left: 16px; padding-right: 16px; } }
+
+html:is(.dark, [data-theme="dark"]) .customer-commercial-card .customer-card-secondary { background: var(--cc-bg) !important; color: var(--cc-text) !important; border-color: var(--cc-border) !important; }
+html:is(.dark, [data-theme="dark"]) .customer-commercial-card .customer-card-secondary:hover { background: var(--cc-hover) !important; color: var(--cc-accent) !important; border-color: var(--cc-accent) !important; }
+.customer-commercial-card .text-teal-800 { color: var(--cc-accent) !important; }

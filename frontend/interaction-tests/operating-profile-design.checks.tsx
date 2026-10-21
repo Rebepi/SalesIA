@@ -1,0 +1,33 @@
+import { afterEach, expect, it, vi } from "vitest";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { OperatingProfileEditor } from "../src/features/organizacion/components/OperatingProfileEditor";
+import { apiClient } from "../src/api/client";
+afterEach(() => { cleanup(); vi.restoreAllMocks(); });
+const profile = { version: 2, profile: "complete", enabled: ["inventory", "purchase"], areas: { inventory: { label: "Inventario físico", requires: [] }, purchase: { label: "Compras", requires: ["inventory"] } }, profiles: { complete: { label: "Todas las áreas", enabled: ["inventory", "purchase"] } } };
+it("usa switches con ayudas y conserva la revisión obligatoria de dependencias antes de aplicar", async () => {
+  const request = vi.spyOn(apiClient, "request").mockImplementation(async (_path, options) => options?.method === "POST" ? { version: 2, preview_hash: "preview", can_apply: false, activated: [], disabled: ["inventory"], dependencies: [{ area: "purchase", missing: ["inventory"] }], blockers: {}, effects: [] } as never : profile as never);
+  render(<OperatingProfileEditor canWrite />);
+  const toggle = await screen.findByRole("switch", { name: "Inventario físico" });
+  expect(screen.queryByRole("checkbox")).toBeNull();
+  fireEvent.click(screen.getByRole("button", { name: "Información sobre Inventario físico" }));
+  expect((toggle as HTMLInputElement).checked).toBe(true);
+  fireEvent.click(toggle);
+  expect((toggle as HTMLInputElement).checked).toBe(false);
+  fireEvent.change(screen.getByRole("textbox", { name: "Motivo del cambio" }), { target: { value: "Cambio de áreas documentado" } });
+  fireEvent.click(screen.getByRole("button", { name: "Revisar dependencias e impacto" }));
+  await screen.findByText("Compras: requiere Inventario físico");
+  expect((screen.getByRole("button", { name: "Aplicar perfil revisado" }) as HTMLButtonElement).disabled).toBe(true);
+  const body = JSON.parse(String(request.mock.calls.find(([, options]) => options?.method === "POST")?.[1]?.body));
+  expect(body.enabled).toEqual(["purchase"]);
+  expect(body.profile).toBe("custom");
+  expect(request.mock.calls.some(([, options]) => options?.method === "PUT")).toBe(false);
+});
+it("bloquea la edición en consulta y conserva la ayuda disponible", async () => {
+  vi.spyOn(apiClient, "request").mockResolvedValue(profile as never);
+  render(<OperatingProfileEditor canWrite={false} />);
+  const toggle = await screen.findByRole("switch", { name: "Compras" });
+  expect((toggle as HTMLInputElement).disabled).toBe(true);
+  expect(screen.queryByRole("button", { name: "Revisar dependencias e impacto" })).toBeNull();
+  fireEvent.click(screen.getByRole("button", { name: "Información sobre Compras" }));
+  await waitFor(() => expect(screen.getByLabelText("Ayuda: Compras")).toBeTruthy());
+});

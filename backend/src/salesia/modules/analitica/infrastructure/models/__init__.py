@@ -1,0 +1,1 @@
+from salesia.modules.analitica.infrastructure.models.artefactos import AnalyticsArtifact as AnalyticsArtifact

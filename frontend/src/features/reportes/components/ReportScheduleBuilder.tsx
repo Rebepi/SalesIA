@@ -1,0 +1,14 @@
+import { CustomSelect } from "../../../ui/components/CustomSelect";
+
+export interface ReportScheduleConfig { frequency: "daily" | "weekly" | "monthly"; hour: number; minute: number; weekday: number; day: number; start_date: string }
+const weekdays = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+export function describeReportSchedule(config?: ReportScheduleConfig | null) {
+  if (!config) return "Programación avanzada existente";
+  const time = `${String(config.hour).padStart(2, "0")}:${String(config.minute).padStart(2, "0")}`;
+  return `${config.frequency === "daily" ? "Todos los días" : config.frequency === "weekly" ? `Cada ${weekdays[config.weekday]}` : `El día ${config.day} de cada mes`} a las ${time}`;
+}
+
+export function ReportScheduleBuilder({ value, onChange }: { value: ReportScheduleConfig; onChange: (value: ReportScheduleConfig) => void }) {
+  const inputClass = "mt-1 w-full rounded-xl border border-slate-200 bg-white p-2.5 text-xs dark:bg-slate-950";
+  return <fieldset className="space-y-3 rounded-xl border p-4"><legend className="px-1 text-xs font-bold">Frecuencia del reporte</legend><div className="grid gap-3 sm:grid-cols-2"><label className="text-xs font-semibold">Repetir<CustomSelect value={value.frequency} onChange={event => onChange({ ...value, frequency: event.target.value as ReportScheduleConfig["frequency"] })} className={inputClass}><option value="daily">Diariamente</option><option value="weekly">Semanalmente</option><option value="monthly">Mensualmente</option></CustomSelect></label><label className="text-xs font-semibold">Hora local<input type="time" value={`${String(value.hour).padStart(2, "0")}:${String(value.minute).padStart(2, "0")}`} onChange={event => { const [hour, minute] = event.target.value.split(":").map(Number); onChange({ ...value, hour, minute }); }} className={inputClass} required /></label>{value.frequency === "weekly" && <label className="text-xs font-semibold">Día de la semana<CustomSelect value={String(value.weekday)} onChange={event => onChange({ ...value, weekday: Number(event.target.value) })} className={inputClass}>{weekdays.map((day, index) => <option key={day} value={index}>{day}</option>)}</CustomSelect></label>}{value.frequency === "monthly" && <label className="text-xs font-semibold">Día del mes<input type="number" min="1" max="28" value={value.day} onChange={event => onChange({ ...value, day: Number(event.target.value) })} className={inputClass} /><span className="text-[10px] font-normal text-slate-500">Del 1 al 28 para garantizar ejecución todos los meses.</span></label>}<label className="text-xs font-semibold">Fecha de inicio<input type="date" value={value.start_date} onChange={event => onChange({ ...value, start_date: event.target.value })} className={inputClass} required /></label></div><p className="text-xs text-teal-700">{describeReportSchedule(value)}</p></fieldset>;
+}

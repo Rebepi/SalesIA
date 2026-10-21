@@ -1,0 +1,18 @@
+.receivable-menu-detail { --receivable-rgb: 14 165 233; --receivable-color: #0369a1; }
+.receivable-menu-collection { --receivable-rgb: 139 92 246; --receivable-color: #6d28d9; }
+.receivable-menu-reconcile { --receivable-rgb: 20 184 166; --receivable-color: #0f766e; }
+.receivable-action-menu button { color: var(--choice-text, #172b45); transition: background-color 150ms, color 150ms; }
+.receivable-action-menu .receivable-menu-icon {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 9px;
+  background: rgb(var(--receivable-rgb) / 12%); border: 1px solid rgb(var(--receivable-rgb) / 22%);
+}
+.receivable-action-menu .receivable-menu-icon svg { color: var(--receivable-color); }
+.receivable-action-menu button:hover:not(:disabled), .receivable-action-menu button:focus-visible {
+  background: rgb(var(--receivable-rgb) / 10%); color: var(--receivable-color);
+}
+.receivable-action-menu button:focus-visible { outline: 2px solid var(--receivable-color); outline-offset: -2px; }
+.dark .receivable-menu-detail { --receivable-color: #7dd3fc; }
+.dark .receivable-menu-collection { --receivable-color: #c4b5fd; }
+.dark .receivable-menu-reconcile { --receivable-color: #5eead4; }
+.dark .receivable-action-menu .receivable-menu-icon { background: rgb(var(--receivable-rgb) / 18%); border-color: rgb(var(--receivable-rgb) / 32%); }

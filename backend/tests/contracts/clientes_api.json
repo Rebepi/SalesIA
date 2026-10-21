@@ -1,0 +1,4941 @@
+{
+  "paths": {
+    "/api/v1/crm/activities": {
+      "get": {
+        "operationId": "list_crm_activities_api_v1_crm_activities_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "view_mode",
+            "required": false,
+            "schema": {
+              "default": "list",
+              "pattern": "^(list|calendar)$",
+              "title": "View Mode",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Crm Activities",
+        "tags": [
+          "CRM Avanzado"
+        ]
+      }
+    },
+    "/api/v1/crm/activities/{activity_id}": {
+      "patch": {
+        "operationId": "update_crm_activity_api_v1_crm_activities__activity_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "activity_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Activity Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerActivityUpdateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Crm Activity",
+        "tags": [
+          "CRM Avanzado"
+        ]
+      }
+    },
+    "/api/v1/crm/opportunities": {
+      "get": {
+        "operationId": "list_all_crm_opportunities_api_v1_crm_opportunities_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "stage",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Stage"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List All Crm Opportunities",
+        "tags": [
+          "CRM Avanzado"
+        ]
+      }
+    },
+    "/api/v1/crm/opportunities/{opportunity_id}": {
+      "patch": {
+        "operationId": "update_crm_opportunity_api_v1_crm_opportunities__opportunity_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "opportunity_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Opportunity Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerOpportunityUpdateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Crm Opportunity",
+        "tags": [
+          "CRM Avanzado"
+        ]
+      }
+    },
+    "/api/v1/crm/opportunities/{opportunity_id}/convert-to-quote": {
+      "post": {
+        "operationId": "convert_opportunity_to_quote_api_v1_crm_opportunities__opportunity_id__convert_to_quote_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "opportunity_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Opportunity Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Convert Opportunity To Quote",
+        "tags": [
+          "CRM Avanzado"
+        ]
+      }
+    },
+    "/api/v1/customer-portal/invoices": {
+      "get": {
+        "operationId": "portal_get_my_invoices_api_v1_customer_portal_invoices_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Portal Get My Invoices",
+        "tags": [
+          "Portal de Cliente"
+        ]
+      }
+    },
+    "/api/v1/customer-portal/me": {
+      "get": {
+        "operationId": "portal_get_my_profile_api_v1_customer_portal_me_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Portal Get My Profile",
+        "tags": [
+          "Portal de Cliente"
+        ]
+      }
+    },
+    "/api/v1/customer-portal/orders": {
+      "get": {
+        "operationId": "portal_get_my_orders_api_v1_customer_portal_orders_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Portal Get My Orders",
+        "tags": [
+          "Portal de Cliente"
+        ]
+      }
+    },
+    "/api/v1/customer-portal/statement": {
+      "get": {
+        "operationId": "portal_get_my_statement_api_v1_customer_portal_statement_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Portal Get My Statement",
+        "tags": [
+          "Portal de Cliente"
+        ]
+      }
+    },
+    "/api/v1/customers": {
+      "get": {
+        "operationId": "list_customers_api_v1_customers_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Search"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          },
+          {
+            "in": "query",
+            "name": "is_active",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Is Active"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sales_rep_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Sales Rep Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Cursor"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Customers",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      },
+      "post": {
+        "operationId": "create_customer_api_v1_customers_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerCreateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Customer",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/duplicates": {
+      "get": {
+        "operationId": "detect_duplicates_api_v1_customers_duplicates_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Detect Duplicates",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/duplicates/check": {
+      "post": {
+        "operationId": "check_duplicate_candidate_api_v1_customers_duplicates_check_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DuplicateCheckRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Check Duplicate Candidate",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/export": {
+      "post": {
+        "operationId": "export_customers_api_v1_customers_export_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerExportModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Export Customers",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/fiscal/validate": {
+      "post": {
+        "operationId": "validate_fiscal_identity_api_v1_customers_fiscal_validate_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FiscalValidationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Validate Fiscal Identity",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/import": {
+      "post": {
+        "operationId": "import_customers_api_v1_customers_import_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerImportModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Import Customers",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/import/template": {
+      "get": {
+        "operationId": "get_import_template_api_v1_customers_import_template_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Import Template",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/merge": {
+      "post": {
+        "operationId": "merge_customers_api_v1_customers_merge_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerMergeModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Merge Customers",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/merge/preview": {
+      "post": {
+        "operationId": "preview_customer_merge_api_v1_customers_merge_preview_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerMergeModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Preview Customer Merge",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/segments": {
+      "get": {
+        "operationId": "list_customer_segments_api_v1_customers_segments_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Customer Segments",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      },
+      "post": {
+        "operationId": "create_customer_segment_api_v1_customers_segments_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerSegmentCreateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Customer Segment",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/walk-in/ensure": {
+      "post": {
+        "operationId": "ensure_walk_in_customer_api_v1_customers_walk_in_ensure_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Ensure Walk In Customer",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}": {
+      "get": {
+        "operationId": "get_customer_api_v1_customers__customer_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Customer",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      },
+      "patch": {
+        "operationId": "update_customer_api_v1_customers__customer_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerUpdateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Customer",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/activities": {
+      "get": {
+        "operationId": "list_customer_activities_api_v1_customers__customer_id__activities_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Customer Activities",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      },
+      "post": {
+        "operationId": "create_customer_activity_api_v1_customers__customer_id__activities_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerActivityCreateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Customer Activity",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/addresses": {
+      "get": {
+        "operationId": "list_customer_addresses_api_v1_customers__customer_id__addresses_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Customer Addresses",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      },
+      "post": {
+        "operationId": "create_customer_address_api_v1_customers__customer_id__addresses_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerAddressCreateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Customer Address",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/addresses/{address_id}": {
+      "delete": {
+        "operationId": "delete_customer_address_api_v1_customers__customer_id__addresses__address_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "address_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Address Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Customer Address",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/archive": {
+      "post": {
+        "operationId": "archive_customer_api_v1_customers__customer_id__archive_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/ArchiveRestoreModel"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Req"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Archive Customer",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/assignment": {
+      "get": {
+        "operationId": "get_customer_assignment_api_v1_customers__customer_id__assignment_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Customer Assignment",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      },
+      "post": {
+        "operationId": "update_customer_assignment_api_v1_customers__customer_id__assignment_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerAssignmentModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Customer Assignment",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/commercial-terms": {
+      "get": {
+        "operationId": "get_customer_commercial_terms_api_v1_customers__customer_id__commercial_terms_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Customer Commercial Terms",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      },
+      "patch": {
+        "operationId": "update_customer_commercial_terms_api_v1_customers__customer_id__commercial_terms_patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerCommercialTermsModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Customer Commercial Terms",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/contacts": {
+      "get": {
+        "operationId": "list_customer_contacts_api_v1_customers__customer_id__contacts_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Customer Contacts",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      },
+      "post": {
+        "operationId": "create_customer_contact_api_v1_customers__customer_id__contacts_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerContactCreateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Customer Contact",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/contacts/{contact_id}": {
+      "delete": {
+        "operationId": "delete_customer_contact_api_v1_customers__customer_id__contacts__contact_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "contact_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Contact Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Customer Contact",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/credit-check": {
+      "post": {
+        "operationId": "check_customer_credit_api_v1_customers__customer_id__credit_check_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreditCheckRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Check Customer Credit",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/history": {
+      "get": {
+        "operationId": "get_customer_history_api_v1_customers__customer_id__history_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "event_type",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Event Type"
+            }
+          },
+          {
+            "in": "query",
+            "name": "start_date",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Start Date"
+            }
+          },
+          {
+            "in": "query",
+            "name": "end_date",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "End Date"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Customer History",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/loyalty": {
+      "get": {
+        "operationId": "get_customer_loyalty_api_v1_customers__customer_id__loyalty_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Customer Loyalty",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/loyalty/accrue": {
+      "post": {
+        "operationId": "accrue_loyalty_points_api_v1_customers__customer_id__loyalty_accrue_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoyaltyAccrualModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Accrue Loyalty Points",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/loyalty/reverse": {
+      "post": {
+        "operationId": "reverse_loyalty_points_api_v1_customers__customer_id__loyalty_reverse_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoyaltyReversalModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Reverse Loyalty Points",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/notes": {
+      "get": {
+        "operationId": "list_customer_notes_api_v1_customers__customer_id__notes_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Customer Notes",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      },
+      "post": {
+        "operationId": "create_customer_note_api_v1_customers__customer_id__notes_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerNoteCreateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Customer Note",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/notes/{note_id}": {
+      "delete": {
+        "operationId": "delete_customer_note_api_v1_customers__customer_id__notes__note_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "note_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Note Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Customer Note",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/opportunities": {
+      "get": {
+        "operationId": "list_customer_opportunities_api_v1_customers__customer_id__opportunities_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Customer Opportunities",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      },
+      "post": {
+        "operationId": "create_customer_opportunity_api_v1_customers__customer_id__opportunities_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerOpportunityCreateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Customer Opportunity",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/quality": {
+      "get": {
+        "operationId": "get_customer_quality_api_v1_customers__customer_id__quality_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Customer Quality",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/restore": {
+      "post": {
+        "operationId": "restore_customer_api_v1_customers__customer_id__restore_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/ArchiveRestoreModel"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Req"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Restore Customer",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/segments": {
+      "get": {
+        "operationId": "evaluate_customer_segments_api_v1_customers__customer_id__segments_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Evaluate Customer Segments",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/statement": {
+      "get": {
+        "operationId": "get_customer_statement_api_v1_customers__customer_id__statement_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Customer Statement",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/status": {
+      "patch": {
+        "operationId": "update_customer_status_api_v1_customers__customer_id__status_patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerStatusUpdateModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Customer Status",
+        "tags": [
+          "Clientes y CRM"
+        ]
+      }
+    },
+    "/api/v1/customers/{customer_id}/store-credit": {
+      "get": {
+        "operationId": "get_customer_store_credit_api_v1_customers__customer_id__store_credit_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Customer Store Credit",
+        "tags": [
+          "Finanzas y Pagos"
+        ]
+      }
+    }
+  },
+  "route_order": [
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/duplicates"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/duplicates/check"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/fiscal/validate"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/walk-in/ensure"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "path": "/api/v1/customers/{customer_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/archive"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/restore"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/merge/preview"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/merge"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/contacts"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/contacts"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "path": "/api/v1/customers/{customer_id}/contacts/{contact_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/addresses"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/addresses"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "path": "/api/v1/customers/{customer_id}/addresses/{address_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/statement"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/history"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/commercial-terms"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "path": "/api/v1/customers/{customer_id}/commercial-terms"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/credit-check"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/assignment"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/assignment"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/segments"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/segments"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/segments"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/notes"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/notes"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "path": "/api/v1/customers/{customer_id}/notes/{note_id}"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "path": "/api/v1/customers/{customer_id}/status"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/import/template"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/import"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/export"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/quality"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/opportunities"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/opportunities"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/activities"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/activities"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/loyalty"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/loyalty/accrue"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/customers/{customer_id}/loyalty/reverse"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customers/{customer_id}/store-credit"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/crm/opportunities"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "path": "/api/v1/crm/opportunities/{opportunity_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/api/v1/crm/opportunities/{opportunity_id}/convert-to-quote"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/crm/activities"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "path": "/api/v1/crm/activities/{activity_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customer-portal/me"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customer-portal/invoices"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customer-portal/orders"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/api/v1/customer-portal/statement"
+    }
+  ],
+  "schemas": {
+    "ArchiveRestoreModel": {
+      "properties": {
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reason"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        }
+      },
+      "title": "ArchiveRestoreModel",
+      "type": "object"
+    },
+    "CreditCheckRequest": {
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Amount"
+        }
+      },
+      "required": [
+        "amount"
+      ],
+      "title": "CreditCheckRequest",
+      "type": "object"
+    },
+    "CustomerActivityCreateModel": {
+      "properties": {
+        "activity_type": {
+          "default": "call",
+          "pattern": "^(call|meeting|followup|email)$",
+          "title": "Activity Type",
+          "type": "string"
+        },
+        "assigned_to_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Assigned To Id"
+        },
+        "due_date": {
+          "format": "date-time",
+          "title": "Due Date",
+          "type": "string"
+        },
+        "reminder_minutes": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 15,
+          "title": "Reminder Minutes"
+        },
+        "subject": {
+          "maxLength": 255,
+          "minLength": 2,
+          "title": "Subject",
+          "type": "string"
+        }
+      },
+      "required": [
+        "subject",
+        "due_date"
+      ],
+      "title": "CustomerActivityCreateModel",
+      "type": "object"
+    },
+    "CustomerActivityUpdateModel": {
+      "properties": {
+        "outcome": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Outcome"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "pattern": "^(pending|completed|cancelled)$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Status"
+        },
+        "update_customer_status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Update Customer Status"
+        }
+      },
+      "title": "CustomerActivityUpdateModel",
+      "type": "object"
+    },
+    "CustomerAddressCreateModel": {
+      "properties": {
+        "address_type": {
+          "default": "comercial",
+          "pattern": "^(comercial|fiscal|entrega)$",
+          "title": "Address Type",
+          "type": "string"
+        },
+        "city": {
+          "default": "Lima",
+          "maxLength": 128,
+          "title": "City",
+          "type": "string"
+        },
+        "country": {
+          "default": "PE",
+          "maxLength": 64,
+          "title": "Country",
+          "type": "string"
+        },
+        "is_primary": {
+          "default": false,
+          "title": "Is Primary",
+          "type": "boolean"
+        },
+        "postal_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Postal Code"
+        },
+        "state": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "State"
+        },
+        "street": {
+          "maxLength": 255,
+          "minLength": 3,
+          "title": "Street",
+          "type": "string"
+        }
+      },
+      "required": [
+        "street"
+      ],
+      "title": "CustomerAddressCreateModel",
+      "type": "object"
+    },
+    "CustomerAssignmentModel": {
+      "properties": {
+        "assigned_sales_rep_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Assigned Sales Rep Id"
+        },
+        "backup_sales_rep_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Backup Sales Rep Id"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reason"
+        },
+        "sales_team": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sales Team"
+        }
+      },
+      "title": "CustomerAssignmentModel",
+      "type": "object"
+    },
+    "CustomerCommercialTermsModel": {
+      "properties": {
+        "credit_block_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Credit Block Reason"
+        },
+        "credit_block_until": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Credit Block Until"
+        },
+        "credit_limit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0.000000",
+          "title": "Credit Limit"
+        },
+        "is_credit_blocked": {
+          "default": false,
+          "title": "Is Credit Blocked",
+          "type": "boolean"
+        },
+        "payment_terms_days": {
+          "default": 30,
+          "maximum": 365.0,
+          "minimum": 0.0,
+          "title": "Payment Terms Days",
+          "type": "integer"
+        },
+        "preferred_currency": {
+          "default": "USD",
+          "maxLength": 3,
+          "minLength": 3,
+          "title": "Preferred Currency",
+          "type": "string"
+        },
+        "price_list_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Price List Id"
+        }
+      },
+      "title": "CustomerCommercialTermsModel",
+      "type": "object"
+    },
+    "CustomerContactCreateModel": {
+      "properties": {
+        "email": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Email"
+        },
+        "is_primary": {
+          "default": false,
+          "title": "Is Primary",
+          "type": "boolean"
+        },
+        "name": {
+          "maxLength": 255,
+          "minLength": 2,
+          "title": "Name",
+          "type": "string"
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Phone"
+        },
+        "preferences": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Preferences"
+        },
+        "role": {
+          "default": "Contacto",
+          "maxLength": 128,
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "CustomerContactCreateModel",
+      "type": "object"
+    },
+    "CustomerCreateModel": {
+      "properties": {
+        "assigned_sales_rep_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Assigned Sales Rep Id"
+        },
+        "code": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "minLength": 2,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Code"
+        },
+        "credit_limit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0.000000",
+          "title": "Credit Limit"
+        },
+        "doc_number": {
+          "maxLength": 32,
+          "minLength": 1,
+          "title": "Doc Number",
+          "type": "string"
+        },
+        "doc_type": {
+          "maxLength": 16,
+          "minLength": 2,
+          "title": "Doc Type",
+          "type": "string"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Email"
+        },
+        "legal_name": {
+          "maxLength": 255,
+          "minLength": 2,
+          "title": "Legal Name",
+          "type": "string"
+        },
+        "payment_terms_days": {
+          "anyOf": [
+            {
+              "maximum": 365.0,
+              "minimum": 0.0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 30,
+          "title": "Payment Terms Days"
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Phone"
+        },
+        "preferred_currency": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "USD",
+          "title": "Preferred Currency"
+        },
+        "sales_team": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sales Team"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "active",
+          "title": "Status"
+        }
+      },
+      "required": [
+        "doc_type",
+        "doc_number",
+        "legal_name"
+      ],
+      "title": "CustomerCreateModel",
+      "type": "object"
+    },
+    "CustomerExportModel": {
+      "properties": {
+        "filters": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Filters"
+        },
+        "format": {
+          "default": "json",
+          "pattern": "^(json|csv)$",
+          "title": "Format",
+          "type": "string"
+        },
+        "include_sensitive": {
+          "default": false,
+          "title": "Include Sensitive",
+          "type": "boolean"
+        },
+        "reason": {
+          "maxLength": 255,
+          "minLength": 3,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reason"
+      ],
+      "title": "CustomerExportModel",
+      "type": "object"
+    },
+    "CustomerImportModel": {
+      "properties": {
+        "dry_run": {
+          "default": false,
+          "title": "Dry Run",
+          "type": "boolean"
+        },
+        "import_batch_key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Import Batch Key",
+          "type": "string"
+        },
+        "on_duplicate": {
+          "default": "skip",
+          "pattern": "^(skip|update|error)$",
+          "title": "On Duplicate",
+          "type": "string"
+        },
+        "rows": {
+          "items": {
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "title": "Rows",
+          "type": "array"
+        }
+      },
+      "required": [
+        "import_batch_key",
+        "rows"
+      ],
+      "title": "CustomerImportModel",
+      "type": "object"
+    },
+    "CustomerMergeModel": {
+      "properties": {
+        "duplicate_customer_id": {
+          "format": "uuid",
+          "title": "Duplicate Customer Id",
+          "type": "string"
+        },
+        "primary_customer_id": {
+          "format": "uuid",
+          "title": "Primary Customer Id",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        }
+      },
+      "required": [
+        "primary_customer_id",
+        "duplicate_customer_id"
+      ],
+      "title": "CustomerMergeModel",
+      "type": "object"
+    },
+    "CustomerNoteCreateModel": {
+      "properties": {
+        "attachments": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Attachments"
+        },
+        "category": {
+          "default": "comercial",
+          "pattern": "^(comercial|personal|interno)$",
+          "title": "Category",
+          "type": "string"
+        },
+        "content": {
+          "minLength": 1,
+          "title": "Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "title": "CustomerNoteCreateModel",
+      "type": "object"
+    },
+    "CustomerOpportunityCreateModel": {
+      "properties": {
+        "assigned_to_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Assigned To Id"
+        },
+        "currency": {
+          "default": "USD",
+          "maxLength": 3,
+          "minLength": 3,
+          "title": "Currency",
+          "type": "string"
+        },
+        "estimated_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0.000000",
+          "title": "Estimated Amount"
+        },
+        "next_action": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Next Action"
+        },
+        "next_action_date": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Next Action Date"
+        },
+        "probability": {
+          "anyOf": [
+            {
+              "maximum": 100.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "50.00",
+          "title": "Probability"
+        },
+        "stage": {
+          "default": "lead",
+          "pattern": "^(lead|qualified|proposal|negotiation|won|lost)$",
+          "title": "Stage",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 255,
+          "minLength": 2,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "title": "CustomerOpportunityCreateModel",
+      "type": "object"
+    },
+    "CustomerOpportunityUpdateModel": {
+      "properties": {
+        "assigned_to_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Assigned To Id"
+        },
+        "estimated_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Estimated Amount"
+        },
+        "loss_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Loss Reason"
+        },
+        "next_action": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Next Action"
+        },
+        "next_action_date": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Next Action Date"
+        },
+        "probability": {
+          "anyOf": [
+            {
+              "maximum": 100.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Probability"
+        },
+        "stage": {
+          "anyOf": [
+            {
+              "pattern": "^(lead|qualified|proposal|negotiation|won|lost)$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Stage"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Title"
+        }
+      },
+      "title": "CustomerOpportunityUpdateModel",
+      "type": "object"
+    },
+    "CustomerSegmentCreateModel": {
+      "properties": {
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Description"
+        },
+        "max_recency_days": {
+          "default": 3650,
+          "title": "Max Recency Days",
+          "type": "integer"
+        },
+        "min_frequency": {
+          "default": 0,
+          "title": "Min Frequency",
+          "type": "integer"
+        },
+        "min_spend": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0.000000",
+          "title": "Min Spend"
+        },
+        "name": {
+          "maxLength": 128,
+          "minLength": 2,
+          "title": "Name",
+          "type": "string"
+        },
+        "zone": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Zone"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "CustomerSegmentCreateModel",
+      "type": "object"
+    },
+    "CustomerStatusUpdateModel": {
+      "properties": {
+        "block_until": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Block Until"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reason"
+        },
+        "status": {
+          "pattern": "^(prospect|active|blocked|archived)$",
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "CustomerStatusUpdateModel",
+      "type": "object"
+    },
+    "CustomerUpdateModel": {
+      "properties": {
+        "assigned_sales_rep_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Assigned Sales Rep Id"
+        },
+        "backup_sales_rep_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Backup Sales Rep Id"
+        },
+        "credit_block_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Credit Block Reason"
+        },
+        "credit_block_until": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Credit Block Until"
+        },
+        "credit_limit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Credit Limit"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Email"
+        },
+        "is_credit_blocked": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Is Credit Blocked"
+        },
+        "legal_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Legal Name"
+        },
+        "payment_terms_days": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Payment Terms Days"
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Phone"
+        },
+        "preferred_currency": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Preferred Currency"
+        },
+        "price_list_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Price List Id"
+        },
+        "sales_team": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sales Team"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Status"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        }
+      },
+      "title": "CustomerUpdateModel",
+      "type": "object"
+    },
+    "DuplicateCheckRequest": {
+      "properties": {
+        "doc_number": {
+          "title": "Doc Number",
+          "type": "string"
+        },
+        "doc_type": {
+          "title": "Doc Type",
+          "type": "string"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Email"
+        },
+        "legal_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Legal Name"
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Phone"
+        }
+      },
+      "required": [
+        "doc_type",
+        "doc_number"
+      ],
+      "title": "DuplicateCheckRequest",
+      "type": "object"
+    },
+    "FiscalValidationRequest": {
+      "properties": {
+        "doc_number": {
+          "title": "Doc Number",
+          "type": "string"
+        },
+        "doc_type": {
+          "title": "Doc Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "doc_type",
+        "doc_number"
+      ],
+      "title": "FiscalValidationRequest",
+      "type": "object"
+    },
+    "HTTPValidationError": {
+      "properties": {
+        "detail": {
+          "items": {
+            "$ref": "#/components/schemas/ValidationError"
+          },
+          "title": "Detail",
+          "type": "array"
+        }
+      },
+      "title": "HTTPValidationError",
+      "type": "object"
+    },
+    "LoyaltyAccrualModel": {
+      "properties": {
+        "points": {
+          "exclusiveMinimum": 0.0,
+          "title": "Points",
+          "type": "integer"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reason"
+        },
+        "reference_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reference Id"
+        },
+        "reference_type": {
+          "default": "sale",
+          "maxLength": 32,
+          "title": "Reference Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "title": "LoyaltyAccrualModel",
+      "type": "object"
+    },
+    "LoyaltyReversalModel": {
+      "properties": {
+        "points": {
+          "exclusiveMinimum": 0.0,
+          "title": "Points",
+          "type": "integer"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reason"
+        },
+        "reference_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "reference_type": {
+          "default": "refund",
+          "maxLength": 32,
+          "title": "Reference Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "points",
+        "reference_id"
+      ],
+      "title": "LoyaltyReversalModel",
+      "type": "object"
+    },
+    "ValidationError": {
+      "properties": {
+        "loc": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          },
+          "title": "Location",
+          "type": "array"
+        },
+        "msg": {
+          "title": "Message",
+          "type": "string"
+        },
+        "type": {
+          "title": "Error Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "loc",
+        "msg",
+        "type"
+      ],
+      "title": "ValidationError",
+      "type": "object"
+    }
+  }
+}

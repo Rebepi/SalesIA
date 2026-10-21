@@ -1,0 +1,14 @@
+{
+  "name": "salesia-enterprise",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "dev:backend": "python scripts/dev_backend.py",
+    "test:backend": "python -m pytest backend/tests",
+    "test:frontend": "npm --prefix frontend run test",
+    "build:frontend": "npm --prefix frontend run build",
+    "lint:frontend": "npm --prefix frontend run lint",
+    "verify:comments": "python scripts/verify_no_comments.py"
+  }
+}

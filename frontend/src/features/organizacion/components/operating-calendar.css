@@ -1,0 +1,32 @@
+.operating-calendar .calendar-scope { display: grid; gap: 8px; max-width: 520px; }
+.operating-calendar .calendar-context { padding: 14px 16px; border-radius: 14px; background: var(--profile-soft); color: var(--profile-muted); font-size: 0.8125rem; line-height: 1.7; }
+.operating-calendar fieldset[class~="border"], .operating-calendar section[class~="border"], .operating-calendar details[class~="border"] { min-width: 0; border: 1px solid var(--profile-border); border-radius: 18px; padding: 18px; background: var(--profile-surface); }
+.operating-calendar legend { padding: 0 8px; font-size: 0.875rem; font-weight: 700; color: var(--profile-text); }
+.operating-calendar .calendar-week-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.operating-calendar .calendar-day { padding: 16px; border: 1px solid var(--profile-border); border-radius: 14px; background: var(--profile-soft); min-width: 0; }
+.operating-calendar .calendar-day > strong { display: block; color: var(--profile-text); }
+.operating-calendar .calendar-interval { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; align-items: end; gap: 10px; }
+.operating-calendar .calendar-time-label { display: grid; gap: 6px; font-size: 0.75rem; color: var(--profile-muted); }
+.operating-calendar input:not([type="checkbox"]), .operating-calendar textarea { min-width: 0; min-height: 42px; border: 1px solid var(--profile-border); border-radius: 12px; padding: 10px 12px; background: var(--profile-soft); color: var(--profile-text); font-size: 0.875rem; }
+.operating-calendar .calendar-day input { background: var(--profile-surface); }
+.operating-calendar .calendar-remove { color: #e11d48; }
+.operating-calendar .calendar-remove:hover:not(:disabled) { background: rgb(244 63 94 / 10%); border-color: rgb(244 63 94 / 30%); }
+.operating-calendar .calendar-add { min-height: 34px; padding: 6px 10px; font-size: 0.75rem; }
+.operating-calendar .calendar-closed { padding: 10px 12px; background: rgb(100 116 139 / 8%); border-radius: 10px; color: var(--profile-muted); font-size: 0.8125rem; }
+.operating-calendar .calendar-section-help { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 4px 0 14px; color: var(--profile-muted); font-size: 0.8125rem; line-height: 1.6; }
+.operating-calendar button[class*="border-slate-300"] { display: inline-flex; justify-content: center; align-items: center; gap: 8px; }
+.operating-calendar div[class~="border"] { border-color: var(--profile-border); border-radius: 14px; }
+.operating-calendar .settings-switch-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
+.operating-calendar .settings-switch-label { display: flex; align-items: center; gap: 12px; cursor: pointer; color: var(--profile-text); font-size: 0.8125rem; line-height: 1.6; }
+.operating-calendar .settings-switch-label input { appearance: none; position: relative; width: 42px; height: 24px; min-height: 24px; flex-shrink: 0; padding: 0; border: 0; border-radius: 999px; background: #94a3b8; cursor: pointer; }
+.operating-calendar .settings-switch-label input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: transform 150ms; }
+.operating-calendar .settings-switch-label input:checked { background: #0d9488; }
+.operating-calendar .settings-switch-label input:checked::after { transform: translateX(18px); }
+.operating-calendar .settings-switch-label input:disabled { opacity: 0.5; cursor: not-allowed; }
+.operating-calendar input:focus-visible, .operating-calendar textarea:focus-visible { outline: 2px solid #14b8a6; outline-offset: 3px; }
+html:is(.dark, [data-theme="dark"]) .operating-calendar .settings-switch-label input { background: #475569; }
+html:is(.dark, [data-theme="dark"]) .operating-calendar .settings-switch-label input:checked { background: #0d9488; }
+html:is(.dark, [data-theme="dark"]) .operating-calendar .calendar-remove { color: #fda4af; }
+@media (max-width: 900px) { .operating-calendar .calendar-week-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .operating-calendar fieldset[class~="border"], .operating-calendar section[class~="border"] { padding: 14px; } .operating-calendar .calendar-day { padding: 12px; } }
+@media (prefers-reduced-motion: reduce) { .operating-calendar .settings-switch-label input::after { transition: none; } }

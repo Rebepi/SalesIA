@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="salesiaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f" />
+      <stop offset="45%" stop-color="#0e7490" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <!-- Shield Inner Glow -->
+    <linearGradient id="shieldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.38" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.16" />
+    </linearGradient>
+
+    <!-- Sparkle Gradient -->
+    <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#67e8f9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#salesiaBg)" stroke="rgba(255, 255, 255, 0.28)" stroke-width="2" />
+
+  <!-- Shield and Checkmark -->
+  <g transform="translate(7.40, 8.60) scale(2.05)">
+    <!-- Shield Outline & Translucent Fill -->
+    <path
+      d="M 12 22 C 16.5 18.5, 20 16, 20 12 L 20 5 L 12 2 L 4 5 L 4 12 C 4 16, 7.5 18.5, 12 22 Z"
+      fill="url(#shieldGlow)"
+      stroke="#ffffff"
+      stroke-width="2.1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <!-- Bold Checkmark in High-Contrast Mint/Cyan -->
+    <path
+      d="M 8.5 12.0 L 11.0 14.5 L 15.5 9.5"
+      fill="none"
+      stroke="#5eead4"
+      stroke-width="2.7"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+
+  <!-- AI Intelligence Star (Top Right) -->
+  <path
+    d="M 48.81 9.39
+       Q 48.81 16.39 55.81 16.39
+       Q 48.81 16.39 48.81 23.39
+       Q 48.81 16.39 41.81 16.39
+       Q 48.81 16.39 48.81 9.39 Z"
+    fill="url(#sparkGrad)"
+    stroke="#67e8f9"
+    stroke-width="0.8"
+  />
+  <circle cx="48.81" cy="16.39" r="1.4" fill="#ffffff" />
+</svg>

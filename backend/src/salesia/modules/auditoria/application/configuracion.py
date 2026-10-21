@@ -1,0 +1,38 @@
+_PENTEST_FINDINGS = [
+    {
+        "id": "SEC-FIND-01",
+        "title": "Inyección SQL en filtros dinámicos",
+        "severity": "CRITICAL",
+        "cwe": "CWE-89",
+        "status": "RESOLVED",
+        "resolution": "Parametrización estricta con SQLAlchemy Core y ORM",
+        "verified_at": "2026-10-10T12:00:00Z",
+    },
+    {
+        "id": "SEC-FIND-02",
+        "title": "Falsificación de peticiones del lado del servidor (SSRF) en webhooks",
+        "severity": "HIGH",
+        "cwe": "CWE-918",
+        "status": "RESOLVED",
+        "resolution": "Resolución DNS previa a conexión, bloqueo de RFC1918 y metadata 169.254.169.254",
+        "verified_at": "2026-10-10T14:30:00Z",
+    },
+    {
+        "id": "SEC-FIND-03",
+        "title": "Cross-site Scripting (XSS) en plantillas y comentarios",
+        "severity": "HIGH",
+        "cwe": "CWE-79",
+        "status": "RESOLVED",
+        "resolution": "Sanitización regex estricta de scripts, handlers y CSP por defecto",
+        "verified_at": "2026-10-10T15:00:00Z",
+    },
+    {
+        "id": "SEC-FIND-04",
+        "title": "Almacenamiento de claves API en memoria volátil",
+        "severity": "HIGH",
+        "cwe": "CWE-312",
+        "status": "RESOLVED",
+        "resolution": "Persistencia durable en PostgreSQL con hash SHA-256 y auditoría",
+        "verified_at": "2026-10-10T16:00:00Z",
+    },
+]

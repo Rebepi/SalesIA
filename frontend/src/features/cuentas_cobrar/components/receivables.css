@@ -1,0 +1,36 @@
+#scr-019-receivables-tab .receivables-metrics { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px; }
+#scr-019-receivables-tab .receivables-metric { --metric-rgb: 20 184 166; --metric-color: #0f766e; position: relative; overflow: hidden; min-width: 0; padding: 18px; border: 1px solid rgb(var(--metric-rgb) / 22%); border-radius: 20px; background: linear-gradient(135deg, rgb(var(--metric-rgb) / 10%), rgb(var(--metric-rgb) / 3%)), #ffffff; }
+#scr-019-receivables-tab .receivables-metric::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: rgb(var(--metric-rgb) / 65%); }
+#scr-019-receivables-tab .receivables-metric-blue { --metric-rgb: 59 130 246; --metric-color: #1d4ed8; }
+#scr-019-receivables-tab .receivables-metric-amber { --metric-rgb: 245 158 11; --metric-color: #a16207; }
+#scr-019-receivables-tab .receivables-metric-orange { --metric-rgb: 249 115 22; --metric-color: #c2410c; }
+#scr-019-receivables-tab .receivables-metric-rose { --metric-rgb: 244 63 94; --metric-color: #be123c; }
+#scr-019-receivables-tab .receivables-metric-red { --metric-rgb: 239 68 68; --metric-color: #b91c1c; }
+#scr-019-receivables-tab .receivables-metric-violet { --metric-rgb: 139 92 246; --metric-color: #6d28d9; }
+#scr-019-receivables-tab .receivables-metric-heading { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+#scr-019-receivables-tab .receivables-metric-heading h2 { font-size: 0.6875rem; line-height: 1.55; font-weight: 700; letter-spacing: 0.035em; text-transform: uppercase; color: #64748b; }
+#scr-019-receivables-tab .receivables-metric-values { display: grid; gap: 6px; margin-top: 10px; }
+#scr-019-receivables-tab .receivables-metric-values p { margin: 0; color: var(--metric-color); font-size: 1.125rem; line-height: 1.4; font-weight: 700; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+#scr-019-receivables-tab .receivables-metric-values .receivables-metric-empty { font-size: 0.875rem; font-weight: 500; }
+#scr-019-receivables-tab .receivables-view-toolbar { display: flex; justify-content: flex-end; }
+#scr-019-receivables-tab .receivables-view-config { position: relative; }
+#scr-019-receivables-tab .receivables-view-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 30; width: min(340px, calc(100vw - 48px)); padding: 16px; border: 1px solid #e2e8f0; border-radius: 18px; background: #ffffff; box-shadow: 0 18px 45px rgb(0 0 0 / 20%); }
+#scr-019-receivables-tab .receivables-view-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid #e2e8f0; }
+#scr-019-receivables-tab .receivables-view-heading h2 { font-size: 0.75rem; font-weight: 700; color: #334155; }
+#scr-019-receivables-tab .receivables-view-option { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 12px; cursor: pointer; }
+#scr-019-receivables-tab .receivables-view-option strong { display: block; font-size: 0.8125rem; color: #1e293b; }
+#scr-019-receivables-tab .receivables-view-option span span { display: block; margin-top: 4px; font-size: 0.75rem; color: #64748b; }
+#scr-019-receivables-tab .receivables-view-option input { appearance: none; position: relative; width: 40px; height: 24px; min-height: 24px; flex-shrink: 0; padding: 0; border: 0; border-radius: 999px; background: #94a3b8; cursor: pointer; }
+#scr-019-receivables-tab .receivables-view-option input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: white; transition: transform 150ms; }
+#scr-019-receivables-tab .receivables-view-option input:checked { background: #0d9488; }
+#scr-019-receivables-tab .receivables-view-option input:checked::after { transform: translateX(16px); }
+#scr-019-receivables-tab .receivables-view-option input:focus-visible { outline: 2px solid #14b8a6; outline-offset: 3px; }
+html:is(.dark, [data-theme="dark"]) #scr-019-receivables-tab .receivables-metric { --metric-color: rgb(var(--metric-rgb)); background: linear-gradient(135deg, rgb(var(--metric-rgb) / 12%), rgb(var(--metric-rgb) / 3%)), #121e2f; }
+html:is(.dark, [data-theme="dark"]) #scr-019-receivables-tab .receivables-metric-heading h2 { color: #91a4bb; }
+html:is(.dark, [data-theme="dark"]) #scr-019-receivables-tab .receivables-view-menu { background: #121e2f; border-color: #243449; }
+html:is(.dark, [data-theme="dark"]) #scr-019-receivables-tab .receivables-view-heading { border-color: #243449; }
+html:is(.dark, [data-theme="dark"]) #scr-019-receivables-tab .receivables-view-heading h2, html:is(.dark, [data-theme="dark"]) #scr-019-receivables-tab .receivables-view-option strong { color: #e2e8f0; }
+html:is(.dark, [data-theme="dark"]) #scr-019-receivables-tab .receivables-view-option span span { color: #91a4bb; }
+@media (max-width: 1200px) { #scr-019-receivables-tab .receivables-metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 700px) { #scr-019-receivables-tab .receivables-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } #scr-019-receivables-tab .receivables-metric { padding: 16px; } }
+@media (prefers-reduced-motion: reduce) { #scr-019-receivables-tab .receivables-view-option input::after { transition: none; } }

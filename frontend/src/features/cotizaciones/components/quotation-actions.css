@@ -1,0 +1,55 @@
+.quotation-row-actions { display: flex; align-items: center; justify-content: flex-end; gap: 6px; }
+.quotation-row-actions .quotation-icon-action {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 34px; height: 34px; padding: 0; border: 0; border-radius: 10px;
+  background: var(--workspace-soft, #f5f8fb); color: var(--workspace-muted, #64748b);
+}
+.quotation-row-actions .quotation-icon-action:hover:not(:disabled), .quotation-row-actions .quotation-icon-action[aria-expanded="true"] { background: var(--workspace-accent-soft, #ecf8f5); color: var(--workspace-accent, #0f766e); }
+.quotation-row-actions .quotation-icon-accept { --action-rgb: 16 185 129; --action-text: #047857; }
+.quotation-row-actions .quotation-icon-convert { --action-rgb: 20 184 166; --action-text: #0f766e; }
+.quotation-row-actions .quotation-icon-history { --action-rgb: 139 92 246; --action-text: #6d28d9; }
+.quotation-row-actions .quotation-icon-more { --action-rgb: 100 116 139; --action-text: #475569; }
+.quotation-row-actions .quotation-icon-action {
+  border: 1px solid rgb(var(--action-rgb) / 25%);
+  background: rgb(var(--action-rgb) / 10%); color: var(--action-text);
+  transition: background-color 150ms, border-color 150ms, color 150ms;
+}
+.quotation-row-actions .quotation-icon-action:hover:not(:disabled), .quotation-row-actions .quotation-icon-action[aria-expanded="true"] {
+  background: rgb(var(--action-rgb) / 20%); border-color: rgb(var(--action-rgb) / 45%); color: var(--action-text);
+}
+.dark .quotation-row-actions .quotation-icon-accept { --action-text: #6ee7b7; }
+.dark .quotation-row-actions .quotation-icon-convert { --action-text: #5eead4; }
+.dark .quotation-row-actions .quotation-icon-history { --action-text: #c4b5fd; }
+.dark .quotation-row-actions .quotation-icon-more { --action-text: #cbd5e1; }
+.dark .quotation-row-actions .quotation-icon-action { background: rgb(var(--action-rgb) / 15%); border-color: rgb(var(--action-rgb) / 35%); }
+.dark .quotation-row-actions .quotation-icon-action:hover:not(:disabled), .dark .quotation-row-actions .quotation-icon-action[aria-expanded="true"] { background: rgb(var(--action-rgb) / 25%); border-color: rgb(var(--action-rgb) / 55%); }
+.quotation-row-actions .quotation-icon-action:disabled { opacity: 0.4; cursor: not-allowed; }
+.quotation-icon-action:focus-visible, .quotation-action-menu button:focus-visible { outline: 2px solid var(--choice-accent, #0f766e); outline-offset: 2px; }
+.quotation-action-menu {
+  position: fixed; z-index: 100; width: 224px; max-width: calc(100vw - 16px); max-height: calc(100dvh - 16px); overflow-y: auto;
+  padding: 6px; border: 1px solid var(--choice-border, #e2e8f0); border-radius: 14px;
+  background: var(--choice-bg, #fff); color: var(--choice-text, #172b45); box-shadow: 0 12px 36px rgb(0 0 0 / 18%);
+}
+.quotation-action-menu button { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 10px 12px; border: 0; border-radius: 9px; background: transparent; color: inherit; text-align: left; font-size: 0.8125rem; }
+.quotation-action-menu button:hover:not(:disabled), .quotation-action-menu button:focus-visible { background: var(--choice-hover, #f1f5f9); }
+.quotation-action-menu button:disabled { opacity: 0.5; cursor: not-allowed; }
+.quotation-action-menu svg { flex-shrink: 0; color: var(--choice-muted, #64748b); }
+.quotation-menu-preview { --menu-rgb: 14 165 233; --menu-color: #0369a1; }
+.quotation-menu-download { --menu-rgb: 16 185 129; --menu-color: #047857; }
+.quotation-menu-send { --menu-rgb: 20 184 166; --menu-color: #0f766e; }
+.quotation-menu-version { --menu-rgb: 139 92 246; --menu-color: #6d28d9; }
+.quotation-action-menu .quotation-menu-icon {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 9px;
+  background: rgb(var(--menu-rgb) / 12%); border: 1px solid rgb(var(--menu-rgb) / 22%);
+}
+.quotation-action-menu .quotation-menu-icon svg { color: var(--menu-color); }
+.quotation-action-menu button:hover:not(:disabled), .quotation-action-menu button:focus-visible {
+  background: rgb(var(--menu-rgb) / 10%); color: var(--menu-color);
+}
+.dark .quotation-menu-preview { --menu-color: #7dd3fc; }
+.dark .quotation-menu-download { --menu-color: #6ee7b7; }
+.dark .quotation-menu-send { --menu-color: #5eead4; }
+.dark .quotation-menu-version { --menu-color: #c4b5fd; }
+.dark .quotation-action-menu .quotation-menu-icon { background: rgb(var(--menu-rgb) / 18%); border-color: rgb(var(--menu-rgb) / 32%); }
+@media (pointer: coarse) { .quotation-row-actions .quotation-icon-action { width: 44px; height: 44px; } .quotation-action-menu button { min-height: 44px; } }

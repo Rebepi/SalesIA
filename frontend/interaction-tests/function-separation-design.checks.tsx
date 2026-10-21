@@ -1,0 +1,37 @@
+import { afterEach, expect, it, vi } from "vitest";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { FunctionSeparationEditor } from "../src/features/organizacion/components/FunctionSeparationEditor";
+import { apiClient } from "../src/api/client";
+afterEach(() => { cleanup(); vi.restoreAllMocks(); });
+const policy = { version: 2, enabled: { optional: true, mandatory: true }, processes: { optional: { label: "Revisión de compra", mandatory: false }, mandatory: { label: "Revisión de gasto", mandatory: true } }, definition: "Revisor independiente para decisiones futuras." };
+it("separa reglas configurables de obligatorias y guarda los switches sin modificar las protecciones", async () => {
+  const request = vi.spyOn(apiClient, "request").mockResolvedValue(policy as never);
+  render(<FunctionSeparationEditor canWrite />);
+  const optional = await screen.findByRole("switch", { name: "Revisión de compra" });
+  const mandatory = screen.getByRole("switch", { name: "Revisión de gasto" }) as HTMLInputElement;
+  expect(mandatory.disabled).toBe(true);
+  expect(mandatory.checked).toBe(true);
+  expect(screen.queryByRole("checkbox")).toBeNull();
+  fireEvent.click(screen.getByRole("button", { name: "Información sobre Revisión de compra" }));
+  expect((optional as HTMLInputElement).checked).toBe(true);
+  fireEvent.click(optional);
+  fireEvent.change(screen.getByRole("textbox", { name: "Motivo del cambio" }), { target: { value: "Ajuste documentado de revisión" } });
+  fireEvent.click(screen.getByRole("button", { name: "Guardar reglas de revisión" }));
+  await waitFor(() => expect(request.mock.calls.some(([, options]) => options?.method === "PUT")).toBe(true));
+  const body = JSON.parse(String(request.mock.calls.find(([, options]) => options?.method === "PUT")?.[1]?.body));
+  expect(body.enabled).toEqual({ optional: false, mandatory: true });
+  expect(body.expected_version).toBe(2);
+});
+it("conserva el modo de consulta y abre el historial vacío en un modal", async () => {
+  Object.defineProperty(HTMLDialogElement.prototype, "showModal", { configurable: true, value: function (this: HTMLDialogElement) { this.setAttribute("open", ""); } });
+  Object.defineProperty(HTMLDialogElement.prototype, "close", { configurable: true, value: function (this: HTMLDialogElement) { this.removeAttribute("open"); } });
+  vi.spyOn(apiClient, "request").mockImplementation(async path => String(path).includes("/history?") ? [] as never : policy as never);
+  render(<FunctionSeparationEditor canWrite={false} />);
+  expect((await screen.findByRole("switch", { name: "Revisión de compra" }) as HTMLInputElement).disabled).toBe(true);
+  expect(screen.queryByRole("button", { name: "Guardar reglas de revisión" })).toBeNull();
+  fireEvent.click(screen.getByRole("button", { name: "Historial de reglas" }));
+  expect(await screen.findByRole("dialog", { name: "Historial de reglas" })).toBeTruthy();
+  await screen.findByText("No hay versiones guardadas en esta página.");
+  fireEvent.click(screen.getByRole("button", { name: "Cerrar historial de reglas" }));
+  expect(screen.queryByRole("dialog")).toBeNull();
+});

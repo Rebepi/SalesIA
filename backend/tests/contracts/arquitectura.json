@@ -1,0 +1,4755 @@
+{
+  "operations": {
+    "DELETE /api/v1/audit-logs/{log_id}": "c616f55c316e5a1dc9d3762ec5c74a0176017f56b30bd26205ec1b22d0995834",
+    "DELETE /api/v1/audit/logs/{log_id}": "35c78f7a4592e007cf9da9baa04bd368e9068fbac0e6341605976cc0e15269f5",
+    "DELETE /api/v1/auth/sessions/{session_id}": "2d2287d7ec9a94c60827e5eca78e96e5230f911a5fcc378b382ca2cd4df1d5dc",
+    "DELETE /api/v1/collaboration/saved-views/{view_id}": "55e76ee7b22369a392719480697f0c83efd144e62ccd992f28c6ffc257702e92",
+    "DELETE /api/v1/collaboration/tasks/{task_id}": "c7c4d38dd92d8e05e2dde4ee16cfde2b4ff73627da965510cdc15c65fcdebbbb",
+    "DELETE /api/v1/customers/{customer_id}/addresses/{address_id}": "88c3d3c6d5a53801a6a722c545ebac13d8b0b032170120959fd6aa0fa0e82b49",
+    "DELETE /api/v1/customers/{customer_id}/contacts/{contact_id}": "12aec538f4bbdf28fa89e60415252263eed6e971d83db7a9be0f4744581c5b44",
+    "DELETE /api/v1/customers/{customer_id}/notes/{note_id}": "ff51949bce7325ea0236887cff2a07e8375e4a6a8f0ce0594222696484fd9574",
+    "DELETE /api/v1/datasets/{dataset_id}/versions/{version}": "f4c6c708a20f4ca8e4264c99490402827f9779e6238023bdd82ddd69596671fd",
+    "DELETE /api/v1/memberships/invitations/{membership_id}": "3f6de25f2e2cdddc75ab257ae91d3865d2d918f33c94c769410baa91209a2597",
+    "DELETE /api/v1/price-lists/{price_list_id}": "d2fb248b9e6933a1db09d95a2ac21fe0cdb69ff380ed89751dbc9bdbeb5a2270",
+    "DELETE /api/v1/price-lists/{price_list_id}/items/{item_id}": "5466f0be27f0128a4c090ccf17dd98eae60103a86a2c70d659a2b6c7b5ab2317",
+    "DELETE /api/v1/promotions/{promo_id}": "d0e06c851d6f9e57ed3757093ff0357bd7e20ba4fb9d46987f23af9719d0e828",
+    "DELETE /api/v1/report-schedules/{schedule_id}": "072227ea12e35dc92b2176a84c7d800a8b768cc1c14db8843fbd0cc10399f22d",
+    "DELETE /api/v1/roles/{role_key}": "669ebea124e80a4b7b6c700eac43e7f0d242974aea3a2ba4e6b8164ecf85cc74",
+    "DELETE /api/v1/security/api-keys/{key_id}": "18dee56b6d80cfe8855966e471bca9c4e2504718b98ffbc7e031d8a531d99c9f",
+    "GET /": "6c49510fac7fb9fc962d455ada52580b28b454ee9b11fa544675b233a7afd450",
+    "GET /api/v1/analyses": "7a981b2ee0412223ac8da41a57367a612ca32dc784d343d1cd910ef5a0a3e8f7",
+    "GET /api/v1/analyses/{analysis_id}": "cf80d2efdeb42f5f028ae27caa6ee9aa9cb553e02f913713a62150c57d324f2d",
+    "GET /api/v1/analytics/branches": "ec3e88756bc632a661ef69991f9673f848a7eb5ac4148eb3ac87c40e46c2878d",
+    "GET /api/v1/analytics/customers": "17821677d9e5b7cd4c4e531fbf7e1326b531093ea347bfd37afeb3e57a81ef32",
+    "GET /api/v1/analytics/models": "478f38ad269ba25f5a95ac9501e91c9d2bf37d8c1efbf0ba1b12a0b46df95ff6",
+    "GET /api/v1/analytics/models/{model_id}": "3cdc89c333a0654f6b706d4b16e9bccd307319147969c39aa5fb158b88a080a2",
+    "GET /api/v1/analytics/products": "2019a4b4c1cf54432326caa750ee49e1363d1c4207a3fe4daa8f71458d181e22",
+    "GET /api/v1/analytics/sales": "89cb33cb8093173b9bc3b34676e057af6416659959c2479762bc8f47cb5b3ce4",
+    "GET /api/v1/analytics/sellers": "05b834c151951be380d4991fa0ee806369bb84f7944d93272fcce1a601bf5073",
+    "GET /api/v1/analytics/variables": "59146f90d6cdc6f5d0d42d8e332a1976026792814b74122e51a4d24c4c967015",
+    "GET /api/v1/attachments/{attachment_id}/download": "70f141c661ef18a6c974f0ed462fd0e49ddb4a9ed1cadfeec5275e2810cd4e10",
+    "GET /api/v1/attachments/{attachment_id}/preview": "4d6e89418fc24f0c6888341c93a101be0eb81f0df75b907cd5995198244273db",
+    "GET /api/v1/audit-logs": "902875fbe26f846ed398cefb45bb129d3d1f3867a2d636f96d71699ac523a748",
+    "GET /api/v1/audit-logs/timeline/{entity_type}/{entity_id}": "b9362e901b62954b87de157a0d64ffd661324437806f95db9035913e7c880f96",
+    "GET /api/v1/audit-logs/verify": "f554a48576245f291c0123d291ed43e188a2c31a93faac7f8f54f800b77c5346",
+    "GET /api/v1/audit-logs/{log_id}": "2f0df2d5f031f7c89b368e8cad986abf837ec2940035ac36a0101faf50c91db1",
+    "GET /api/v1/audit/logs": "c8cef5384eff4cbd7e165aee9fcd05e084d04061dc97fa391e81503d3f5056c4",
+    "GET /api/v1/audit/logs/verify": "24f080c3e6e77d813a58fe167a38598a59fbde3668ff58b6a806f4a386285bac",
+    "GET /api/v1/audit/logs/{log_id}": "6be305ee121da137091586842a8fadda6b327fbd4139d48a835ca95f60cdc144",
+    "GET /api/v1/audit/timeline/{entity_type}/{entity_id}": "ddee5f3a06659d686a4260ec2a7367887867c602ef98e7b9c5f0785f5be4da18",
+    "GET /api/v1/auth/me": "3d9728d460fb5a076d6f6c38b206fcc35d12222564a3a6a9387b5773f17a456f",
+    "GET /api/v1/auth/mfa-status": "cf2ac0d204aef1ad7d407ba0156084c24432f0dab7a7c197fd574dc2cc1efee9",
+    "GET /api/v1/auth/profile": "eb5369727e68cdc9145afc67d01106bae1fc9f8b64bf0dec4ef1a0719d5c3c5d",
+    "GET /api/v1/auth/sessions": "19a62f316ed4291c6b2782c1c860646f39c48ad98baffa5ae47302bf266e6d1e",
+    "GET /api/v1/auth/support/grants": "615e6d4333ed5171c083642149a1e7cbe050d6541f449d9953797f1a31078188",
+    "GET /api/v1/branches": "3f33ea4c3f07e75dbb9309cfaa73b0b3b93c9885a7e2a7be9961836ab9d72bd5",
+    "GET /api/v1/cash-sessions": "dbf02bcf8bea96ace23e6ce5891662a80743dccb7a6b877ae77c677eb78763b9",
+    "GET /api/v1/cash-sessions/current": "6901a66be7fb66d60162cc5fac66c0dad34f7dbea621af53e865fb932c5f892a",
+    "GET /api/v1/cash-sessions/{session_id}/blind-status": "9f0268522712d1b04c70261802083c47b856d2393c230920b02b81adb42f6388",
+    "GET /api/v1/categories": "df5b84867f4a0147ec84a2f3e6dc97208b055479f2ac7fbadae190251ae8f926",
+    "GET /api/v1/categories/{category_id}/impact": "388ea0ddd03d827999d4620ff4408b1fa2b121cc3f95a44be1230a17260eec7f",
+    "GET /api/v1/collaboration/approvals": "94a0863ff7aa9f96d380419742f1d0d0a640ef43d84caac5d5543fc977b62b6b",
+    "GET /api/v1/collaboration/comments": "f77503e28ca4cfc403c43d035444aa60da4af955d17dddd7d265ead5add56ff5",
+    "GET /api/v1/collaboration/members": "5ac9de410bb3e5efbce38d62d30ab6e00f4b4aabba0eb561b1c2be4a78b2b261",
+    "GET /api/v1/collaboration/saved-views": "625e75051a68d4a68ebfccb3af738422b203802b981401465def9f372084b873",
+    "GET /api/v1/collaboration/tasks": "3c4aba3d4137f8145ee688da9d1c56804b3fbcdf49310c8157bb51d66ec1c9f8",
+    "GET /api/v1/companies/current": "551ca6b9debf0559c9d56ad2a5e4486b7ec8bed49682f270c1af3f2b2f77f4ac",
+    "GET /api/v1/companies/current/settings": "1574583a1b2ee64def7404ea747658531ff24533bf7cc311b7580a653076edb5",
+    "GET /api/v1/credit-notes": "c889a2292f1b284078c03af40c9dfe61498c7f5e3c772bf2624ebcb780f8964f",
+    "GET /api/v1/credit-notes/{credit_note_id}": "de8e7e9c063277a637a746b062db61eacd768457c3f53b93931954c36826ead8",
+    "GET /api/v1/crm/activities": "1b3c1aeec6246f929e46a78e65db883e131a6c7d9b7df6a600de889d48d2f499",
+    "GET /api/v1/crm/opportunities": "6b76a082523e800aabca1afa274fb47175132d741b431b1fa63896c554c204ef",
+    "GET /api/v1/customer-portal/invoices": "32f85f7e546f96444ea6504713f88ccda6eb797401bb19520138ab7069c2fb30",
+    "GET /api/v1/customer-portal/me": "33e80501f02aba6ab5dc5e17314d955189d3f2f56820660c50582b0f5e2c4cc4",
+    "GET /api/v1/customer-portal/orders": "6e65950c0a0ff23b2b6f4e9f37ad9245099371870508f4b69cddfdf705dde13f",
+    "GET /api/v1/customer-portal/statement": "d498d3921697d40aa11a112523abd82668850495b011e2f8320cfb384600542b",
+    "GET /api/v1/customers": "02399985787c3f5177efe183775e5d3dabcba3a3039cff5829e1dde54c289eb1",
+    "GET /api/v1/customers/duplicates": "bddd01e67fc5106dac10fd8b8d06cdf43cc4c2397a258fd3719d55f76f60344c",
+    "GET /api/v1/customers/import/template": "f8951e9937cfc5e8c5382fd341175faa1f436cf8b9bbc7386b9654d0012745f8",
+    "GET /api/v1/customers/segments": "85038979f49ead8dff128adfef4814d28e232c3a35d0c6610ed8a8ff7525e401",
+    "GET /api/v1/customers/{customer_id}": "0a1343c6ba35d26e2630c40c14a16e024468bbfe041ca6f37255df3ca63bdc87",
+    "GET /api/v1/customers/{customer_id}/activities": "3606b876c724d5af77baa68cc1e7ae400233679582bccef0218bf4eaff2a787a",
+    "GET /api/v1/customers/{customer_id}/addresses": "445bf5dd5c30fd3c195bdedcd06fe2ec9382347dd90171b8bb8a21081e25c0b0",
+    "GET /api/v1/customers/{customer_id}/assignment": "8f0403d070c5b051066c986e9a561124928b932e1ddf385233c83988d335961f",
+    "GET /api/v1/customers/{customer_id}/commercial-terms": "20500c0e7f50c7967b9ae44ab41f50afcdcfb2648ef752ac719a96f14d4ff943",
+    "GET /api/v1/customers/{customer_id}/contacts": "4e606a26c1be26f9d393ecb5c463f62bcc5875d5570403988fa0de08ed984499",
+    "GET /api/v1/customers/{customer_id}/history": "7dec0a17a2610781c5c4073cee89b1865d7414feabf06e88f65f4296719aa69e",
+    "GET /api/v1/customers/{customer_id}/loyalty": "4de665917e46714c99ec252ffd316b779d91a7f0d731fb98961047fe6f619f62",
+    "GET /api/v1/customers/{customer_id}/notes": "d5d0720e61ae3a51d6d64a5bec420613f228d33e6a179622dacfc2e8b4f49651",
+    "GET /api/v1/customers/{customer_id}/opportunities": "db3640a84ca26efd7f45a75837ca41bff373c1862bc9bfffac255a8bf55db398",
+    "GET /api/v1/customers/{customer_id}/quality": "c3ccbab55333f28b711fc5a960788da90dd239a81b5d015c709abf3ed6324b5f",
+    "GET /api/v1/customers/{customer_id}/segments": "3c3dbf3c238e3e834d0a0e4a7acde1f42793f19f80ee4f0aff68cbe4da18e21c",
+    "GET /api/v1/customers/{customer_id}/statement": "361cf2c396329043cb7aea9d744096659f89a86e087040de3bc99bc062e4ff26",
+    "GET /api/v1/customers/{customer_id}/store-credit": "cd39bc3a6406f04b968f54a9925803acfa2fe3bad9b7ca63545db2764da48e56",
+    "GET /api/v1/dashboard/summary": "2cc85544f206f1ac5a959f979d4c1824dfecf8e1f7925111de82f1c5476a352d",
+    "GET /api/v1/datasets": "7f4bf4dd2deae6d02c15e33fe151483083b415e96b4791b637d522d3aede1eea",
+    "GET /api/v1/datasets/{dataset_id}": "c0263349cacc3428be62c9bd6a432da4d0a09d4f2dde2a964b6673ba3a97b89d",
+    "GET /api/v1/datasets/{dataset_id}/versions": "b74b13bb6d71540ad190e7554f57101433d90ca801f63c758c09da046aa92334",
+    "GET /api/v1/datasets/{dataset_id}/versions/{version}": "f27867df1bf5a9c43f9d48fa7fcd7089c3055b23673ee54bcde08d329e02095d",
+    "GET /api/v1/deliveries": "321d46902bcd6d5355603326e2aac7284b118770d2f262d28d39fa761630ea71",
+    "GET /api/v1/deliveries/{delivery_id}": "cc9594a7e1b0716ea0c81fcd50ce15278f07d7b5df5972cfecf9536dacca8100",
+    "GET /api/v1/deliveries/{delivery_id}/proof-of-delivery": "70894aaad92531ecdf82beae7ed3d8b6357ced1f67f25b0e743e8935b6d71652",
+    "GET /api/v1/events/stream": "13ed94bc99b8e32c75c0a59869a3fd4913af51e17a6f7fa1134338751aa99e06",
+    "GET /api/v1/finance/disputes": "3a2aaab03afa34d9517ec17165d40de8af989098390c7ca529af4070c4912a52",
+    "GET /api/v1/finance/reconciliations/{reconciliation_id}": "7fe5690a515385eb7d662523b60a5a9204cb1e768a47dd8bb33aa87f840d9afb",
+    "GET /api/v1/health": "fc96fe5d7209a0375ea0937e48bbb74323d9c9c402cd526041252dec0c494809",
+    "GET /api/v1/health/live": "0c7cf7f90c6ef4f3092031274da7f7d40e9695a7bf67455bb50f3c30bc9d78bf",
+    "GET /api/v1/health/ready": "c847735acdecd4ca8d81a14c0150231a58ff16b4db487d510a5d2425934c93d8",
+    "GET /api/v1/help/contextual": "840bf889742061041dfcf16d265ab7eea9190be01094071966163bc154777f19",
+    "GET /api/v1/imports": "755466b528107f40542f313d348c0f97ca6c21acc3b8c2137742a0c8b49a4c0e",
+    "GET /api/v1/insights": "a8f9fef53da283e311670f8db1eb821f27b38bd790ea423cd19bfa6c4066520f",
+    "GET /api/v1/insights/rules": "5d725351972621d502c14b5246810d1cbc0dc2a2e455d5b4aa0c1ab491308db1",
+    "GET /api/v1/insights/{insight_id}": "075bc81e01733c64d49c7c8d8ee128dd3d9abe066781fac37af4bded66cf40ed",
+    "GET /api/v1/insights/{insight_id}/evidence": "02997de078f08c65ee827cd2d6ad146eaebdda688592ee1585ecf2c06a1ce7fe",
+    "GET /api/v1/integrations": "864b43c0d3e604642c12d89227269662dc991a183875540226c0f5781f8b1e3b",
+    "GET /api/v1/inventory": "e5f880c147ce4d22d19156a6c2dadde6ff4556dcc8cd9dc44db70517b32a136c",
+    "GET /api/v1/inventory/alerts": "478c17c8f92d1f3668d376cbbbc71ba20bccc255de445f6fa862a8b5e2ec3ae7",
+    "GET /api/v1/inventory/counts": "66e707830be3098f0bd165022a8e45e6a03807c3db25d59756fff1343b1f2254",
+    "GET /api/v1/inventory/locations": "f4777652f7c7622f9222782d1dde12570968d1f6d05f7dd1f945fe109a09bb87",
+    "GET /api/v1/inventory/lots": "f890a8cfabbb4981ac748322fd2547ea32c6e494dc7368c06473dff00e6d1741",
+    "GET /api/v1/inventory/lots/{lot_id}/trace": "3e0f2cc1f5618dd1e73993ef0c3574b42e6d1a4263d0f56afc4db195ca769b3f",
+    "GET /api/v1/inventory/movements": "eba872f17a2ec337739ff09cb3bf94d5fc0b798a7492398d319b7af03f7f522d",
+    "GET /api/v1/inventory/quarantine": "4bf8bf2ab5e457179df243230b3aaa81f98d90a7873a4811c2a26b8845e81f3b",
+    "GET /api/v1/inventory/rules": "2fa52f9ae6d16960eee3b5b88d7e81d8ea9ae1a7d7ba73fa5b156128c476f434",
+    "GET /api/v1/inventory/serials": "6e39c9783371c7fa538c49e5ed829dbdaacdf8bf4714e8ca74a37640caf92e88",
+    "GET /api/v1/inventory/serials/{serial_id}/trace": "2e5adfeefcdd0afbc1f07e4311b334b9669f37ac4280731d1185be06810ab57c",
+    "GET /api/v1/inventory/transfers": "01ec44930f810c48d44a13f79c92fbfb2886dc6120ed17afdc6ebeaf34cc7372",
+    "GET /api/v1/inventory/valuation": "33a22713ba82d6348ed6fb1a9d2a769d92429c11bd655cdbd611663a822a8056",
+    "GET /api/v1/jobs/{job_id}": "8b487eb528496842860941c33a010f553736cd2d5c8f19190a49ef8cb7e5809b",
+    "GET /api/v1/notifications": "d119c7efa8cecf28a2529ebe9c441991c4c7afc9f09facd0b18477a92631b0fb",
+    "GET /api/v1/notifications/preferences": "f5a738816e48c48299b5dc555ae6ca69f3a86afb08981236f6bb84207bffad5a",
+    "GET /api/v1/notifications/{notification_id}/resource": "d9fd2837a4f168e7767ef9babd8b149bb8b148c4d6a06a875bc74907eb8d1dbf",
+    "GET /api/v1/operations/backup/status": "5f9234177c1397788e5376f838488a0202bf2d6d020fc563eb183c67d16c0ef6",
+    "GET /api/v1/operations/business-invariants": "9f51c0abc36d6180bdc580754278cb48ca5497256711adec9ba87db2fc01bb7c",
+    "GET /api/v1/operations/feature-flags": "6d341b0b1fb636928fcf3d9bf224b5074f62fd49aa713955dc3db8adb2c1feaf",
+    "GET /api/v1/operations/jobs": "0b66088f9dcdae7736a9b0b51d547495c36367e60cb1cef848b941cffdc12a7b",
+    "GET /api/v1/operations/metrics": "6a4f03362a15e62d9a8f26d0ad8c9dbbcbd110db7cc527447d65e20d0c55c612",
+    "GET /api/v1/operations/settings": "ea0f96f62018e31c26390c6fc43673b1dd87cc959eb5c338507660fd2233ad38",
+    "GET /api/v1/operations/system-status": "d7f109025cbfcf4190c23a2f03a8381798c827e111df2567624ad5cb87df5ebe",
+    "GET /api/v1/orders": "4ab47b56b0094e8447fe4818e5058d2aed6ad737df41cf59756b3ce7195374eb",
+    "GET /api/v1/orders/{order_id}": "0fba7de9e05129949794e6006b2cd717775774698d15afd5b3ba35af8c460c20",
+    "GET /api/v1/orders/{order_id}/shortages": "3032bb5b0c9668d084faeb0113a08ed4d85f1b8d0ae1db4d11855945aa093282",
+    "GET /api/v1/orders/{order_id}/tracking": "eeea95e8fe1b2e0ef86866fbcafe35716aef99ae90cfa8f7a862127258563e58",
+    "GET /api/v1/organization/branding": "15e5834749b536c5cc4c96cfbf8671d0fa45f32b056e2d4f041b092d813885dd",
+    "GET /api/v1/organization/business-hours": "da458436db52c1ed7b8e9c02694eeb138acb384911cc678fbbf30c6cf925c7a8",
+    "GET /api/v1/organization/onboarding/status": "9df94f814a0cfb48912dca9000efe207cf3ccb6c7ada09dd391b7aa99dd40f6f",
+    "GET /api/v1/organization/preferences": "c0b3df98b7d2a771ae1bff1fcf8b83205e89b6cca9af138ba31de375926d7cfe",
+    "GET /api/v1/organization/quotas": "90680eef3e37cbefac52392c48181ddb1110fa707cbfb4556edb318e7855f511",
+    "GET /api/v1/organization/sequences": "278eff78934701edfa2b0de40f4de79cc57479ea608ddd1ff0c881eb02a91419",
+    "GET /api/v1/organization/tax-rules": "12bd5c1e89adec6a94f232c44f54209d44072f370d62c39c8bf240ba02ea1e17",
+    "GET /api/v1/payment-intents/{intent_id}": "6b30d0d003b875e72fd7323025a95d8bc752b126b0be53745752c2642f3f8a28",
+    "GET /api/v1/payment-methods": "ba52c5c09eeda5263020b2d7d01ffd220fedaeb0306ccfb824e3455c6c18613a",
+    "GET /api/v1/payments": "36dd2f0efb2f618b9bfda0d41a1942e53646db7738b80a60fb4556694120e7ef",
+    "GET /api/v1/payments/{payment_id}": "164cc99fd432209b0491514e68b7fcefe92969cf159edaf5979a3d828898f500",
+    "GET /api/v1/price-lists": "c151f984508a7d3e9e965246e9e53f1e4b378bbad012860f1f4a8b2b2596d7f1",
+    "GET /api/v1/price-lists/{price_list_id}/items": "5fa60342d55e65382eb08301af0efad9f3442f41cc2067d8dfac9ed87342d54e",
+    "GET /api/v1/privacy/data-inventory": "9056bc3ff062e4ef8eeda23a754e7a4f47402984f9623ad252c3366f6191c52f",
+    "GET /api/v1/probability/analyses": "484429d521d8cf91e716f64176fae0f342b6dcde85f02bc8450a242626a4f979",
+    "GET /api/v1/probability/analyses/{analysis_id}": "f079013369c98de39ab5ed1354ca316858d41ecb82f8a4f433e21e55411c4773",
+    "GET /api/v1/products": "181f4abab4abba042992a95a48f7dc7e9db624a80b669a80d76955f70f81ed10",
+    "GET /api/v1/products/lookup/barcode": "1252dd726cd16a0b4f2b83d65631f38189d53383d19d72f8b08dadb40d54ad9a",
+    "GET /api/v1/products/search-availability": "76339668d4c0e34b67c1ca75a1fe8b97225b7f78efae0cc8183b89b66d106a56",
+    "GET /api/v1/products/{product_id}": "3b942de3cfd61d41c9f4cfa6c68d0f786ae3d4336f7f9fb037d5cc3d4d51bae3",
+    "GET /api/v1/products/{product_id}/eligible-warranty-sales": "bd9508ef6d9a992a32d40e4c1c870a6ed0c16b5b8eafb141c913c18eab3096fc",
+    "GET /api/v1/products/{product_id}/profile": "6cb9d552259b5b2951ae9ee89ff774900c7b4ff793cc873740b9d1326c3618b9",
+    "GET /api/v1/products/{product_id}/variants": "c9ceb7375034b4744272e1cfca3e40c4d61e8c68f543680ef26645d59052685c",
+    "GET /api/v1/promotions": "8b35a2b4c91b6e638635eb9282b4a56ca8008f78becc71c3a844a61f9eab603a",
+    "GET /api/v1/purchase-orders": "b8065ebb52a766a7731b6c6900f84163adfcef1043f1be6bd63cb36c7b42f8ef",
+    "GET /api/v1/purchase-orders/{order_id}": "1bc98ceddc54978d4ebf9b44a789361be4e085178bee9275c7a1a69090e7dfc7",
+    "GET /api/v1/purchase-orders/{order_id}/process-timeline": "4d3a2cfe7bf9f400be3826f978d9eaaccd45596af0e78f3acdaba289f7a1d70b",
+    "GET /api/v1/purchase-orders/{order_id}/receiving-context": "d17936ec6c1df6b54f44b873e322df949f3ed7dd6e97fbfd05d23aeaa191d7d1",
+    "GET /api/v1/purchases/replenishment-suggestions": "36b424efb6caa2d721819cfc5acb4fdd83d2dbd659216fa03e43556c3bdb6b25",
+    "GET /api/v1/purchases/requisitions": "e78074cf7be825a288a1cdefe1d30e380fbe44154aeee253ec4185092e8d52b0",
+    "GET /api/v1/quotation-portal/{quotation_id}": "e3ac102d2937bc12fb6113a0d35d0c4dd714c308c368bb8bade699fcc57ae93b",
+    "GET /api/v1/quotation-portal/{quotation_id}/pdf": "80c94e0d1ae3e9f009a07cc979ad178c511f48e63fa0d1f2e0061858efa3eec5",
+    "GET /api/v1/quotations": "d595f712b7038d3d2e85854229e6bbeeff96fc3b35364817e3eadf5864af88c1",
+    "GET /api/v1/quotations/{quotation_id}": "8035ff4f3c7242358d6f50348a228be45fd97fb22291509934cb28fab88f8c7e",
+    "GET /api/v1/quotations/{quotation_id}/pdf": "ca8ef85c638b99f6459704cb82b093201e408b01f07f892ea42b0fa2aa6a98b6",
+    "GET /api/v1/quotations/{quotation_id}/preview": "2167aedd44b965780e1043d7b5b12c70159aba47c8fac36c52e79ea99b8e55a8",
+    "GET /api/v1/receivables": "086351f3cb5538aa8f2a645ff9f0f1fcd9e592774f24329212f114257fcdf0ba",
+    "GET /api/v1/receivables/{sale_id}/context": "f8237f26bdff34068aa476ce089cc395e8e0faa27b965fa39832e31545eb7cd8",
+    "GET /api/v1/refunds": "8d3dd3ba326fbdaa83773ba967e25e4cf4d12838a3d40d7940ddd557227da8c3",
+    "GET /api/v1/refunds/{refund_id}": "d983c4be8d650b5fab5ed1b7d6e628d47224ab6a61ed9b07fca8b6c7bd312047",
+    "GET /api/v1/report-runs": "deb2107055dfd60e849b3d73e56e2ef1455ab703d62d07d345731b659f6fae46",
+    "GET /api/v1/report-runs/{run_id}": "3030b5c51d73c4c57bf068794c5f29cf4096d213ad0b8523aad081d724807286",
+    "GET /api/v1/report-runs/{run_id}/download": "f5fc0a10f7a74c37625395dc9d73c714f65f1c7d8cefc150ffbe07881ed89f1b",
+    "GET /api/v1/report-schedules": "9b89365532122a7ef9e12639181b2a4d25fcece7e11b2ab3fc869e7bc3b0cc65",
+    "GET /api/v1/reports": "e8a4f48101e5fbce5a9ef355ff03739da10d79fe8d7a51ed7f39f633e52013f1",
+    "GET /api/v1/reports/branding": "8af7f0e55dd48f0e0dee4defc3829921958f3c33d28dfacdbf493a06763eea31",
+    "GET /api/v1/reports/preview": "e388c781a913f6e9b8849402a67239d9f0c4a4f569447bb0a40fb8df3194cba3",
+    "GET /api/v1/returns": "532cdbe7920c402753395e5035f412a21d0b425ae878bf3729abce5f62835810",
+    "GET /api/v1/returns/sales/{sale_id}/eligible": "898eff883766607eaff47abc5612a15f42a38a37ba2ff57b6c6a3aa9e80e581f",
+    "GET /api/v1/returns/{return_id}": "658807b999e058ac58c0c609c3ddf45cf5c78b610d4ea9606057681835858fad",
+    "GET /api/v1/roles": "0cf6346844459eea20c62fad12062cc82c80b141775009f0c19719848c6d281f",
+    "GET /api/v1/roles/compare": "bf5cd15c999227cb1fb4c277e520a08e762c33cfe8ddf07b8f14459d48f9e459",
+    "GET /api/v1/roles/{role_key}/impact": "74979ddda7dd6961a6ce6b668232d72043d3a37bd2ee8697581555b6e0221376",
+    "GET /api/v1/sales": "b3bf28b67bc30d2312077852ca5a1ed3daf41f28bf0ceb61c4325f93118de2f9",
+    "GET /api/v1/sales/by-idempotency-key/{key}": "006a30a2ee7ba02109ab10c92d7a33ac92523773965370f8640529b8229f2a1b",
+    "GET /api/v1/sales/export": "8aa10e62a0faf802254f7d790217d4665eb60f1abb4ba508543bc296f01a9e1a",
+    "GET /api/v1/sales/lookup": "e482479b50701bc1a9cbde6baaf2d8ea87364c4714d13b8eafad90f90357188e",
+    "GET /api/v1/sales/reps/list": "a484b0ef466854c8c3880d8d808265c5135be76e25b1096b991bff371bc3e970",
+    "GET /api/v1/sales/reps/{rep_id}": "8ee2866850ff48948c52d0cd0810969b87b427f62b1f491a384dd87247f9a19b",
+    "GET /api/v1/sales/reps/{rep_id}/portfolio": "7698636fa251c994403e435366e6ce6a6206d5d1dcad7acb62f792b88003a9d2",
+    "GET /api/v1/sales/targets": "61541adde6a64e914badcc1ba4037295fc206fdaf4eb7713b6b5e8303304840a",
+    "GET /api/v1/sales/{sale_id}": "cecf0a9293ed8f4b75d04c3d1832f4b2c982897640936cc7d9e5a57738b34c21",
+    "GET /api/v1/sales/{sale_id}/document": "22866964f243e113bb80036d61b86a83951c67dbf6fd54448cd17e4af66bb227",
+    "GET /api/v1/search": "30369e467d390b36e74be49cc2b3b25ac84fedb7127fe7970e55db5a16f546ef",
+    "GET /api/v1/security/api-keys": "41fccae3a042d9f52af232f5aa4476d4e4e461caf391b5f14c24c40575a0af7b",
+    "GET /api/v1/security/supply-chain/status": "ced278890309a74bb197231857aeefa44b4e2eddc9546eb4d34f107c083e8ae0",
+    "GET /api/v1/security/threat-model": "b81773da52da5ff92a545cd22f8ab2a8cc578c1deb439cb2acb082dbbab58535",
+    "GET /api/v1/security/vulnerabilities/status": "686795a8e6ce1387c9c540c1ab172f6e7e1a9ed0b3fd8bb201f20903e2933a05",
+    "GET /api/v1/settings": "eb5baf0107bcb8cdbe7a03c0b4b7644c5f74d0a6d7536d31321a2f4ca209124a",
+    "GET /api/v1/suppliers": "beb4e7a48c91897acf0e539a143ec929ccbe59fe9ff2e2ef07a0ba5b54e47877",
+    "GET /api/v1/suppliers/{supplier_id}": "00b461093348cce674ffcb52e1badf79e369d165e809e02d63059747c3e52e29",
+    "GET /api/v1/suppliers/{supplier_id}/performance": "9b33c3487368b00057f9a2262fb02b02c9864b1f4fe9290d86519f6f58578bb4",
+    "GET /api/v1/suppliers/{supplier_id}/price-history": "37f77f816b2086f2d90528d198cdfcde8813c58c07d6058b36df029aca4614b9",
+    "GET /api/v1/units": "2bb20d477bead46d43505787d893e7d3049da7ef7fa6d0f68439b02bc23926c3",
+    "GET /api/v1/units/conversions": "498cc5c56d0e45be136652723d28d607c5786733134cf9c1eb390aafe257e3b4",
+    "GET /api/v1/users": "ed5d548e1105d3db747633a1cbf3846075b9370e414d6f8ef928845206d2f0ac",
+    "GET /api/v1/users/{user_id}/security": "fb8594786d6d2a1b7573db9db03435cb3555a653d07908d3f48bba22406716a9",
+    "GET /api/v1/warehouses": "912281c3bbbf3af29444cd84a4160c7d4c65f91b44cb7b730b6e1cb46675975f",
+    "PATCH /api/v1/auth/profile": "0b8df2e824979dd72e9fca71920b89e36f902e41d68e4015783ba428959f4ba6",
+    "PATCH /api/v1/branches/{branch_id}": "3844f4169bae3df6e7a64b166bab0725e29fa410d46615748554125b09f96861",
+    "PATCH /api/v1/categories/{category_id}": "b8fbdb888e6820a237807de78dd4cfab24bfd1e9ee8f92185df9e316b894d927",
+    "PATCH /api/v1/collaboration/tasks/{task_id}": "7f51209b50cfde72d534c2b36b30192bf2b8284f9d614eb38c95e889e0cf1a34",
+    "PATCH /api/v1/companies/current": "9c9b74e8443f62f6c82d3af759d01bbfa0a99ae49277f3c1cf843dc0b6607da0",
+    "PATCH /api/v1/companies/current/settings": "6f90be3e1389f4fa696465c0a119f05b14a123050f3f4fe0b09da41867cc6b04",
+    "PATCH /api/v1/crm/activities/{activity_id}": "65c47a03537fde7d8dc1d51a7ca5ac3e5d7f1a7337212c84b598af48789b1922",
+    "PATCH /api/v1/crm/opportunities/{opportunity_id}": "a348f0c35271dc15108f1b694a98062c4c44c211d4ca3e329753785f85d6fc36",
+    "PATCH /api/v1/customers/{customer_id}": "8256d6a5c7e70579854e2d99d99aa153de670ea88748870a6cfed3062f42ec11",
+    "PATCH /api/v1/customers/{customer_id}/commercial-terms": "cb8f2334cf25cfabc7c242931011465db128b6e63b1d5b21c92c6d7839079c99",
+    "PATCH /api/v1/customers/{customer_id}/status": "11c84264fbcb34cc1a544ee55f7c3d0ae8bc7683cfad31fe81afd7dd4321f15c",
+    "PATCH /api/v1/insights/{insight_id}/status": "2076e27f4a9800ec020f5722c00fcf26aa763f0101b475395096e44e2f9b8d29",
+    "PATCH /api/v1/integrations/{connection_id}/credential": "04d9909ac54bd37ff11f34812c80603c41af00a24060df446e9e4816e3c7af52",
+    "PATCH /api/v1/integrations/{connection_id}/mode": "79de717f5ec58e8b1c917bfbef9cb59bae678e2b7f0104c84db797c55ab9e557",
+    "PATCH /api/v1/memberships/{membership_id}": "a7431df0c2d0a38ffd567d402d1c189d05cc0988f0b07bf8a1645d64a0ffa997",
+    "PATCH /api/v1/notifications/read-all": "621a64e7b0ce1aefa6dc89e4db24bd8dc715ee205961391bb25d3041d70d6529",
+    "PATCH /api/v1/notifications/{notification_id}/read": "e852da4e6e4bfa3727133d9f332bd7eb25810cfacddb6744db1a4a84c58fe0e9",
+    "PATCH /api/v1/payment-methods/{method_id}": "3d3efb78f43a9900b577d2712a21d61d559eb0b7bba08bcb57cf495a38457bcb",
+    "PATCH /api/v1/price-lists/{price_list_id}": "42446cd0ce92ca26242515e1ecc64da97f445af6266e12dfda55927da60e9a58",
+    "PATCH /api/v1/price-lists/{price_list_id}/items/{item_id}": "8bce751165353ae96587d68144cdda279317f5192e96576a6a64cc25605247aa",
+    "PATCH /api/v1/products/{product_id}": "e8b7ca3919da5303ce1e2199b4b1ebc51c58b1def85ef43e6fdac35151d9b9b4",
+    "PATCH /api/v1/promotions/{promo_id}": "54937fae4e179c73ed2fce73e6df9b9a34b8600c33a288a3ca6915decc8ebecd",
+    "PATCH /api/v1/roles/{role_key}": "65656dacd21e1a6fb468bd595a0209ff950c0ca20e6a755eedfac304d584213f",
+    "PATCH /api/v1/sales/reps/{rep_id}": "7791a55840929f6dc4863bad63fe5e718b2df173d9a2101bb848d2cc6906a2a0",
+    "PATCH /api/v1/sales/{sale_id}": "155a8558b31aad5f99f3694d66e4dcf225ded7cef42a2b8b733acf6cdb109ef6",
+    "PATCH /api/v1/settings": "b34910f050c7423a7a653910f8719d1cc52db30e9e1e9a06ac788b5bae621954",
+    "POST /api/v1/ai/emergency-pause": "908bfa935c36f0f49b01f97f961edb13678e333c6551f9fbf0f04d984655c2a6",
+    "POST /api/v1/ai/query": "76a16c58e7554a3b6957ec9586d04cdccf6acb70d69cebcfbd0f22b023832b3d",
+    "POST /api/v1/ai/resume": "a93043ed977c6620eadd84c4b6c5ead0e4bd08ac2ae6a90c2b11049024e8a3e4",
+    "POST /api/v1/ai/simulate-action": "682a9967cc2c588ad59b6c47b9c503f7e181dae467302bd5777acb400a7537ce",
+    "POST /api/v1/analyses": "32ea8e275e4e5754d267ef9daca74f415eec1899bb9118ae28c766e21ec852bb",
+    "POST /api/v1/analyses/{analysis_id}/cancel": "69f9b3dc96309bde03dc13ce2b4cee7a1d3cc3fc82540a22313e84b0947b5e8f",
+    "POST /api/v1/analyses/{analysis_id}/repeat": "c96afe00c25b059d0d8444ed6724cc0be995b46171f0aa891801453e73b12275",
+    "POST /api/v1/analytics/anomaly-detection": "9529b09bf89c074cfd036b4477e97a65c01938709d395273e022d902f9e2ba07",
+    "POST /api/v1/analytics/bayes": "6b585d8ed1a3976b6e90121ec33336b39d6fbb1cd4911e6b12f5838e5e6f54ca",
+    "POST /api/v1/analytics/demand-forecast": "78bf45d9a91b69b46bf774518aacfccc28f0d82c657f5dc934bb4209908ee246",
+    "POST /api/v1/analytics/models": "6cc92381da8ad9240c69a7cd3c0912743e96c1d8962837cbe3f87dafb2f19117",
+    "POST /api/v1/analytics/models/{model_id}/monitor": "ee22315d52fd06d61a666361e297d9aaabb65023750570953fe456b1d4229921",
+    "POST /api/v1/analytics/summary": "c4399321ea68ff5de617bdad99d818c069756424b610df2355ef3314fd2a5ee6",
+    "POST /api/v1/analytics/time-series": "569830ec9b7df79a517f38cd1e80f50c2690c71fdfd5409a941db40398d82fa0",
+    "POST /api/v1/attachments/upload-intents": "665c4a2834fd22b21235d2f918ef53be52946343064a1d1eca89c341d8133dee",
+    "POST /api/v1/attachments/{attachment_id}/complete": "581bf699132d14726d5c92a40a0350d09a3b1a635e0712e5b392ab52f74559b0",
+    "POST /api/v1/audit-logs": "bb17479227d502c1c6b633677f169631d413176ca54877841259aebbd4e90433",
+    "POST /api/v1/audit-logs/export": "d73980fd6318b7190e9825914c910b216a6d31bfbced34a3feec028969227bea",
+    "POST /api/v1/audit-logs/retention/purge": "26738e9aa7085399a3aacba33fbd94767e1f7cbff81067231df1888a84ce2ca2",
+    "POST /api/v1/audit/logs": "f8914a2c40d53feedbe62a2f988efb71f8bf88e98083b31e325e3a1f19911f79",
+    "POST /api/v1/audit/logs/export": "8a916d5f4b55da384eae15e924eb780f81efe5e035cd591db9c27fa66a661e06",
+    "POST /api/v1/audit/retention/purge": "600c61b52d6a9019c9e2f2d2f7fde9effacbf1a99fe443f4c8da5f2db6ed9132",
+    "POST /api/v1/auth/email/change-request": "a4e2d21fbc95b9025a0c54393125c94a94aa9bca15546acdfafc3e9b5add7013",
+    "POST /api/v1/auth/login": "e8a1e31f4e2de15ba992c024ec634ff6de5953d73155915c3e5a8b724f97a3c8",
+    "POST /api/v1/auth/logout": "c7b30b3a6983fc277ef085d7aeed7012f184533f4031b82c335e4322a10c15f3",
+    "POST /api/v1/auth/mfa-status": "8db871ef62ad880e954cd3bd24d975a3dda6b853d0c829f8dbbf047b7ad2323b",
+    "POST /api/v1/auth/mfa/recovery-codes/regenerate": "911bc5a20327404fac7b3acf30da9cf0e09d18d724e64684364e9cbe41702303",
+    "POST /api/v1/auth/mfa/setup": "39afe8fc63d61a294e4b51d99ec708d78a14df4b6304897240fb9f9ec5e0d794",
+    "POST /api/v1/auth/mfa/verify": "2d560f6087781c8fd809eae125770d939410213845417c458ae5f64b9be81828",
+    "POST /api/v1/auth/password/reset": "a289c75691f99effe81cc417d8a34caf717782a9188662a2958df24994a72fdf",
+    "POST /api/v1/auth/password/reset-request": "ffa5d2ab0c481f15e1de85e41c52d98dafc4a9707d3b19f47c52a0c036995b78",
+    "POST /api/v1/auth/refresh": "4297baa6f1dc86083a2e3d6fa64f4f2ff1733837d5e6d12f5726814e3360440e",
+    "POST /api/v1/auth/sso/callback": "9a3ee973248a76c0785cd8cc1c0dd0aabfbe38df7bfea9f567b5b73e2a359534",
+    "POST /api/v1/auth/sudo/verify": "56a0db62149e38e714cb7ab5b17000cd33579f6ef71d4183576fcd1b5d543cfd",
+    "POST /api/v1/auth/support/grants": "e99f1cb436661b40f51554155e33fd8bae6464712258badf2a8ac3b47788b1f7",
+    "POST /api/v1/auth/support/grants/{grant_id}/revoke": "2f473150c5458a46d4b6ad9e85e16bf62eda0888da030473bfcb2ee2a70b3036",
+    "POST /api/v1/branches": "c90e4abf1a163171dc2173b72b8521b8c470e488619b443a8dd3f77531f34cdf",
+    "POST /api/v1/cash-sessions": "d70669dcce59f207a8da5d6a27fa57c3d3064ff33fbf9f08d06417d7d533867d",
+    "POST /api/v1/cash-sessions/{session_id}/approve-difference": "4129bcd96644f0d6a0cd248060b6f6aec08d807aea47b6d8318523ee35528d1d",
+    "POST /api/v1/cash-sessions/{session_id}/blind-count": "55b6eb143cc73b0835a6f7759f458a3734e53520519279d589bf380027c811d3",
+    "POST /api/v1/cash-sessions/{session_id}/close": "6461a22b5b7f2cce547fe96a800db54ba2497a6ebe0e4ab1b7a5e0bf323556ee",
+    "POST /api/v1/cash-sessions/{session_id}/movements": "1125cd06682a96f7c45ccd884de15a3b8fb3d5a693a605399f0071cd2dc00895",
+    "POST /api/v1/categories": "1048ac6a2a31170ffb0cceeeb06fc1bdc45d3c53664412a565f17a094666b522",
+    "POST /api/v1/categories/{category_id}/archive": "0ee3c39784075ea3031c126e9298b820baadd078d94b1649334f33c134fb226e",
+    "POST /api/v1/categories/{category_id}/restore": "654c104f9037780233c8523869d2b97f22f9d8c8ac81019f89ed284c31f65695",
+    "POST /api/v1/collaboration/approvals": "6d1f2076451df5772cab32d55c65c2d2044dae77ab9617b1ac073a60655f72b8",
+    "POST /api/v1/collaboration/approvals/{approval_id}/decide": "ba1eb51df3365271d6f55843d5db83e2bdcf69dbc06242dd37f1c195b137ae7c",
+    "POST /api/v1/collaboration/comments": "a7d59268ba3bd49bdefe9d4f38f50509692b6226db3d2057d6261d3701593f62",
+    "POST /api/v1/collaboration/saved-views": "adebb94a32b0d94a893cd3003fd80995a181cd68f03d3d1782a1f683933e5200",
+    "POST /api/v1/collaboration/tasks": "38a8b3cf3b454c329e955c84708029aaa9e3bd6e89bb29339b328a8ef0bb506d",
+    "POST /api/v1/coupons": "d4c2174ce44766c32ed4f3d7f5e69109d3a06ed1d1f958ef9789b29de794cbfc",
+    "POST /api/v1/coupons/validate": "1b83b46ee5c77c8c868bf24f94f3797c07bdc250bb8fb2a0c2cc83cbfa86c3d1",
+    "POST /api/v1/crm/opportunities/{opportunity_id}/convert-to-quote": "65bd4a69321a78b971e1a8c5c483adf5359becd8814e1bec507a2b48866aaf37",
+    "POST /api/v1/customers": "3859a761624d2ada7f808f88554005928ccf30356b6d59624181362d598f5d41",
+    "POST /api/v1/customers/duplicates/check": "aca7c75c63edb967c0f53290a77f32a79ef1853b52ca64dc98b9a3f0fe694551",
+    "POST /api/v1/customers/export": "c19b35ef46949e70439cbbf06179b83e7cca5ff426898276b94d624884d42e93",
+    "POST /api/v1/customers/fiscal/validate": "fec195f8480b58da5c001bcf1296f0fdcbcb4dca5f57210ea5c131d0f9873e79",
+    "POST /api/v1/customers/import": "c3fd091526393dd354c538be4b8417291fe702c4489ea3edb82e5ba17b437c8f",
+    "POST /api/v1/customers/merge": "5baa9c104fb0c8caa5f9e59749d06d25291334cc29dbc23912f44cdef27a4416",
+    "POST /api/v1/customers/merge/preview": "ae429002b65a5e89ed1a3f97e781a23896cdccdd7b2b8cd831d45026007dabe3",
+    "POST /api/v1/customers/segments": "906f41e9e3ddb3a52bdda7da207aa1addd4b4c9f5b60ecdaaa189d8993f0258e",
+    "POST /api/v1/customers/walk-in/ensure": "4b9bc64b16cc1a8f7b17ad0b44b2026a4b9c7271a0cc673a4423daeb3b3e99b6",
+    "POST /api/v1/customers/{customer_id}/activities": "db5a2195d4324d2e1bf782100eb2a85e6738d3e91c614a241203649e00f8104f",
+    "POST /api/v1/customers/{customer_id}/addresses": "facf9c09adb2bb4d9352076caf344d056f492fbb48edec29be3062c3a9c3e63f",
+    "POST /api/v1/customers/{customer_id}/archive": "03251ad58a3dc6ddd15309546bf673bea0856b611a1e1b6df35a06492e4dd560",
+    "POST /api/v1/customers/{customer_id}/assignment": "f0bd9ca1524d37337e6d1ff8e6e61419fa9219638e2aed213d62557904d93c49",
+    "POST /api/v1/customers/{customer_id}/contacts": "83c051b9fa3a81b509371bf071d862ac74f2816aab1368710c32dead747cb2e3",
+    "POST /api/v1/customers/{customer_id}/credit-check": "c93e27bf5c1a1086ee6798fca0394c45e67e74a8db13d0c18aa9b725a4fce7ee",
+    "POST /api/v1/customers/{customer_id}/loyalty/accrue": "a36a8034802df5398c372ea0da6079546032c0d337d6b2dac877b9e8f2878d2d",
+    "POST /api/v1/customers/{customer_id}/loyalty/reverse": "7bfe7df06b274e9367b42f36f800d57d36204f96b0c17d0ccc080a24bbefac78",
+    "POST /api/v1/customers/{customer_id}/notes": "5d4754784cd3496eb70c8283e75847e620b10e56a0b8a93316fb41f36ae15526",
+    "POST /api/v1/customers/{customer_id}/opportunities": "f3c04af1b603ec65a290360f3b32e3f3fba6564dfa68ab865c114989bf967422",
+    "POST /api/v1/customers/{customer_id}/restore": "454c90cf35ba8e5727533a4d5a925aa14d7d1bdf7078042ef013b6c0f656961a",
+    "POST /api/v1/datasets": "be1a8b81bf4dd2c5298203dd34c212216afbe33191c28e65000b3bf960bfe083",
+    "POST /api/v1/datasets/extract-operational": "115fa655fcac17705c419a977834c8586fc3c118afdf011e6d4c29baf0544089",
+    "POST /api/v1/datasets/sample": "07cbfa669514748b7dd2d8ac681aa4f4977501c1ae331402c23c68327cd90d56",
+    "POST /api/v1/datasets/{dataset_id}/rebuild": "1a306cb3ebcabf8fd4d0c4e62dd9e97a389455bbc1cc6db555714a6a776c11ea",
+    "POST /api/v1/datasets/{dataset_id}/versions": "9b04b22311fbdd91090f57de6b4c257922ead13471b45142d744416db19de66e",
+    "POST /api/v1/datasets/{dataset_id}/versions/{version}/expire": "732c8caf24933ac3ba8b517076a9bb0b6dfc50e48d3fe9d7d79dc86a219af5bd",
+    "POST /api/v1/deliveries": "1746982a486cd53fdaf964f6954e3250f8ff7246703ada6f6b49c34c77f66bba",
+    "POST /api/v1/deliveries/{delivery_id}/cancel": "62c2fa93ee8f8c7295d7d1c38c36578139a606350a2d5c7106349fea0de88c04",
+    "POST /api/v1/deliveries/{delivery_id}/deliver": "01a970ada7090bf53371ad7db819fba922c7a76a9e1a4ee59be4593c52ef716e",
+    "POST /api/v1/deliveries/{delivery_id}/dispatch": "df3e7dbd648aec430c6530b1919f82296743389bc6b0edce4e8b4145c29b0220",
+    "POST /api/v1/deliveries/{delivery_id}/incidents": "f814aa5ec8c6369c85e9873c203072868cbb0e4fa2f5ea3a696840acc9583795",
+    "POST /api/v1/deliveries/{delivery_id}/intercept": "9d0aaceab924ff4f3667ef518a10f3dbd3db5c791b9f20b56c5ea70935dea18a",
+    "POST /api/v1/deliveries/{delivery_id}/proof-of-delivery": "d873223c26a2a1c1ea2b4da935ff8acff359d66542269c4d524425e3d36655c4",
+    "POST /api/v1/deliveries/{delivery_id}/tracking-events": "bbbda62943bd753e5669b58236fdd46c626cf28a926af89a072ac15d0d09451d",
+    "POST /api/v1/experiments/ab-test": "f4afed0430a34033ded7e26c750466cab827245acae78255efdbab6da4bfacb7",
+    "POST /api/v1/finance/exchange-rate/convert": "c0e5a3a5cda86121cd95b6e660b39a6e480fe2391c723d83a9e02edb1627964e",
+    "POST /api/v1/finance/reconciliations": "326b029ad104173bb689f473cfd7c75dcb6b081067d2ce78dc1bcd03fd1a1b93",
+    "POST /api/v1/finance/reconciliations/{reconciliation_id}/items/{item_id}/resolve": "2292a87da37e41964c08d7ea7b6a9b52f903d5be8592cc18161725ccac0288c3",
+    "POST /api/v1/goods-receipts": "b95b04c9fdb30b9254d10d72d942492c4762b35e746c83db9e39cb201b7dcee2",
+    "POST /api/v1/goods-receipts/{receipt_id}/landed-cost": "c947a6d9cd908cffb94216af910c154d241da57f8a477ea5f0a5e7f870713d1b",
+    "POST /api/v1/imports": "f694b5168d1a0b27bc0e7db5b30d7e9b7c16c24afb2bd2155c25b7de745974d2",
+    "POST /api/v1/imports/inspect": "1a1597a06e7b1d682482999a21e140b561c3ee8d68b6aedd7438f8b32bf957b6",
+    "POST /api/v1/imports/{import_id}/commit": "e4e4964d50755b40327b7c5507580a23ea5bbfbb7762bcd41f6bd449430843ae",
+    "POST /api/v1/insights/bulk-actions": "1f55cc6e9cf93308be3ae769a878586248105e657cea2c6123ff608dfc454b4d",
+    "POST /api/v1/insights/bulk-read": "51e62d34b870d656e27e70f6d0908602e8f4e043e6a8f7e0aeabda049904d15d",
+    "POST /api/v1/insights/evaluate": "9da32892d8b924261f1a6176eb55eae26f7d0f3d4c367eb1b223f9fb6bd1ac61",
+    "POST /api/v1/insights/rules/simulate": "d9b03d77b9a1beaebdd9a5dd58cbe91580cbad1ee874983e07afd42b5d14255c",
+    "POST /api/v1/insights/{insight_id}/actions/{action_id}/prepare": "9678926a87d9fde553d72f35f5b0597c5ae42a3259270f1dcc6e45f17904c796",
+    "POST /api/v1/insights/{insight_id}/feedback": "bbb1139d2c8870aec83e35680c99706bdd8a4ed00006d26b5d287a18f099942b",
+    "POST /api/v1/integrations": "9e8935abcc1716bd37b115a867bece3a85887f37b0e048dd6926d57f154ed5d1",
+    "POST /api/v1/integrations/{connection_id}/diagnose": "d6cf6d080683b5cbdf5b1ab97ad298c118c4316af6c66eb5ebb49af15c4c85a1",
+    "POST /api/v1/inventory/adjustments": "42598137ef248a28a6c0144f650f98e007923fbea22b82fc7ff77ed93156d9fc",
+    "POST /api/v1/inventory/alerts/recalculate": "3b2139841216571ec3604741785f70c4a98435ebd5dfe0d195e1c0364375c29c",
+    "POST /api/v1/inventory/alerts/{alert_id}/resolve": "ca08d2c1559978bf48969b73ae3a2b4dd45014c9b11efa8583420fee7077315f",
+    "POST /api/v1/inventory/counts": "9d6bfc73be33cd4bfeac00bde203541d3d4c9dad20884c6bad1de2db13909539",
+    "POST /api/v1/inventory/counts/{count_id}/approve": "ca1cbd91511314689c0212082c38fc7e77783a3abd667c4196f5e8f7ab949bdd",
+    "POST /api/v1/inventory/locations": "56e7db491b0e19c17196e500ba039d5709dcdad13a07c22401632b26f90ab04b",
+    "POST /api/v1/inventory/locations/transfer": "215be14127ff0fe0d67489bd21b544fdad734723aa21468d0d2d91910b527dd2",
+    "POST /api/v1/inventory/lots": "14ae1b4dc6e6c8ccd6e1e7f036763ff5485e6411ab1ed4c96fc1394fa6f6a0f4",
+    "POST /api/v1/inventory/lots/{lot_id}/block": "5f95a0f4e994bb8b4e8ed35ad56b17c900a9697fc8cb89b3cb5b12a6a574996d",
+    "POST /api/v1/inventory/picking-lists": "b2838c9a4d253f641e285352f97c362226a54a4f2a2e7a617ef47e019d5ab3de",
+    "POST /api/v1/inventory/picking-lists/{picking_id}/complete": "dfb34ee5e5512ab4749c0e29ab578c1840623fc346524437248c1ed956a9a919",
+    "POST /api/v1/inventory/picking-lists/{picking_id}/verify-item": "66963c03b8e901cc335036170560281a5462bbe4041c550dad4692458d286c60",
+    "POST /api/v1/inventory/quarantine/{quarantine_id}/classify": "ff37693ae05052cdfec03a33c309c57164a17602ba420c4c51b274e0e3a7b6b2",
+    "POST /api/v1/inventory/reconcile": "44bc3d0581746bf115b2900c7581211f35bd3d53bfb320bdaecec7d9fb0ca11d",
+    "POST /api/v1/inventory/reconcile/{reconciliation_id}/repair": "71436ba3a2a64b3ea8f389da471a923b1a5c797661721441fe2d577793f4826a",
+    "POST /api/v1/inventory/reservations": "e6fb067410f176edc6a93d722ecbf7ff00892a55485b8b761c732581fcd30dbc",
+    "POST /api/v1/inventory/reservations/release": "297433f3251672dcf88839de2e559e54ecb308ef1bf8d62632cecbf63e9b8971",
+    "POST /api/v1/inventory/rules": "97ffee39efb08b191d3fc19237d20fbc478df3145a8c268dc219a2624f3d175b",
+    "POST /api/v1/inventory/rules/{rule_id}/deactivate": "fdd0f6251bc948ef278fb4b213378430b06c963a5eb84b65f783ef2e77544a48",
+    "POST /api/v1/inventory/serials": "c987bda547e6f0608d398cc0d874718c409dbd19218389f31a2a88f4487aff91",
+    "POST /api/v1/inventory/serials/sell": "d3c67e2194517edf0f7270379bf91b2aa8c3e78bbe380122d8acc51885a4e028",
+    "POST /api/v1/inventory/transfers": "ff9778881420160f3e758dbfbd293b18d7f7119a860430737a299a7febb6d2b3",
+    "POST /api/v1/inventory/transfers/{transfer_id}/cancel": "81e515a22a4fd4b298fd8eb3509477dda39ffe69bc66f03f051a4b76fbc159b5",
+    "POST /api/v1/inventory/transfers/{transfer_id}/dispatch": "6ac07e1e414e49ba31975c46ed9689ba36c9bd8e6ae596d3cb054f8dcd07c4fc",
+    "POST /api/v1/inventory/transfers/{transfer_id}/receive": "2ff6298966d2056c00af0c5325626a3b8f8512fc500c4fee6ef18aecd5a00a2f",
+    "POST /api/v1/inventory/valuation": "c5b5cbd2af4a72cd59c23ce14b3a88eef5542406c8d5ab2498f69b829899b726",
+    "POST /api/v1/jobs/{job_id}/cancel": "672a888aaabe07e7fdc18dbea1f27c789fe152f89bc6f084fdc6f8d00ee7a21d",
+    "POST /api/v1/memberships/invitations": "33b8ff9e00c2671e29718fd3126f92415e5582290e17a5f55991b8125f94dc57",
+    "POST /api/v1/memberships/invitations/{membership_id}/resend": "684547205415a6f4c50ec538504ef8c57722acc5ec9bcae8bbdc66f27b76c06b",
+    "POST /api/v1/memberships/{membership_id}/transfer-admin": "71f959febd352cfe808ac1dd7dacd76584564f145fb4a938efa67a131438f4a8",
+    "POST /api/v1/operations/backup/trigger": "1746a016e70adf3fc144506bc809783f235f7710fe20bccfd3194c1f004b1920",
+    "POST /api/v1/operations/degraded-mode/toggle": "062bdf5016d2caae362ef5b1d612d004f3e4ae4e21e051fcf0e932f18e7b8601",
+    "POST /api/v1/operations/feature-flags/toggle": "f3d46cc4053b45ea8c58396085fe253cec8fe6c1be09c7716cd793b1e56ab5c7",
+    "POST /api/v1/operations/jobs/{job_id}/retry": "7c59640a9f56d27855b93d8e46bdd341bae775ec872800531ea70ad6aee846b1",
+    "POST /api/v1/operations/maintenance/set": "0789955014c7961b7d9e82ce8a007b2dbad162f872d077b680928d5149bbfb96",
+    "POST /api/v1/operations/restore/verify": "bef8381494dc2a18e76fbc8c4832653a34326d4c394bec8cb37ea64a85ee0482",
+    "POST /api/v1/orders": "16eb2f13e1eeef0e817eee0ed62bbf227388b8904b625c64c62e9d2540c5dc46",
+    "POST /api/v1/orders/{order_id}/approve": "ca2a4f5887a74d7b1f0042df56b28fb3fea4b593f0d64871519ddd266cb61dd3",
+    "POST /api/v1/orders/{order_id}/cancel": "9bf9f9ccd6280cfdd8e6e3895f9b65b163940b9d311ccdad240d66e6416b079d",
+    "POST /api/v1/orders/{order_id}/clone": "b2aa381f5e3c1cd9d09e52e5735bcec26f92627d462ce725d1c0dc845dc06088",
+    "POST /api/v1/orders/{order_id}/confirm": "35f40638ed40f155fa19fd6bf5f2098dae78894077920e3223cc126101dd270e",
+    "POST /api/v1/orders/{order_id}/fulfill-partial": "491bc0c598d3c10c34d4d27b09510bca46b0b429cd08f44d171dc308c07240dc",
+    "POST /api/v1/orders/{order_id}/picking": "8e29e40d045e3a8469ab4ee06521a057fd690b05894912fab8ef335c2e2b40a1",
+    "POST /api/v1/orders/{order_id}/picking/complete": "70b0f3a4482eea99c3eb4c6e63a91c2b05feeb75f894fb5e7194f3d48ae88309",
+    "POST /api/v1/orders/{order_id}/picking/scan": "b684947fe75a316eea6b5416829eaf8fa619d66f18ae6348e7d2219b45888e5a",
+    "POST /api/v1/orders/{order_id}/release-reservation": "5352b9d88f2a22238b8769cae6f73008a92114368ef687a1334df0498d7da91e",
+    "POST /api/v1/orders/{order_id}/renew-reservation": "72a819af0a0cef0b18905e8ffe50f98112f8ce579c42f6ef3b78aec27477503d",
+    "POST /api/v1/orders/{order_id}/resolve-shortage": "3b4cd5811d93fea8e616a54ab1a8adfde02b2d8f00ad42ca66bf5862b3fa2f39",
+    "POST /api/v1/organization/branding/preview": "2925d48856d12aed6a3bebcd5aa3f26556717bd9a3af2ef9b42f6ef95d32de48",
+    "POST /api/v1/organization/context/switch": "f9b5c36e917561e9d82d4ec3b8e858059e8f1692486ec21ff3b7cd1b14b02f7f",
+    "POST /api/v1/organization/onboarding/setup": "a6439bce2663595ee90905085c427976bbad0c9d733c961ce6bdf4a06f556057",
+    "POST /api/v1/organization/periods/close": "25cabb657a8b3cf47b779c5a7b6c8bf3176f67b3a0871b3ae6191a921f26a4bd",
+    "POST /api/v1/organization/periods/reopen": "07f43e1fc420da961fee8edfaba48f27a853fdb3eb4554c33702f6909df53a6d",
+    "POST /api/v1/organization/preferences/reset": "201607a3f0d093b38a5c4914ed8ded3cff0ff52916447727bb5f21674df6ab3d",
+    "POST /api/v1/organization/quotas/check": "3711302758efb8097217c8085d00fc2097c1bbe8e3b7d99ddb4319d5a6d556f5",
+    "POST /api/v1/organization/sequences/reserve": "0738e900e0a0d2364c18f6410b71a456fc92cabdd2b966b604edc6b357d71f33",
+    "POST /api/v1/organization/tax-rules": "05df70aa0fe124098f4e063e1db7756f674d9148e2e8789f29a4c8271503eb87",
+    "POST /api/v1/organization/test-mode/verify": "74ca4c09b90e13e035e267a2b7072ea4b2adcfe1f3f33a2cf6df30400cc84bcd",
+    "POST /api/v1/payment-connections": "1fde3ee39777030604db15cf4b69044ffa5b2f523f740d2af18c6bd5aafd015e",
+    "POST /api/v1/payment-connections/{connection_id}/rotate-secret": "cc572478f5ff9dcb62838296fc2525de7e9e0c6319d24a23fc5b64da576ef585",
+    "POST /api/v1/payment-intents": "d00fc341df5897beaa1513ff7263e09d1dedea5fed5e21c9f6e93e57100a4d77",
+    "POST /api/v1/payment-intents/{intent_id}/confirm": "9a6fc627095db7bcdc4999ada76d78192707cb868b6ee773fe67b096c16e2d1e",
+    "POST /api/v1/payment-intents/{intent_id}/sync-status": "6bf334cddc2b3df8cb1261eaa73bae117e3b27d818d15540363eb3d24fd9dff4",
+    "POST /api/v1/payment-methods": "acc0d027056f01b9c2964bda2ba8a510a428f8ebbce102ad4d77c27584e61600",
+    "POST /api/v1/payments": "e5a484c336489215955c12ebc92db449a928c0d92d976f73a63297cad4fd8712",
+    "POST /api/v1/payments/proof-of-transfer": "4f7810ff51b581a2f2b3fd7ac76bd1b7ed67b7b750fc6ba12a81889ac52600c3",
+    "POST /api/v1/payments/{payment_id}/allocations": "9f5a90144909de2b8fd41546ef95e53b579752862645b15eb0b8338f3b1e11fc",
+    "POST /api/v1/payments/{payment_id}/disputes": "19a63b71fc54e906a7f392006de66c3069732b5e2296f42cda4a217d27f578ea",
+    "POST /api/v1/payments/{payment_id}/reversals": "cf170e5976f6cfece5128c65e42ae66bc37f138984adaf3f5cfc93af0050cbb6",
+    "POST /api/v1/payments/{payment_id}/verify-proof": "19f5d20871b1153f2baa4db85dd00eabf9bd1f5bd730815eb09386aa81aa4fdb",
+    "POST /api/v1/price-lists": "6d5c498fabf642777a007061539418493b8e53056bb2a289e31e1e802e31cbf3",
+    "POST /api/v1/price-lists/{price_list_id}/items": "90f2f849633934faf728e524af8aca8ef8accb14681366652ea33e35eb42715d",
+    "POST /api/v1/prices/preview": "a4a2a6aab56c51330a39e4a5eddcedfb365f4153a8848e11c09ae26d1bdaec42",
+    "POST /api/v1/privacy/anonymize-customer": "142afc8eedcbb77f536755295fb96bfcc163f0cb9679ffda86ba689778cc08f9",
+    "POST /api/v1/privacy/export-personal-data": "42a26e698684154232df9799be80d831851723214a8bdf4872dcec0599037754",
+    "POST /api/v1/privacy/legal-hold": "2b64a5f70f65a33efca81dbcea4cd193d741fa7326106130066575a91144f8c9",
+    "POST /api/v1/privacy/mask-data": "3a8aca9bae15d84ec613c55acc7f598461c693bf8944083997960eaba1543fe0",
+    "POST /api/v1/probability/analyses": "32baf51111b2dc5ca690d9623310f07b68ed50f51d4ad6eb5c3e7a576669c1af",
+    "POST /api/v1/probability/analyses/{analysis_id}/duplicate-scenario": "96741b4e94f24462d92170531a0bfc8c6ca9e42d2906ac34140b98a8c412d45d",
+    "POST /api/v1/probability/bayes": "8c1e09cb8e7d578649fd7b6907d31dbe113e8868af0abbf5513d352711b5b728",
+    "POST /api/v1/probability/events": "f43c2c9ba87b5d43af1ff5bea854479784b0979995b1d03555c7f9af66e08fa9",
+    "POST /api/v1/probability/hypothesis-test": "7b66a882092bee21730318b9712ee67a9bd538168d6c1d63014ffa2d4fa6d565",
+    "POST /api/v1/probability/preregister-hypothesis": "1efaf1b887944ee7b558608099127c40c4bc9f53d57650dfa59378121848c1c8",
+    "POST /api/v1/probability/scenarios/compare": "e5287a24a9de3aa48eb1c7267832299b11d558dfd65c2319ae4c3603ed1e1869",
+    "POST /api/v1/probability/smoothed-bayes": "255bfc446035a9608b5fbaf6802f2b4eed8fc6fb480f9e699313a32da360d242",
+    "POST /api/v1/probability/validate-temporal": "290bd87150bd025ea37f3058542cb45d06b4b8ba93600239e02286f4ec4d602d",
+    "POST /api/v1/products": "11ea7a4c38d268460ad8e36e46840a2f72e36ba9b03e5f51a68ead234e5884f8",
+    "POST /api/v1/products/bulk-update": "ef84f8a005681d1f5e5f939a0d07f5de2df326f9869417b6017fbe30ae43882f",
+    "POST /api/v1/products/import": "0a4bbdc03d832e16ea3729301d2f58b3dc93bb2dae4726b866e114bbb062473d",
+    "POST /api/v1/products/price-preview": "e2f43edacea82bd3c6d2cfba46522e66a8cd15abc8f85c53d52ac04fbb2f8b43",
+    "POST /api/v1/products/warranty/claims": "19884188bd77e1cfb2b9fef4e8d9b2a46b89e2242c800522b9210952c8034bc1",
+    "POST /api/v1/products/{product_id}/archive": "3b9a690871ae551b5c8eef523b3023e6806f73f708b3b2f7a5b6657d1b9712cd",
+    "POST /api/v1/products/{product_id}/attachments": "f662900a4f4ec3a782b37cb305458e5119d97d0113742142b3129693142e64f7",
+    "POST /api/v1/products/{product_id}/barcodes": "ac0f8d0f54930f9ced8495d99c4c49f02972c4574f9b39e92f4f82e87f1f7806",
+    "POST /api/v1/products/{product_id}/duplicate": "77777c7b8fa9d0f89c39d06f92fedec133582764e80e528521889b2be2c1a5cb",
+    "POST /api/v1/products/{product_id}/kit-items": "f2a71a9bbad26b13180013898afe8a26dd9736b867fdf27c769ba6ad9f82f3c2",
+    "POST /api/v1/products/{product_id}/profile": "49e0fdfa6e1e597d699b5667764390caa9027f54acdb30549944fe027dd6b9f0",
+    "POST /api/v1/products/{product_id}/restore": "c60b4b7ca97b0b53ba25045dec3b50bf22e23803c2ee17f09984ab4d7bfb4348",
+    "POST /api/v1/products/{product_id}/variants": "b6bd37063e00d3847b12aed13bcd93ed8580260b4147371f207598f51f773e0e",
+    "POST /api/v1/products/{product_id}/volume-tiers": "468f2008f7b6587b5f8c9c50417382721e94d7bdc533729c9f047e55c3542cb5",
+    "POST /api/v1/promotions": "46f50f998bd0789fb76b775fd0ea7a1da9a594ac63af4490bd7835980229e539",
+    "POST /api/v1/purchase-orders": "e6cea713a6063c4ade94b812146ca27afa35f87c7fee41e40616eaa201ead7a0",
+    "POST /api/v1/purchase-orders/{order_id}/approve": "d49adc8adb56c2d3a31ab6b27abac748213e6a5687017ee2bad745d675f9059c",
+    "POST /api/v1/purchase-orders/{order_id}/three-way-match": "f856cfd9f3584556df4d08d4406c2ac5fadfb0c92e352ef6f365bd1a10222012",
+    "POST /api/v1/purchase-orders/{order_id}/three-way-match/resolve": "a965d15904c786ee940ee25f7a906c8cf31515c8932b65b4523d04b89c8cc602",
+    "POST /api/v1/purchases/requisitions": "88c55a270373c4d39476911ec0e926ca4ba2bb42bfe2dd6ba3767712c473f230",
+    "POST /api/v1/purchases/requisitions/suggest-from-stock": "7c07c9e887aec12a29c54d2e01f9490a66ea35eecfa4d6f2b1c618f260f5cf6e",
+    "POST /api/v1/purchases/requisitions/{id}/approve": "1db17d6320de5714ccacca3fa62a002e32220fd69933e274a78f927e807b615a",
+    "POST /api/v1/purchases/returns": "86a136a69694fa588bed9ce0663cfeed9ab3797d18d06efd20b8c426bea8ff68",
+    "POST /api/v1/quotation-portal/{quotation_id}/accept": "6287103b49484cba4d1b50565b1eb8c876c69db59ac2c12d973b51d6fd3157e2",
+    "POST /api/v1/quotations": "4ee5e7123a6e380c3d57e735bdc2fd7d4ae1a94e16658bdbf8fe716afbec52a2",
+    "POST /api/v1/quotations/{quotation_id}/accept": "3b8465e79471c9d81d7da946a3d33471202eacad15935a1c79944bfdb0bf1240",
+    "POST /api/v1/quotations/{quotation_id}/convert": "ec5a563e31714bbb583e7ec4469509c00e3a72c425053f553ec90dfe8f7dfe02",
+    "POST /api/v1/quotations/{quotation_id}/send": "743b9755e85a115dd1e131fa005631367f5c3e3a36bb08338b06f4696085586b",
+    "POST /api/v1/quotations/{quotation_id}/versions": "ad68c16a83a6fc339ddae65f317a894c5cc57d8e9779a90903c9f24c7dc0e3dd",
+    "POST /api/v1/random-variables/analyze": "972ba04965a0d7730d71d5da135aba288b4510a1e95abef70dc5c23b9bc10f31",
+    "POST /api/v1/receivables/{sale_id}/activities": "9b0dbf5b837cbe089cedb226ea63cca7308c3edb7b2c4168377650a56eddcbf4",
+    "POST /api/v1/refunds": "553a361de3ee7d487fc52972945284e9be9b03142ae90a9cd13ffac0518de220",
+    "POST /api/v1/refunds/{refund_id}/status": "78e36478d6605479bd67fd1752c8c207d4b6dba9640cef0ecfe740b51b963e29",
+    "POST /api/v1/report-runs": "b28707e7a941ddd8cc47b5123f99bf78cbc6362801017aae2253cecb4cd7acec",
+    "POST /api/v1/report-runs/{run_id}/cancel": "868a0e373e2de78c910f4b84997defd138e373537588c2d58449cc81b716562f",
+    "POST /api/v1/report-runs/{run_id}/retry": "2636fa4313f79ed2f38c0e28543f802c89510d7c5c2348ea8a05753b6ae413bc",
+    "POST /api/v1/report-schedules": "cd6abbe386838f3b01ac9b57a3543eeb83d95c031da87f03134097bc822a6bc8",
+    "POST /api/v1/report-schedules/{schedule_id}/execute": "3e6e3650494e473163c28787ba64b3cfb9e21d00d0d46ecaeddcf5313326040b",
+    "POST /api/v1/reports/compare": "628959e1446bca6ecb615cc3f6fe1845d7b942871f905caa8ab4f1b43bf708dd",
+    "POST /api/v1/returns": "a5154eaaf7c6165f43b8439ab207c874c82931566f90981259430d6b1bc6ff1a",
+    "POST /api/v1/returns/without-receipt": "72b93140678723e7bf9c6c64c0a31e45b5c77704b0adc698700c8cd06eac3b83",
+    "POST /api/v1/returns/{return_id}/accept": "cde105ae48990ea87b9d0132888cf413bd0678e3699486cacdf550b99209c8b6",
+    "POST /api/v1/returns/{return_id}/cancel": "6b384d8ea645f482a7a3e7fd58530d87b7ab008d66b78dfd3541a845b9ecc8ee",
+    "POST /api/v1/returns/{return_id}/exchange": "9616ab16a78d1a99f0fac9eea266a5f6b7db14ef113f9eba79d86e4542b3442d",
+    "POST /api/v1/returns/{return_id}/reject": "7181a84c08d2f0a47618b412990cd64d65dd5d38347600aa486a3a7dc6c5be07",
+    "POST /api/v1/roles": "fa9d90659a988d03cda58b10b1c348366202d7564ca0d3044464ca9415c0eb5e",
+    "POST /api/v1/roles/{source_role}/clone": "6506238cbfcfe9c20c89f2dea954ee776e253d30dee4ea747b7fc04531a230b9",
+    "POST /api/v1/sales": "a903906b7652a9ca5b86fb90545c585f0eac416d7377191f380d493296e9d09a",
+    "POST /api/v1/sales/commissions/calculate": "152b67685c0bac8605efca7ed607fde16faaf62b380a3180066ee3633359be70",
+    "POST /api/v1/sales/commissions/{settlement_id}/approve": "9bf32d644e77aa86184396da78f762250920daa9014b4699542c1150c3f91ed0",
+    "POST /api/v1/sales/commissions/{settlement_id}/pay": "36b5bcbe661014de97cfc311de1aea691567f2a7733992586af538f801cede02",
+    "POST /api/v1/sales/draft": "c04ef23ff2718aa5a480e8c4b790bc7ccb73d538cd57e2e68bbf1b89932bfb98",
+    "POST /api/v1/sales/reps": "24c0d669e24632fdf84fcdbd5ed005491d43a404fa224c1038c4fe0d8eeb2f41",
+    "POST /api/v1/sales/reps/{rep_id}/reassign-portfolio": "7e69ccd7ff7d695e8cdb77b6a1c51e1b8eaee81ae4fb86cb4d9425386f891844",
+    "POST /api/v1/sales/targets": "90507670406893ac0b4c4b990b8722c0a392d66e1e4c31d62c4641a1e1bd984b",
+    "POST /api/v1/sales/{sale_id}/annul": "4d883b028952438d2337087b56dfecf08b5145f87ea193a5b5fa86947764519e",
+    "POST /api/v1/sales/{sale_id}/apply-store-credit": "cfbece40f4a67bef302944b315c33de9e3d25d38e604cbe42ce57a1a5015afd7",
+    "POST /api/v1/sales/{sale_id}/cancel": "d442e81cde4ff978d235984969c0e2b0f3dabf4d4ff7eee52fb0a73395958940",
+    "POST /api/v1/sales/{sale_id}/clone": "5ec2f1c953d98c9c7e14c9e5ea62e1e1f2a56f5ae77b1ee81fe2ece97e3a97de",
+    "POST /api/v1/sales/{sale_id}/confirm": "5b6ab42260832c29b887a04b246b405a4dea8641d35c12e984dfc1c0b306504c",
+    "POST /api/v1/sales/{sale_id}/correct": "dc3dcdf99cb46a4dce1ec9c360f73c2ddccea3527a28cd8161a7cc36cdb01996",
+    "POST /api/v1/sales/{sale_id}/prevalidate": "63defda00d97946984fb35b335c33a9ddce3912510c5ce6c914f44dd46f98b17",
+    "POST /api/v1/security/api-keys": "252f0ebdeb60708473a7fe4230ca0f5e1d8c6b0ceb8f8854e8341eb121662423",
+    "POST /api/v1/security/api-keys/verify": "7dd75ee8f2a2132065b76ca399ad9ac75141f44362ac27b97c9506d0a532105f",
+    "POST /api/v1/security/fraud/check-transaction": "8f91790b452cd7829c41fd4b6224cf8327dcf21dcb0f142e200dbeafe6040085",
+    "POST /api/v1/security/incident/quarantine-user": "d0b0840c91986be28134c13b11f211ad45567d3d04b32e5561b78a0fd94b539b",
+    "POST /api/v1/security/outgoing-fetch": "c74098605f62159c03d3698c56f46e01df8a07e6d1d79e9a8cb6d7c4b134cb53",
+    "POST /api/v1/security/sanitize-input": "173a90c949135dab1236d256bda55abc6c4a883a31aa66a3c700a26b161ffc33",
+    "POST /api/v1/security/validate-upload": "e8880feccd0e05b22aaa7a24eb9b8867f35498e417610677c57b140767d94eb7",
+    "POST /api/v1/security/validate-url": "22bbb3dff61927911b194da20b2cee7b9cc4b6ea839435c1ccf6c5edfda18fd2",
+    "POST /api/v1/security/vulnerabilities/verify-release": "2a1a0f452bec0b6cad0f7bffd593ab1e50bb2e87c9caf69fa6e32daeb4b4c639",
+    "POST /api/v1/statistics/advanced": "52296e495111e2c9327d619dfc2b5e862a355ff4d5b0e4329ba9cfddaff16833",
+    "POST /api/v1/statistics/compare": "31ae51966771704d1d3cbdb4c84b15587402015c42c1eca62d9e8d98848c348a",
+    "POST /api/v1/statistics/confidence-interval": "f190804f068d7e17f6c4aade2581fe77cca5b1dec2691a45049f05014f1529a5",
+    "POST /api/v1/statistics/descriptive-summary": "52ac20bcfe6fdf7db27bb029699a7ed1f65a51a92f5ceae4e00782b51578714e",
+    "POST /api/v1/statistics/distribution": "07cfe1a4a1614535badcdd2425470fc22f0c0dbf14dd02b3cf86893f5b63c5e7",
+    "POST /api/v1/statistics/effect-size": "70c7a1f77657c97a6a21387f6a2ca528920670ff280e8819bb0bccd5d994be4a",
+    "POST /api/v1/statistics/frequencies": "14c4ba46f87030e9ee59d04e30a4c8cd57815cc1174c969b1ef2a8bd916c9641",
+    "POST /api/v1/statistics/groups-test": "e5fca3b7836e8025c85728f6754fb96e4a4c320356552589314db7485383b62e",
+    "POST /api/v1/statistics/mathematical-expectation": "4d1445f84b8ced6fd20dfa0f0a89e8ed68801f111322969c23d168fbee019e51",
+    "POST /api/v1/statistics/mean": "56048a265d00f07f37e00799935913c565aca9bceeffefcd00e8d2b003ea2296",
+    "POST /api/v1/statistics/median": "93b8feafa8b3bf219a782d05cf134bce943ba02d45abe13eb2dc53723cfafbca",
+    "POST /api/v1/statistics/multiple-comparisons": "a6b8acf82a554c7f8f7353705f75a061f297338863a2291c1567d925ad21843f",
+    "POST /api/v1/statistics/numerical-stability": "4f8f6d9de365982bdba32f478845261d414a045fb83dac8a7e43b5c45c8aab84",
+    "POST /api/v1/statistics/outliers": "2847e33eb43b8a496b4cc4345baecebe52015e899d811e76523b5373df9ffa93",
+    "POST /api/v1/statistics/stdev": "87763569b0d6b55db9ea584b8e9a1ff3efc0b3de4f3a7423cdee4551a586f82b",
+    "POST /api/v1/statistics/theoretical-distribution": "a2a601de6151e3ee0611a39ad329acae0501d4cdb706fbc7b0e39ce3d7926794",
+    "POST /api/v1/statistics/variance": "5cd4f94e6d8547e11c9c79cb4118299014f2d86b94d714c0e8802af4afeff413",
+    "POST /api/v1/statistics/weighted-mean": "afb0dbee9b48907a6fcceaf4bfeb1dba915be5ea5d222963dd0df6fcb0962ed5",
+    "POST /api/v1/suppliers": "d2cacb9b1d7792fc1144df60ced239fc6a132e66fdfa2e398da93afca02ce6c1",
+    "POST /api/v1/units": "a317bbec62d34daad38eed8d9d9b1ea4d108d0b9efa5964215a8498492b3483e",
+    "POST /api/v1/units/conversions": "79b345e85b94f00dd18a1213c2274b89d9e9ee3d40ef80c90f75e600514b4e94",
+    "POST /api/v1/units/convert": "d36f3379e9fd4ec18fa39895cd450fe2e83b8a4c956a50aca663f2d4d5d459c9",
+    "POST /api/v1/warehouses": "61c3326f2c71475e97684b3e5100f2de04f4051d2b6dc62bfebe6649cf0b88df",
+    "POST /api/v1/webhooks/payments/{connection_id}": "b3745514e1f4f5de7215b903d180f5d84c97e21f62c46494f6515769ba694347",
+    "PUT /api/v1/attachments/{attachment_id}/content": "9dcc24d5447d9fb952ea1f6423210c24b8eb8f69dcf8c400e3f01ef1b3dc03f4",
+    "PUT /api/v1/audit-logs/{log_id}": "1f8b9ffb02a9b06cc36c0a3377fe4405bd8405f813d70d37384cb21546633958",
+    "PUT /api/v1/audit/logs/{log_id}": "f9174651ffffaa4821d74ca6b03ba06944af02015cf744bd32285d035c6ec143",
+    "PUT /api/v1/collaboration/comments/{comment_id}": "015a3b6b9a34c7349ca68406e1bdbac99855676906872717b0e41b71824e7d68",
+    "PUT /api/v1/collaboration/saved-views/{view_id}": "dc339cda695349a65f0e9725bfcb39a6a45091926b21be923160f9fffbff22e4",
+    "PUT /api/v1/inventory/counts/{count_id}/entries": "bab02360a0db064246d0702d4e5d24a2492a44301901f60a67093d16c04687db",
+    "PUT /api/v1/inventory/locations/{location_id}": "6ceb4cf84ca4ec6009b2793a02b58176add7dcac70162e0316f5b280094d2470",
+    "PUT /api/v1/notifications/preferences": "d71f07f1319291eff052812fece7b69d6728910d863f2aed79a4107a8712d45e",
+    "PUT /api/v1/operations/settings": "11f86eb0c51679192aad4efdafdc189f892911070cce96588a63a6fab0e4161b",
+    "PUT /api/v1/orders/{order_id}/lines": "1d8bee7fcc0bf616beebd7ee094ecf94f70ca66f68ddc476f59112e45082d43f",
+    "PUT /api/v1/purchase-orders/{order_id}": "306decc96a9e6c2691893e2f3acd17d564fe4d07a633779b335a70af2b101af8",
+    "PUT /api/v1/suppliers/{supplier_id}": "1754408694a4854fb684d8b0a6d152a927046b3d83a8328b4b71c6da564c736a"
+  },
+  "routes": [
+    {
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "name": "openapi",
+      "path": "/openapi.json"
+    },
+    {
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "name": "swagger_ui_html",
+      "path": "/docs"
+    },
+    {
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "name": "swagger_ui_redirect",
+      "path": "/docs/oauth2-redirect"
+    },
+    {
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "name": "redoc_html",
+      "path": "/redoc"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "check_health_legacy",
+      "path": "/api/v1/health"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "check_health_live",
+      "path": "/api/v1/health/live"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "check_readiness",
+      "path": "/api/v1/health/ready"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "login",
+      "path": "/api/v1/auth/login"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_mfa_status",
+      "path": "/api/v1/auth/mfa-status"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "check_mfa_status",
+      "path": "/api/v1/auth/mfa-status"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "refresh_tokens",
+      "path": "/api/v1/auth/refresh"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "logout",
+      "path": "/api/v1/auth/logout"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_me",
+      "path": "/api/v1/auth/me"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_profile",
+      "path": "/api/v1/auth/profile"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_profile",
+      "path": "/api/v1/auth/profile"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "request_password_reset",
+      "path": "/api/v1/auth/password/reset-request"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "confirm_password_reset",
+      "path": "/api/v1/auth/password/reset"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_sessions",
+      "path": "/api/v1/auth/sessions"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "revoke_session",
+      "path": "/api/v1/auth/sessions/{session_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "invite_member",
+      "path": "/api/v1/memberships/invitations"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "resend_invitation",
+      "path": "/api/v1/memberships/invitations/{membership_id}/resend"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "cancel_invitation",
+      "path": "/api/v1/memberships/invitations/{membership_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_users",
+      "path": "/api/v1/users"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_membership",
+      "path": "/api/v1/memberships/{membership_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "transfer_admin",
+      "path": "/api/v1/memberships/{membership_id}/transfer-admin"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_roles",
+      "path": "/api/v1/roles"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "compare_roles",
+      "path": "/api/v1/roles/compare"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "clone_role",
+      "path": "/api/v1/roles/{source_role}/clone"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_custom_role",
+      "path": "/api/v1/roles"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "custom_role_impact",
+      "path": "/api/v1/roles/{role_key}/impact"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_custom_role",
+      "path": "/api/v1/roles/{role_key}"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_custom_role",
+      "path": "/api/v1/roles/{role_key}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "member_security",
+      "path": "/api/v1/users/{user_id}/security"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_support_grant",
+      "path": "/api/v1/auth/support/grants"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_support_grants",
+      "path": "/api/v1/auth/support/grants"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "revoke_support_grant",
+      "path": "/api/v1/auth/support/grants/{grant_id}/revoke"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "setup_mfa",
+      "path": "/api/v1/auth/mfa/setup"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "verify_mfa",
+      "path": "/api/v1/auth/mfa/verify"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "regenerate_mfa_recovery_codes",
+      "path": "/api/v1/auth/mfa/recovery-codes/regenerate"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "verify_sudo_mode",
+      "path": "/api/v1/auth/sudo/verify"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "sso_callback",
+      "path": "/api/v1/auth/sso/callback"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "request_email_change",
+      "path": "/api/v1/auth/email/change-request"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_current_company",
+      "path": "/api/v1/companies/current"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_current_company",
+      "path": "/api/v1/companies/current"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_branches",
+      "path": "/api/v1/branches"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_branch",
+      "path": "/api/v1/branches"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_branch",
+      "path": "/api/v1/branches/{branch_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_warehouses",
+      "path": "/api/v1/warehouses"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_warehouse",
+      "path": "/api/v1/warehouses"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_settings",
+      "path": "/api/v1/companies/current/settings"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_settings",
+      "path": "/api/v1/settings"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_settings",
+      "path": "/api/v1/companies/current/settings"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_settings",
+      "path": "/api/v1/settings"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_onboarding_status",
+      "path": "/api/v1/organization/onboarding/status"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "run_onboarding_setup",
+      "path": "/api/v1/organization/onboarding/setup"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "switch_branch_context",
+      "path": "/api/v1/organization/context/switch"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_preferences_hierarchy",
+      "path": "/api/v1/organization/preferences"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "reset_preference",
+      "path": "/api/v1/organization/preferences/reset"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_sequences",
+      "path": "/api/v1/organization/sequences"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "reserve_next_sequence_number",
+      "path": "/api/v1/organization/sequences/reserve"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_tax_rules",
+      "path": "/api/v1/organization/tax-rules"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "update_tax_rule",
+      "path": "/api/v1/organization/tax-rules"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_business_hours",
+      "path": "/api/v1/organization/business-hours"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "close_accounting_period",
+      "path": "/api/v1/organization/periods/close"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "reopen_accounting_period",
+      "path": "/api/v1/organization/periods/reopen"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_branding",
+      "path": "/api/v1/organization/branding"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "preview_branding",
+      "path": "/api/v1/organization/branding/preview"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_quotas",
+      "path": "/api/v1/organization/quotas"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "check_quota",
+      "path": "/api/v1/organization/quotas/check"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "verify_test_mode",
+      "path": "/api/v1/organization/test-mode/verify"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_customers",
+      "path": "/api/v1/customers"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "detect_duplicates",
+      "path": "/api/v1/customers/duplicates"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "check_duplicate_candidate",
+      "path": "/api/v1/customers/duplicates/check"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "validate_fiscal_identity",
+      "path": "/api/v1/customers/fiscal/validate"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_customer",
+      "path": "/api/v1/customers"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "ensure_walk_in_customer",
+      "path": "/api/v1/customers/walk-in/ensure"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_customer",
+      "path": "/api/v1/customers/{customer_id}"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_customer",
+      "path": "/api/v1/customers/{customer_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "archive_customer",
+      "path": "/api/v1/customers/{customer_id}/archive"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "restore_customer",
+      "path": "/api/v1/customers/{customer_id}/restore"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "preview_customer_merge",
+      "path": "/api/v1/customers/merge/preview"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "merge_customers",
+      "path": "/api/v1/customers/merge"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_customer_contacts",
+      "path": "/api/v1/customers/{customer_id}/contacts"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_customer_contact",
+      "path": "/api/v1/customers/{customer_id}/contacts"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_customer_contact",
+      "path": "/api/v1/customers/{customer_id}/contacts/{contact_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_customer_addresses",
+      "path": "/api/v1/customers/{customer_id}/addresses"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_customer_address",
+      "path": "/api/v1/customers/{customer_id}/addresses"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_customer_address",
+      "path": "/api/v1/customers/{customer_id}/addresses/{address_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_customer_statement",
+      "path": "/api/v1/customers/{customer_id}/statement"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_customer_history",
+      "path": "/api/v1/customers/{customer_id}/history"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_customer_commercial_terms",
+      "path": "/api/v1/customers/{customer_id}/commercial-terms"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_customer_commercial_terms",
+      "path": "/api/v1/customers/{customer_id}/commercial-terms"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "check_customer_credit",
+      "path": "/api/v1/customers/{customer_id}/credit-check"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_customer_assignment",
+      "path": "/api/v1/customers/{customer_id}/assignment"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "update_customer_assignment",
+      "path": "/api/v1/customers/{customer_id}/assignment"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_customer_segments",
+      "path": "/api/v1/customers/segments"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_customer_segment",
+      "path": "/api/v1/customers/segments"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "evaluate_customer_segments",
+      "path": "/api/v1/customers/{customer_id}/segments"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_customer_notes",
+      "path": "/api/v1/customers/{customer_id}/notes"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_customer_note",
+      "path": "/api/v1/customers/{customer_id}/notes"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_customer_note",
+      "path": "/api/v1/customers/{customer_id}/notes/{note_id}"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_customer_status",
+      "path": "/api/v1/customers/{customer_id}/status"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_import_template",
+      "path": "/api/v1/customers/import/template"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "import_customers",
+      "path": "/api/v1/customers/import"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "export_customers",
+      "path": "/api/v1/customers/export"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_customer_quality",
+      "path": "/api/v1/customers/{customer_id}/quality"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_customer_opportunities",
+      "path": "/api/v1/customers/{customer_id}/opportunities"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_customer_opportunity",
+      "path": "/api/v1/customers/{customer_id}/opportunities"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_customer_activities",
+      "path": "/api/v1/customers/{customer_id}/activities"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_customer_activity",
+      "path": "/api/v1/customers/{customer_id}/activities"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_customer_loyalty",
+      "path": "/api/v1/customers/{customer_id}/loyalty"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "accrue_loyalty_points",
+      "path": "/api/v1/customers/{customer_id}/loyalty/accrue"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "reverse_loyalty_points",
+      "path": "/api/v1/customers/{customer_id}/loyalty/reverse"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_products",
+      "path": "/api/v1/products"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "search_products_with_availability",
+      "path": "/api/v1/products/search-availability"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_product",
+      "path": "/api/v1/products"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_product",
+      "path": "/api/v1/products/{product_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_product_commercial_profile",
+      "path": "/api/v1/products/{product_id}/profile"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "update_product_commercial_profile",
+      "path": "/api/v1/products/{product_id}/profile"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_product",
+      "path": "/api/v1/products/{product_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "archive_product",
+      "path": "/api/v1/products/{product_id}/archive"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "restore_product",
+      "path": "/api/v1/products/{product_id}/restore"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "duplicate_product",
+      "path": "/api/v1/products/{product_id}/duplicate"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_product_variants",
+      "path": "/api/v1/products/{product_id}/variants"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_product_variant",
+      "path": "/api/v1/products/{product_id}/variants"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_product_barcode",
+      "path": "/api/v1/products/{product_id}/barcodes"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "lookup_product_by_barcode",
+      "path": "/api/v1/products/lookup/barcode"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_categories",
+      "path": "/api/v1/categories"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_category",
+      "path": "/api/v1/categories"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_category",
+      "path": "/api/v1/categories/{category_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "category_impact",
+      "path": "/api/v1/categories/{category_id}/impact"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "archive_category",
+      "path": "/api/v1/categories/{category_id}/archive"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "restore_category",
+      "path": "/api/v1/categories/{category_id}/restore"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_units",
+      "path": "/api/v1/units"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_unit",
+      "path": "/api/v1/units"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_unit_conversion",
+      "path": "/api/v1/units/conversions"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_unit_conversions",
+      "path": "/api/v1/units/conversions"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "convert_unit_endpoint",
+      "path": "/api/v1/units/convert"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_price_list",
+      "path": "/api/v1/price-lists"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_price_lists",
+      "path": "/api/v1/price-lists"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_price_list",
+      "path": "/api/v1/price-lists/{price_list_id}"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_price_list",
+      "path": "/api/v1/price-lists/{price_list_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "add_price_list_item",
+      "path": "/api/v1/price-lists/{price_list_id}/items"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_price_list_items",
+      "path": "/api/v1/price-lists/{price_list_id}/items"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_price_list_item",
+      "path": "/api/v1/price-lists/{price_list_id}/items/{item_id}"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_price_list_item",
+      "path": "/api/v1/price-lists/{price_list_id}/items/{item_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_volume_tier",
+      "path": "/api/v1/products/{product_id}/volume-tiers"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_promotion",
+      "path": "/api/v1/promotions"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_promotions",
+      "path": "/api/v1/promotions"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_promotion",
+      "path": "/api/v1/promotions/{promo_id}"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_promotion",
+      "path": "/api/v1/promotions/{promo_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_coupon",
+      "path": "/api/v1/coupons"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "validate_coupon_endpoint",
+      "path": "/api/v1/coupons/validate"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_attachment",
+      "path": "/api/v1/products/{product_id}/attachments"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_kit_item",
+      "path": "/api/v1/products/{product_id}/kit-items"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_warranty_claim",
+      "path": "/api/v1/products/warranty/claims"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "eligible_warranty_sales",
+      "path": "/api/v1/products/{product_id}/eligible-warranty-sales"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "bulk_update_products",
+      "path": "/api/v1/products/bulk-update"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "import_products",
+      "path": "/api/v1/products/import"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "preview_price",
+      "path": "/api/v1/products/price-preview"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "preview_price",
+      "path": "/api/v1/prices/preview"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_quotation",
+      "path": "/api/v1/quotations"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_quotations",
+      "path": "/api/v1/quotations"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_quotation",
+      "path": "/api/v1/quotations/{quotation_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_quotation_version",
+      "path": "/api/v1/quotations/{quotation_id}/versions"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "accept_quotation",
+      "path": "/api/v1/quotations/{quotation_id}/accept"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "preview_quotation",
+      "path": "/api/v1/quotations/{quotation_id}/preview"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "download_quotation_pdf",
+      "path": "/api/v1/quotations/{quotation_id}/pdf"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "send_quotation",
+      "path": "/api/v1/quotations/{quotation_id}/send"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "convert_quotation_to_order",
+      "path": "/api/v1/quotations/{quotation_id}/convert"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_orders",
+      "path": "/api/v1/orders"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_order",
+      "path": "/api/v1/orders/{order_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_order",
+      "path": "/api/v1/orders"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "approve_order",
+      "path": "/api/v1/orders/{order_id}/approve"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "confirm_order",
+      "path": "/api/v1/orders/{order_id}/confirm"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "release_order_reservation",
+      "path": "/api/v1/orders/{order_id}/release-reservation"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "renew_order_reservation",
+      "path": "/api/v1/orders/{order_id}/renew-reservation"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "update_order_lines",
+      "path": "/api/v1/orders/{order_id}/lines"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "fulfill_partial_order",
+      "path": "/api/v1/orders/{order_id}/fulfill-partial"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "cancel_order",
+      "path": "/api/v1/orders/{order_id}/cancel"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_order_tracking",
+      "path": "/api/v1/orders/{order_id}/tracking"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "clone_order",
+      "path": "/api/v1/orders/{order_id}/clone"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_order_shortages",
+      "path": "/api/v1/orders/{order_id}/shortages"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "resolve_order_shortage",
+      "path": "/api/v1/orders/{order_id}/resolve-shortage"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_order_picking",
+      "path": "/api/v1/orders/{order_id}/picking"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "scan_order_picking",
+      "path": "/api/v1/orders/{order_id}/picking/scan"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "complete_order_picking",
+      "path": "/api/v1/orders/{order_id}/picking/complete"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "open_public_quotation",
+      "path": "/api/v1/quotation-portal/{quotation_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "accept_public_quotation",
+      "path": "/api/v1/quotation-portal/{quotation_id}/accept"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "public_quotation_pdf",
+      "path": "/api/v1/quotation-portal/{quotation_id}/pdf"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_payment_methods",
+      "path": "/api/v1/payment-methods"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_payment_method",
+      "path": "/api/v1/payment-methods"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_payment_method",
+      "path": "/api/v1/payment-methods/{method_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_payment",
+      "path": "/api/v1/payments"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_payments",
+      "path": "/api/v1/payments"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_payment",
+      "path": "/api/v1/payments/{payment_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "allocate_payment",
+      "path": "/api/v1/payments/{payment_id}/allocations"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_refund",
+      "path": "/api/v1/refunds"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_payment_connection",
+      "path": "/api/v1/payment-connections"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "rotate_payment_connection_secret",
+      "path": "/api/v1/payment-connections/{connection_id}/rotate-secret"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_receivables",
+      "path": "/api/v1/receivables"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "receivable_context",
+      "path": "/api/v1/receivables/{sale_id}/context"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_collection_activity",
+      "path": "/api/v1/receivables/{sale_id}/activities"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_payment_intent",
+      "path": "/api/v1/payment-intents"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_payment_intent",
+      "path": "/api/v1/payment-intents/{intent_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "confirm_payment_intent",
+      "path": "/api/v1/payment-intents/{intent_id}/confirm"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "sync_payment_intent_status",
+      "path": "/api/v1/payment-intents/{intent_id}/sync-status"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "submit_proof_of_transfer",
+      "path": "/api/v1/payments/proof-of-transfer"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "verify_proof_of_transfer",
+      "path": "/api/v1/payments/{payment_id}/verify-proof"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "reverse_payment",
+      "path": "/api/v1/payments/{payment_id}/reversals"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_payment_dispute",
+      "path": "/api/v1/payments/{payment_id}/disputes"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_payment_disputes",
+      "path": "/api/v1/finance/disputes"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_reconciliation",
+      "path": "/api/v1/finance/reconciliations"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_reconciliation",
+      "path": "/api/v1/finance/reconciliations/{reconciliation_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "resolve_reconciliation_item",
+      "path": "/api/v1/finance/reconciliations/{reconciliation_id}/items/{item_id}/resolve"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "open_cash_session",
+      "path": "/api/v1/cash-sessions"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_cash_sessions",
+      "path": "/api/v1/cash-sessions"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "current_cash_session",
+      "path": "/api/v1/cash-sessions/current"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_blind_session_status",
+      "path": "/api/v1/cash-sessions/{session_id}/blind-status"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "submit_blind_count",
+      "path": "/api/v1/cash-sessions/{session_id}/blind-count"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "approve_cash_difference",
+      "path": "/api/v1/cash-sessions/{session_id}/approve-difference"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "add_cash_session_movement",
+      "path": "/api/v1/cash-sessions/{session_id}/movements"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "close_cash_session",
+      "path": "/api/v1/cash-sessions/{session_id}/close"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "convert_currency",
+      "path": "/api/v1/finance/exchange-rate/convert"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "apply_store_credit",
+      "path": "/api/v1/sales/{sale_id}/apply-store-credit"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_customer_store_credit",
+      "path": "/api/v1/customers/{customer_id}/store-credit"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "update_refund_status",
+      "path": "/api/v1/refunds/{refund_id}/status"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_refunds",
+      "path": "/api/v1/refunds"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_refund",
+      "path": "/api/v1/refunds/{refund_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_credit_note",
+      "path": "/api/v1/credit-notes/{credit_note_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_credit_notes",
+      "path": "/api/v1/credit-notes"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_eligible_return_lines",
+      "path": "/api/v1/returns/sales/{sale_id}/eligible"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_return",
+      "path": "/api/v1/returns"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_returns",
+      "path": "/api/v1/returns"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_return",
+      "path": "/api/v1/returns/{return_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "reject_return",
+      "path": "/api/v1/returns/{return_id}/reject"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "cancel_return",
+      "path": "/api/v1/returns/{return_id}/cancel"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "accept_return",
+      "path": "/api/v1/returns/{return_id}/accept"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "exchange_return",
+      "path": "/api/v1/returns/{return_id}/exchange"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_return_without_receipt",
+      "path": "/api/v1/returns/without-receipt"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "payment_webhook",
+      "path": "/api/v1/webhooks/payments/{connection_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_inventory",
+      "path": "/api/v1/inventory"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_movements",
+      "path": "/api/v1/inventory/movements"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_adjustment",
+      "path": "/api/v1/inventory/adjustments"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_transfers",
+      "path": "/api/v1/inventory/transfers"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_transfer",
+      "path": "/api/v1/inventory/transfers"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "dispatch_transfer",
+      "path": "/api/v1/inventory/transfers/{transfer_id}/dispatch"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "receive_transfer",
+      "path": "/api/v1/inventory/transfers/{transfer_id}/receive"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "cancel_transfer",
+      "path": "/api/v1/inventory/transfers/{transfer_id}/cancel"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_counts",
+      "path": "/api/v1/inventory/counts"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_stock_count",
+      "path": "/api/v1/inventory/counts"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "update_count_entries",
+      "path": "/api/v1/inventory/counts/{count_id}/entries"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "approve_stock_count",
+      "path": "/api/v1/inventory/counts/{count_id}/approve"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_location",
+      "path": "/api/v1/inventory/locations"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_locations",
+      "path": "/api/v1/inventory/locations"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "update_location",
+      "path": "/api/v1/inventory/locations/{location_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "transfer_location_stock",
+      "path": "/api/v1/inventory/locations/transfer"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_lot",
+      "path": "/api/v1/inventory/lots"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_lots",
+      "path": "/api/v1/inventory/lots"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "lot_trace",
+      "path": "/api/v1/inventory/lots/{lot_id}/trace"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "serial_trace",
+      "path": "/api/v1/inventory/serials/{serial_id}/trace"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "block_lot",
+      "path": "/api/v1/inventory/lots/{lot_id}/block"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_serial",
+      "path": "/api/v1/inventory/serials"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_serials",
+      "path": "/api/v1/inventory/serials"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "sell_serial",
+      "path": "/api/v1/inventory/serials/sell"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "configure_stock_rule",
+      "path": "/api/v1/inventory/rules"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_stock_rules",
+      "path": "/api/v1/inventory/rules"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "deactivate_stock_rule",
+      "path": "/api/v1/inventory/rules/{rule_id}/deactivate"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_alerts",
+      "path": "/api/v1/inventory/alerts"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "trigger_alert_recalculation",
+      "path": "/api/v1/inventory/alerts/recalculate"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "resolve_alert_endpoint",
+      "path": "/api/v1/inventory/alerts/{alert_id}/resolve"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_reservation_endpoint",
+      "path": "/api/v1/inventory/reservations"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "release_reservation_endpoint",
+      "path": "/api/v1/inventory/reservations/release"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_quarantine_items",
+      "path": "/api/v1/inventory/quarantine"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "classify_quarantine_item",
+      "path": "/api/v1/inventory/quarantine/{quarantine_id}/classify"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "run_stock_reconciliation",
+      "path": "/api/v1/inventory/reconcile"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "repair_stock_reconciliation",
+      "path": "/api/v1/inventory/reconcile/{reconciliation_id}/repair"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_picking_list",
+      "path": "/api/v1/inventory/picking-lists"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "verify_picking_item",
+      "path": "/api/v1/inventory/picking-lists/{picking_id}/verify-item"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "complete_picking_list",
+      "path": "/api/v1/inventory/picking-lists/{picking_id}/complete"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_valuation_setting",
+      "path": "/api/v1/inventory/valuation"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "set_valuation_setting",
+      "path": "/api/v1/inventory/valuation"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_suppliers",
+      "path": "/api/v1/suppliers"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_supplier",
+      "path": "/api/v1/suppliers"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_supplier",
+      "path": "/api/v1/suppliers/{supplier_id}"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "update_supplier",
+      "path": "/api/v1/suppliers/{supplier_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_supplier_performance",
+      "path": "/api/v1/suppliers/{supplier_id}/performance"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_purchase_requisition",
+      "path": "/api/v1/purchases/requisitions"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_purchase_requisitions",
+      "path": "/api/v1/purchases/requisitions"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "approve_purchase_requisition",
+      "path": "/api/v1/purchases/requisitions/{id}/approve"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "suggest_requisition_from_stock",
+      "path": "/api/v1/purchases/requisitions/suggest-from-stock"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_replenishment_suggestions",
+      "path": "/api/v1/purchases/replenishment-suggestions"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "supplier_price_history",
+      "path": "/api/v1/suppliers/{supplier_id}/price-history"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_purchase_order",
+      "path": "/api/v1/purchase-orders"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_purchase_orders",
+      "path": "/api/v1/purchase-orders"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_purchase_order",
+      "path": "/api/v1/purchase-orders/{order_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "approve_purchase_order",
+      "path": "/api/v1/purchase-orders/{order_id}/approve"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "update_purchase_order",
+      "path": "/api/v1/purchase-orders/{order_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_purchase_order_timeline",
+      "path": "/api/v1/purchase-orders/{order_id}/process-timeline"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "purchase_receiving_context",
+      "path": "/api/v1/purchase-orders/{order_id}/receiving-context"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_goods_receipt",
+      "path": "/api/v1/goods-receipts"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "add_landed_cost",
+      "path": "/api/v1/goods-receipts/{receipt_id}/landed-cost"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_purchase_return",
+      "path": "/api/v1/purchases/returns"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "process_three_way_match",
+      "path": "/api/v1/purchase-orders/{order_id}/three-way-match"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "resolve_three_way_match",
+      "path": "/api/v1/purchase-orders/{order_id}/three-way-match/resolve"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_delivery",
+      "path": "/api/v1/deliveries"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_deliveries",
+      "path": "/api/v1/deliveries"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_delivery",
+      "path": "/api/v1/deliveries/{delivery_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "dispatch_delivery",
+      "path": "/api/v1/deliveries/{delivery_id}/dispatch"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "record_tracking_event",
+      "path": "/api/v1/deliveries/{delivery_id}/tracking-events"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "record_proof_of_delivery",
+      "path": "/api/v1/deliveries/{delivery_id}/proof-of-delivery"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_proof_of_delivery",
+      "path": "/api/v1/deliveries/{delivery_id}/proof-of-delivery"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "record_delivery_incident",
+      "path": "/api/v1/deliveries/{delivery_id}/incidents"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "cancel_delivery",
+      "path": "/api/v1/deliveries/{delivery_id}/cancel"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "intercept_delivery",
+      "path": "/api/v1/deliveries/{delivery_id}/intercept"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "complete_delivery",
+      "path": "/api/v1/deliveries/{delivery_id}/deliver"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_sale_return_eligibility",
+      "path": "/api/v1/returns/sales/{sale_id}/eligible"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_returns",
+      "path": "/api/v1/returns"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_return",
+      "path": "/api/v1/returns/{return_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_return",
+      "path": "/api/v1/returns"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "accept_return",
+      "path": "/api/v1/returns/{return_id}/accept"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "reject_return",
+      "path": "/api/v1/returns/{return_id}/reject"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "cancel_return",
+      "path": "/api/v1/returns/{return_id}/cancel"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "exchange_return",
+      "path": "/api/v1/returns/{return_id}/exchange"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_return_without_receipt",
+      "path": "/api/v1/returns/without-receipt"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_mean",
+      "path": "/api/v1/statistics/mean"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_median",
+      "path": "/api/v1/statistics/median"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_compare",
+      "path": "/api/v1/statistics/compare"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_analyze_variable",
+      "path": "/api/v1/random-variables/analyze"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_descriptive_summary",
+      "path": "/api/v1/statistics/descriptive-summary"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_frequencies",
+      "path": "/api/v1/statistics/frequencies"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_distribution",
+      "path": "/api/v1/statistics/distribution"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_weighted_mean",
+      "path": "/api/v1/statistics/weighted-mean"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_outliers",
+      "path": "/api/v1/statistics/outliers"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_probability_events",
+      "path": "/api/v1/probability/events"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_probability_bayes",
+      "path": "/api/v1/probability/bayes"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_validate_temporal",
+      "path": "/api/v1/probability/validate-temporal"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_probability_analysis_save",
+      "path": "/api/v1/probability/analyses"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_probability_analyses",
+      "path": "/api/v1/probability/analyses"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_probability_analysis",
+      "path": "/api/v1/probability/analyses/{analysis_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "duplicate_probability_scenario",
+      "path": "/api/v1/probability/analyses/{analysis_id}/duplicate-scenario"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "compare_probability_scenarios",
+      "path": "/api/v1/probability/scenarios/compare"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_hypothesis_test",
+      "path": "/api/v1/probability/hypothesis-test"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_analytics_summary_compat",
+      "path": "/api/v1/analytics/summary"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_analytics_bayes_compat",
+      "path": "/api/v1/analytics/bayes"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_analytics_variables",
+      "path": "/api/v1/analytics/variables"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_dataset",
+      "path": "/api/v1/datasets"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_datasets",
+      "path": "/api/v1/datasets"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_dataset",
+      "path": "/api/v1/datasets/{dataset_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_dataset_version",
+      "path": "/api/v1/datasets/{dataset_id}/versions"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_dataset_versions",
+      "path": "/api/v1/datasets/{dataset_id}/versions"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_dataset_version",
+      "path": "/api/v1/datasets/{dataset_id}/versions/{version}"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_dataset_version",
+      "path": "/api/v1/datasets/{dataset_id}/versions/{version}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "expire_dataset_version",
+      "path": "/api/v1/datasets/{dataset_id}/versions/{version}/expire"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "rebuild_dataset",
+      "path": "/api/v1/datasets/{dataset_id}/rebuild"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_analysis",
+      "path": "/api/v1/analyses"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_analyses",
+      "path": "/api/v1/analyses"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_analysis",
+      "path": "/api/v1/analyses/{analysis_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "repeat_analysis",
+      "path": "/api/v1/analyses/{analysis_id}/repeat"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "cancel_analysis",
+      "path": "/api/v1/analyses/{analysis_id}/cancel"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_insights",
+      "path": "/api/v1/insights"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_insight_rules",
+      "path": "/api/v1/insights/rules"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_simulate_insight_rule",
+      "path": "/api/v1/insights/rules/simulate"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "evaluate_insights",
+      "path": "/api/v1/insights/evaluate"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_insight_detail",
+      "path": "/api/v1/insights/{insight_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_insight_evidence",
+      "path": "/api/v1/insights/{insight_id}/evidence"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_insight_status",
+      "path": "/api/v1/insights/{insight_id}/status"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "add_insight_feedback",
+      "path": "/api/v1/insights/{insight_id}/feedback"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "prepare_insight_action",
+      "path": "/api/v1/insights/{insight_id}/actions/{action_id}/prepare"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "bulk_insight_actions",
+      "path": "/api/v1/insights/bulk-actions"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "bulk_read_insights",
+      "path": "/api/v1/insights/bulk-read"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_ai_query",
+      "path": "/api/v1/ai/query"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_simulate_action",
+      "path": "/api/v1/ai/simulate-action"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_emergency_pause",
+      "path": "/api/v1/ai/emergency-pause"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_ai_resume",
+      "path": "/api/v1/ai/resume"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_reports",
+      "path": "/api/v1/reports"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_report_preview",
+      "path": "/api/v1/reports/preview"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "trigger_report_run",
+      "path": "/api/v1/report-runs"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_report_runs",
+      "path": "/api/v1/report-runs"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_report_run_status",
+      "path": "/api/v1/report-runs/{run_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "cancel_report_run",
+      "path": "/api/v1/report-runs/{run_id}/cancel"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "retry_report_run",
+      "path": "/api/v1/report-runs/{run_id}/retry"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "download_report_run",
+      "path": "/api/v1/report-runs/{run_id}/download"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "compare_reports",
+      "path": "/api/v1/reports/compare"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_report_schedule",
+      "path": "/api/v1/report-schedules"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "execute_report_schedule",
+      "path": "/api/v1/report-schedules/{schedule_id}/execute"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_report_schedules",
+      "path": "/api/v1/report-schedules"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_report_schedule",
+      "path": "/api/v1/report-schedules/{schedule_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_report_branding",
+      "path": "/api/v1/reports/branding"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_dashboard_summary",
+      "path": "/api/v1/dashboard/summary"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_sales_analytics",
+      "path": "/api/v1/analytics/sales"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_product_analytics",
+      "path": "/api/v1/analytics/products"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_customer_analytics",
+      "path": "/api/v1/analytics/customers"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_seller_analytics",
+      "path": "/api/v1/analytics/sellers"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_branch_analytics",
+      "path": "/api/v1/analytics/branches"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_advanced_statistics",
+      "path": "/api/v1/statistics/advanced"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_smoothed_bayes",
+      "path": "/api/v1/probability/smoothed-bayes"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "extract_operational_dataset",
+      "path": "/api/v1/datasets/extract-operational"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_variance",
+      "path": "/api/v1/statistics/variance"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_stdev",
+      "path": "/api/v1/statistics/stdev"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_numerical_stability",
+      "path": "/api/v1/statistics/numerical-stability"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_mathematical_expectation",
+      "path": "/api/v1/statistics/mathematical-expectation"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_theoretical_distribution",
+      "path": "/api/v1/statistics/theoretical-distribution"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_confidence_interval",
+      "path": "/api/v1/statistics/confidence-interval"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_preregister_hypothesis",
+      "path": "/api/v1/probability/preregister-hypothesis"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_groups_test",
+      "path": "/api/v1/statistics/groups-test"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_effect_size",
+      "path": "/api/v1/statistics/effect-size"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_multiple_comparisons",
+      "path": "/api/v1/statistics/multiple-comparisons"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_dataset_sample",
+      "path": "/api/v1/datasets/sample"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_ab_test",
+      "path": "/api/v1/experiments/ab-test"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_time_series",
+      "path": "/api/v1/analytics/time-series"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_demand_forecast",
+      "path": "/api/v1/analytics/demand-forecast"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_anomaly_detection",
+      "path": "/api/v1/analytics/anomaly-detection"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_model_registration",
+      "path": "/api/v1/analytics/models"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_models_list",
+      "path": "/api/v1/analytics/models"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_model_by_id",
+      "path": "/api/v1/analytics/models/{model_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "post_model_monitoring",
+      "path": "/api/v1/analytics/models/{model_id}/monitor"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_upload_intent",
+      "path": "/api/v1/attachments/upload-intents"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "upload_attachment_content",
+      "path": "/api/v1/attachments/{attachment_id}/content"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "complete_attachment_upload",
+      "path": "/api/v1/attachments/{attachment_id}/complete"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "download_attachment",
+      "path": "/api/v1/attachments/{attachment_id}/download"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "preview_attachment",
+      "path": "/api/v1/attachments/{attachment_id}/preview"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "inspect_import",
+      "path": "/api/v1/imports/inspect"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_import_job",
+      "path": "/api/v1/imports"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_import_jobs",
+      "path": "/api/v1/imports"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "commit_import_job",
+      "path": "/api/v1/imports/{import_id}/commit"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_job_status",
+      "path": "/api/v1/jobs/{job_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_operational_jobs",
+      "path": "/api/v1/operations/jobs"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "retry_operational_job",
+      "path": "/api/v1/operations/jobs/{job_id}/retry"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "cancel_job",
+      "path": "/api/v1/jobs/{job_id}/cancel"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_notifications",
+      "path": "/api/v1/notifications"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "mark_all_notifications_read",
+      "path": "/api/v1/notifications/read-all"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "mark_notification_read",
+      "path": "/api/v1/notifications/{notification_id}/read"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_integrations",
+      "path": "/api/v1/integrations"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_integration",
+      "path": "/api/v1/integrations"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "rotate_integration_credential",
+      "path": "/api/v1/integrations/{connection_id}/credential"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_integration_mode",
+      "path": "/api/v1/integrations/{connection_id}/mode"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "diagnose_integration",
+      "path": "/api/v1/integrations/{connection_id}/diagnose"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_notification_resource",
+      "path": "/api/v1/notifications/{notification_id}/resource"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_notification_preferences",
+      "path": "/api/v1/notifications/preferences"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "update_notification_preference",
+      "path": "/api/v1/notifications/preferences"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "stream_events",
+      "path": "/api/v1/events/stream"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "unified_search",
+      "path": "/api/v1/search"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_comment",
+      "path": "/api/v1/collaboration/comments"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_comments",
+      "path": "/api/v1/collaboration/comments"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "update_comment",
+      "path": "/api/v1/collaboration/comments/{comment_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "collaboration_members",
+      "path": "/api/v1/collaboration/members"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_task",
+      "path": "/api/v1/collaboration/tasks"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_tasks",
+      "path": "/api/v1/collaboration/tasks"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_task",
+      "path": "/api/v1/collaboration/tasks/{task_id}"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_task",
+      "path": "/api/v1/collaboration/tasks/{task_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_approval",
+      "path": "/api/v1/collaboration/approvals"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_approvals",
+      "path": "/api/v1/collaboration/approvals"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "decide_approval",
+      "path": "/api/v1/collaboration/approvals/{approval_id}/decide"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_saved_view",
+      "path": "/api/v1/collaboration/saved-views"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_saved_views",
+      "path": "/api/v1/collaboration/saved-views"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "update_saved_view",
+      "path": "/api/v1/collaboration/saved-views/{view_id}"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "delete_saved_view",
+      "path": "/api/v1/collaboration/saved-views/{view_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_contextual_help",
+      "path": "/api/v1/help/contextual"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_operation_settings",
+      "path": "/api/v1/operations/settings"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "set_operation_setting",
+      "path": "/api/v1/operations/settings"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_feature_flags",
+      "path": "/api/v1/operations/feature-flags"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "toggle_feature_flag",
+      "path": "/api/v1/operations/feature-flags/toggle"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "set_maintenance",
+      "path": "/api/v1/operations/maintenance/set"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "set_degraded_mode",
+      "path": "/api/v1/operations/degraded-mode/toggle"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_system_operational_status",
+      "path": "/api/v1/operations/system-status"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_operational_metrics",
+      "path": "/api/v1/operations/metrics"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "check_business_invariants",
+      "path": "/api/v1/operations/business-invariants"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "trigger_backup",
+      "path": "/api/v1/operations/backup/trigger"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_backup_status",
+      "path": "/api/v1/operations/backup/status"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "verify_restore_readiness",
+      "path": "/api/v1/operations/restore/verify"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_draft",
+      "path": "/api/v1/sales/draft"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_draft",
+      "path": "/api/v1/sales"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_sales",
+      "path": "/api/v1/sales"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "export_sales",
+      "path": "/api/v1/sales/export"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "lookup_sales",
+      "path": "/api/v1/sales/lookup"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_draft",
+      "path": "/api/v1/sales/{sale_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "confirm_sale",
+      "path": "/api/v1/sales/{sale_id}/confirm"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "annul_sale",
+      "path": "/api/v1/sales/{sale_id}/annul"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "annul_sale",
+      "path": "/api/v1/sales/{sale_id}/cancel"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "clone_sale_as_draft",
+      "path": "/api/v1/sales/{sale_id}/clone"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_sales_reps",
+      "path": "/api/v1/sales/reps/list"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_sales_rep",
+      "path": "/api/v1/sales/reps"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_sales_rep",
+      "path": "/api/v1/sales/reps/{rep_id}"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_sales_rep",
+      "path": "/api/v1/sales/reps/{rep_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_sales_target",
+      "path": "/api/v1/sales/targets"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_sales_targets",
+      "path": "/api/v1/sales/targets"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "preview_sales_rep_portfolio",
+      "path": "/api/v1/sales/reps/{rep_id}/portfolio"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "reassign_sales_rep_portfolio",
+      "path": "/api/v1/sales/reps/{rep_id}/reassign-portfolio"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "calculate_commissions",
+      "path": "/api/v1/sales/commissions/calculate"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "approve_commission_settlement",
+      "path": "/api/v1/sales/commissions/{settlement_id}/approve"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "pay_commission_settlement",
+      "path": "/api/v1/sales/commissions/{settlement_id}/pay"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_sale_by_idempotency_key",
+      "path": "/api/v1/sales/by-idempotency-key/{key}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "prevalidate_sale",
+      "path": "/api/v1/sales/{sale_id}/prevalidate"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_sale_document",
+      "path": "/api/v1/sales/{sale_id}/document"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "correct_sale",
+      "path": "/api/v1/sales/{sale_id}/correct"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_sale",
+      "path": "/api/v1/sales/{sale_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_audit_logs",
+      "path": "/api/v1/audit-logs"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_audit_logs",
+      "path": "/api/v1/audit/logs"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "verify_logs_integrity",
+      "path": "/api/v1/audit-logs/verify"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "verify_logs_integrity",
+      "path": "/api/v1/audit/logs/verify"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_timeline",
+      "path": "/api/v1/audit-logs/timeline/{entity_type}/{entity_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_timeline",
+      "path": "/api/v1/audit/timeline/{entity_type}/{entity_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "purge_retention",
+      "path": "/api/v1/audit-logs/retention/purge"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "purge_retention",
+      "path": "/api/v1/audit/retention/purge"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_audit_log_detail",
+      "path": "/api/v1/audit-logs/{log_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_audit_log_detail",
+      "path": "/api/v1/audit/logs/{log_id}"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "deny_audit_mutation",
+      "path": "/api/v1/audit-logs/{log_id}"
+    },
+    {
+      "methods": [
+        "PUT"
+      ],
+      "name": "deny_audit_mutation",
+      "path": "/api/v1/audit/logs/{log_id}"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "deny_audit_mutation",
+      "path": "/api/v1/audit-logs/{log_id}"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "deny_audit_mutation",
+      "path": "/api/v1/audit/logs/{log_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "record_audit_log",
+      "path": "/api/v1/audit-logs"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "record_audit_log",
+      "path": "/api/v1/audit/logs"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "export_audit_logs",
+      "path": "/api/v1/audit-logs/export"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "export_audit_logs",
+      "path": "/api/v1/audit/logs/export"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "create_api_key",
+      "path": "/api/v1/security/api-keys"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_api_keys",
+      "path": "/api/v1/security/api-keys"
+    },
+    {
+      "methods": [
+        "DELETE"
+      ],
+      "name": "revoke_api_key",
+      "path": "/api/v1/security/api-keys/{key_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "validate_url_for_ssrf",
+      "path": "/api/v1/security/validate-url"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "sanitize_input_text",
+      "path": "/api/v1/security/sanitize-input"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_privacy_data_inventory",
+      "path": "/api/v1/privacy/data-inventory"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "mask_personal_data",
+      "path": "/api/v1/privacy/mask-data"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "export_customer_personal_data",
+      "path": "/api/v1/privacy/export-personal-data"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "anonymize_customer",
+      "path": "/api/v1/privacy/anonymize-customer"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "manage_legal_hold",
+      "path": "/api/v1/privacy/legal-hold"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "verify_api_key_endpoint",
+      "path": "/api/v1/security/api-keys/verify"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "outgoing_fetch_safe",
+      "path": "/api/v1/security/outgoing-fetch"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_threat_model",
+      "path": "/api/v1/security/threat-model"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "validate_file_upload",
+      "path": "/api/v1/security/validate-upload"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "check_commercial_fraud",
+      "path": "/api/v1/security/fraud/check-transaction"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_vulnerabilities_status",
+      "path": "/api/v1/security/vulnerabilities/status"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "verify_vulnerability_release_gate",
+      "path": "/api/v1/security/vulnerabilities/verify-release"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "quarantine_compromised_user",
+      "path": "/api/v1/security/incident/quarantine-user"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "get_supply_chain_security_status",
+      "path": "/api/v1/security/supply-chain/status"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_all_crm_opportunities",
+      "path": "/api/v1/crm/opportunities"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_crm_opportunity",
+      "path": "/api/v1/crm/opportunities/{opportunity_id}"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "convert_opportunity_to_quote",
+      "path": "/api/v1/crm/opportunities/{opportunity_id}/convert-to-quote"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "list_crm_activities",
+      "path": "/api/v1/crm/activities"
+    },
+    {
+      "methods": [
+        "PATCH"
+      ],
+      "name": "update_crm_activity",
+      "path": "/api/v1/crm/activities/{activity_id}"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "portal_get_my_profile",
+      "path": "/api/v1/customer-portal/me"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "portal_get_my_invoices",
+      "path": "/api/v1/customer-portal/invoices"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "portal_get_my_orders",
+      "path": "/api/v1/customer-portal/orders"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "portal_get_my_statement",
+      "path": "/api/v1/customer-portal/statement"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "name": "root",
+      "path": "/"
+    }
+  ],
+  "schemas": {
+    "ABExperimentRequest": "ae7609d92a7537c5f83615a4d42dad767cca7bb2d5727b51fe612ed8aae70a29",
+    "AcceptQuotationRequest": "0f64917651744b701a3481168d193c6cc9413bf2bbca928bd73d1e3ad0ca19d8",
+    "AdjustmentRequest": "68d284221d71b5c0d5aae6639312d4179aba26d27bdbdf25afef75bd83f744b7",
+    "AdvancedStatisticsRequest": "81dada107b6e639d466661b0fcc625a57991114a3f5ce3f92dcfdae3749463e9",
+    "AiQueryRequest": "07d51c342fb037b513876f28d9513ebc65396949312cd9f5c0f68af478d33e03",
+    "AiSimulationRequest": "c54aede2b087e84a730231a0ca78c3bfefe12271f4f5e72edf14829b7f108e4f",
+    "AnalysisCreateRequest": "bedfa4d54658f2d530712085ce585fd7e9b041211839f0507440933dd8fc431a",
+    "AnalysisRepeatRequest": "672d81eb05d1974cf006f98568454ce480d76c32b982b0b15af3bf9435a6d0ed",
+    "AnnulSaleRequest": "fca2ac6f8cfe4cae35ca21ff5f348219d14d8b63e206937958762df980c7ff61",
+    "AnomalyDetectionRequest": "87db27280752c18c2cc3d8877de1eca4adf6939faf0a8f31c3fa0b7eea0dd1e4",
+    "AnonymizeCustomerRequest": "5c9b18741d0a07dc9eb5c140adaac6ddb537a8022cf9f26cba93d7a1de13e269",
+    "ApiKeyCreateRequest": "6f2234c88ee2e0a4d9f897cacdbce93e45fa4a750c00e00e38bbd34d5b11d3f9",
+    "ApprovalCreateRequest": "be8b32256fb5d11398ecc84c162b3f2807bcb8cf776502719683b89e2818b253",
+    "ApprovalDecideRequest": "f9c81473b91157d0822a4e5ee8ab802a786b3cc4089bd05543aeb756fe6fe738",
+    "ApproveDifferenceRequest": "baa56cf1f56f2c36ecbc33eef3b60a0c4ae50fa97740b7d17d358796e6af81ed",
+    "ArchiveRestoreModel": "be27b01819b6931c08e335165ddcde7762f93afd3154fcfbf6ce1391f9f1b1ab",
+    "AttachmentCreateModel": "decc6cbb0002c86bf7841bbe73b74c746443b984d187daa113e244c4b8e32ed0",
+    "AuditLogCreateRequest": "f3e570851794d0bb92a97fdae6b27dbe2e98ebe6f697df473d401f0ab8b351e2",
+    "AuditRetentionPurgeRequest": "0f6eba98ec48d0250188287e32f8453b2130d34f3aa978247db5a0aa281ec8b4",
+    "BarcodeCreateModel": "ff834ce1b80285a996a79a6acdbabb0fa28ccf15aad9dc00631d371c0ecbfcc2",
+    "BayesCalculationRequest": "70f3f10f894e58f4a4e55983bb9db5afac502bb8c27d9b925c994dc49aa9c3a1",
+    "BlindCountRequest": "c43d58a1b534e5437e294eb0ec31fb079fe7ccc3b689da09b4e0c27e0f197b5a",
+    "BranchCreateModel": "2e0513b4ec50b75452d20e5faa7731cb10acc01fc981a4f331860bf7a27bd54c",
+    "BranchUpdateModel": "e1ef612c7fd585069bdee49dc8194d282b1032832867425736902728e286fb84",
+    "BrandingPreviewModel": "829b741a8a075a79c7105d286d92cb748d9496cd575f8be1eb2ec74a07935748",
+    "BulkUpdateOperation": "ecd62ea079caa30ea484212bff91cf8636f4e7a13a1bca7a2ea799b060f1261c",
+    "BulkUpdateRequest": "df78204e8131c0d6fb46a96ec51b070765566e5437819756b0949715ed955865",
+    "CancelItemRequest": "084c8315b2a38058b9cbc754e9d5e1b20a96e8af9e11708290b2824c86c8097e",
+    "CashSessionCloseRequest": "0e6bffe18288536e48703da17c74e93a14489201a3552692c2d5b9e184fbb74d",
+    "CashSessionMovementRequest": "180150b954cd4ba58274f6d0f127f0b5e5d0a074fffb8c0047fb447616e270b9",
+    "CashSessionOpenRequest": "51affeb9b41eb8979d39320ce9d85d75c4f23c3b573727ee4b9a4f04bc9d2d07",
+    "CategoryCreateModel": "48f3e04352d3ffaec7da6d1336162e1a0344765a150ade1ef6976f21f45863f4",
+    "CategoryRestoreRequest": "016c76af365112301895dd35031ad6b94f17c27d690d357210334cb1fbd44464",
+    "CategoryUpdateModel": "ba48af60f04231749ed72042c300e8570c69bd2ff0d3f66260e660c6acd5124d",
+    "CollectionActivityRequest": "15d7b98f4f2316ec0c5b5baee8fed3abf960a6f92281bf46b7ae6034ad8a5e55",
+    "CommentCreateRequest": "0dda6b2b4fa6939f5f1061eb3d0d029915226a9ea47ffe47417adbb2eb2bf110",
+    "CommentUpdateRequest": "beb80924afee20682e8b65f32d22ef82aa4efff941328a789096bfac7c4a602e",
+    "CommissionCalculateRequest": "c83020f71b84d3036851d2a6006da82443d4a86444ac236e3edfcc560de7e318",
+    "CompanyUpdateModel": "b65e3038c1f732f9f949c8eb6d77593bbaf220080c49cdd2834898f26de1d1e5",
+    "CompareRequest": "63e10305fc94db205862836b841e2f333a72569a356344a61a954a1d4302b8c6",
+    "CompleteAttachmentRequest": "39079022b06794c3d3b062ee979e90315cc28acece0e3af4b40ab9bc7a8db7fc",
+    "ConfidenceIntervalRequest": "ced40776d9b3e02f48d72404bb6033e557e05401535cf1a6ce72a9f25b56c19a",
+    "ConfirmOrderRequest": "86ef447262d7702d1ff7e71a7d08ad8e6a2131374a372b7e67e4994d9a6709e0",
+    "ConfirmSaleRequest": "f3a86e05cdc5f03e1bd58dff63b6647b6764575d55a3deb7a93da293296a7ee7",
+    "ContextSwitchModel": "0e98fb00f7ff61b80f740dce9d4f8652cb34464a6094af969648d066feabbfb1",
+    "CorrectSaleRequest": "07ff55431ac04218f8de68b234d18e47f8b84407b50a4791551685d842419c9a",
+    "CountEntriesRequest": "19ec6bb61936318c539f3af771ade0fd057629ded6ef33f4d6998f11e051a362",
+    "CountEntry": "8f0913625b2e401654ce7ce53f5c7d44fb3ce55dd7cf7f77e4f4d6466e70fc8c",
+    "CouponCreateModel": "cbbd66632ab6e946e64fd8c718fe98476c965a02e9abf9605b014e3fe7361be9",
+    "CouponValidateRequest": "b33afd97a0f7923115d40156383827823ca31986c9df9e6370e6f819462a08ba",
+    "CreateSaleDraftRequest": "29eedace5020dd551c1408370628d901e49fa1e4330c2626f2e153cf4c54397e",
+    "CreditCheckRequest": "3893d1c31cf1796991824d1ea17868b7ca0488fd40fd01b770aaeaa51cf0a30b",
+    "CurrencyConvertRequest": "24c37a05375314ab38146117636395ce0beebcff5eaede482692da8002bf725c",
+    "CustomerActivityCreateModel": "2223e94e3d8a7a4c835974ac68159c1da508ff528b1d4bddd778318394ead831",
+    "CustomerActivityUpdateModel": "11ebbd289cb4555257a2a8d6dcccd86935165c6b453805ffaaf9206d7eb61569",
+    "CustomerAddressCreateModel": "3746f680679fb9670fca3dd07088e77896599619015ca89f76854e45be219b61",
+    "CustomerAssignmentModel": "6131b25043ad4928bab5d2066455c6392ec186ec7dd630bc53aaf7ae1493b0cf",
+    "CustomerCommercialTermsModel": "3f811fddf61d99df1d6c091727882ca7841032a29583254f7032d807208e9043",
+    "CustomerContactCreateModel": "2693d96c172213c8fd9ac30956915842d882298ec619bc8360fe8abe2dd2a8dc",
+    "CustomerCreateModel": "efef684cb0b9303f3573cf5d0f595327c543ab860c28395c71a1841fdc2d408b",
+    "CustomerExportModel": "f4aca5bbc46065c2d380798f7ee7fee238eb9e2dda89a29afa08e855665d895b",
+    "CustomerImportModel": "731bf57f36c50befe9b28ebb1660ce62028ba02bcecc366fe9e7d8938c95e7fd",
+    "CustomerMergeModel": "6c12724cbe65e3481fb7f63f5b7cb0abb630917ef50a3e1ec2ce22165781d6e9",
+    "CustomerNoteCreateModel": "b698f1ac13cb1d4477993f21ab5943a03878df44a251bb652a843f3e8281ab50",
+    "CustomerOpportunityCreateModel": "7015c31627e30ea8c98d20ef021c8d5380937973aae536048ee042d3f8ea1bb3",
+    "CustomerOpportunityUpdateModel": "3d62022aad1d5bce04676b8a1b6d7b6cce3bf7345eadba413859c230aca75198",
+    "CustomerSegmentCreateModel": "7742b896fc1bc4151f6013e1a6f678fa971f3a2f57e70b2d7b5227106a688235",
+    "CustomerStatusUpdateModel": "2ff3681f7a793099294e2f366a42e5ae2151abce1c478507e2cfac04aed6d424",
+    "CustomerUpdateModel": "7991554be8f6bea2bb521cc52d6aca089b3f585540acd310d8459cc958d146ff",
+    "DatasetCreateRequest": "275cc15d0fa44444fc3e0380ccc66631b8f4f68812fcc0e3a434d869fde513ed",
+    "DatasetExpireRequest": "b4734850bd746b3e338a15fad52617b434948a4b933dd1239e83ff90961905a1",
+    "DatasetVersionCreateRequest": "ee5806bedfbd0479f41a4ad264854fe67bd511e12d60a39e590ffedd4feb4a7a",
+    "DeliveryCompleteRequest": "e6a5985872b51c129ea0987f66a5a5daf4990cb692f4b0cc89c30ed86e1ecc2f",
+    "DeliveryCreateRequest": "a2bddb83d0a89add68a9b6247f8b3e1dbe1e9eb8412fc58a255edb6e5d73a193",
+    "DeliveryIncidentCreateRequest": "8728dce2c612f637657f591a45623e78983b0438258cc90f51b4d5ab38b2380b",
+    "DeliveryInterceptRequest": "7781695c64e524018be9d10fb87a5dc6e522ce4e8b9a82871bdae925ecc13222",
+    "DemandForecastCensoredRequest": "42cb5b4a81c16c032336c833e003d6049df4c8942456f6d5c72299622cfc5c28",
+    "DescriptiveSummaryRequest": "ae1cee2009e106e1a034cf8a51abbc7c610baf03249b248d963c7e5718bcf7e6",
+    "DistributionRequest": "0968208dda5fa16b6802abae4c2d93b17e50933e1a57440c2df87e2e42677dff",
+    "DocumentLine": "e0fed59b02823a8e958f363983c4f0df2efcef38deeb46c65fb6faceeb01a40a",
+    "DuplicateCheckRequest": "3430035821213cf2cbba8c771a2eebc12c33ad528a8502912a9366357f1c976a",
+    "DuplicateScenarioRequest": "45d54b1da8b2c0dcd45d38a4125ec8d2bd50b3ee882439633b94740a0a0800e0",
+    "EffectSizeRequest": "29c8d1873c170463ba65b1e3527930010180f4ed1037ee342872cf8fe5b235ab",
+    "EmailChangeRequest": "4e7d1809cc9cba0cec2df38336f409e39e351aff5079e9ee10b317c490067fd7",
+    "EmergencyPauseRequest": "04f03d6bd41d778c932ba364c9c8f49676b34a7dbddbe0a61b102c762c2c4294",
+    "EventDefinitionModel": "0ed5c8e4c8cd15ea652b3147cd0d2133c9ec6a31dedab710188efc3c8db88771",
+    "ExchangeCreateRequest": "a72011bdf0b30922d5664938d92a716c5f457d3f8111a473e776a3cd31b6689c",
+    "FeatureToggleRequest": "6abd3109510289e55eff68438d3d26917f803a03ec4536c859fd85aee5c2331c",
+    "FileUploadValidationRequest": "f1ec82e87066c312bd391e770ead70370e85ca2082506f05ef48043411c56207",
+    "FiscalValidationRequest": "aef978015af1f391568cbd138e2ca9adca761bec3efce757b6584d1442792c49",
+    "FraudCheckRequest": "11fa2ad9fcac301e58027ad1cdcaef8c2462bbf69dd915f563eac5f82698cfc0",
+    "FrequenciesRequest": "73082b0db296a374a9a0ff8ec35c03816aba5441090f86eb99e8cb8c66c91b30",
+    "FulfilledItem": "070f74c3cebb6ec3ea88c3e64661202f4ec7e260e04483bb689eaab5386f7fd0",
+    "GoodsReceiptCreateRequest": "8a3c1259f34e682d082b8ae598640150d13b90643f039baadc8a9daac66ddf2d",
+    "GroupsTestRequest": "1f53401784b07bd8d9c97af11add6e6ddb3e3ab787d32a3b6a6125b13da5eb19",
+    "HTTPValidationError": "7373c21f1389312367e27e440140ba11d587693c56d8aa27249b36d3f58c10c6",
+    "HealthResponse": "0e665db1bef58c04a0cd3266b6e3291fad882e01e6872e7f46e568b70af8a578",
+    "HypothesisTestRequest": "82618379c1e9b02a11503cfd70d369ce7aa6c39785d35715e2785c07770a6aec",
+    "ImportBatchRequest": "7694fd3618f81926424db4b69e195943950e120f47b358ccac57b0bd74d6a1a2",
+    "ImportItemModel": "910c4fa0b156046f485e777ed1201e7d2776df4d3d0311422facc88d7bc6be73",
+    "ImportJobCreateRequest": "c18b84a90f2dbbbe83f62642c0425f8696ea8a0c85d1c7667d91f690cb6f1830",
+    "InsightBulkActionRequest": "0d66b33c546d7345e5ead73c9c6a158fbacec0ad76be655f5405aa0e59a32be7",
+    "InsightEvaluationRequest": "817bf9e3d8ebc2b7754348d58ecae093ce0adaa5a5c3044710be0b37c2cbd12d",
+    "InsightFeedbackRequest": "48f5aa6bca8996b8f86ef7b00cdc962b495b85f20555ff2a6388621cbce41928",
+    "InsightRuleSimulateRequest": "cdaf2aa35270c76a1616f12099b2898d340eeebfda9c144c7a4502e88d1f8ad2",
+    "InsightStatusUpdateRequest": "70e026894e15fecd8f19d37f38bbbc497b4f79ae16a94391d88a0ce46e12004f",
+    "IntegrationCredentialRequest": "002e33eee377ca67f069b409aa062897854a2792231ca08c11489e656ee4cc02",
+    "IntegrationModeRequest": "2c7c1bdcbe142a586c66eb4b5dea8d9beafb6786865b19dc8960bda1745fa809",
+    "InvitationRequest": "fd69776fabdbe1633bdc8f60339786eb14e75869121d2832d3c0cb4f073e5cd4",
+    "InvoiceMatchLine": "11ab75e8e0b8e14ce7d5d61f15227983edbf49655b314dcc360bf6c5e742563f",
+    "KitItemCreateModel": "d51f3aac6ca0ec2b5444f739591b3b90b9aee03aae08784302e51912cd011f4b",
+    "LandedChargeItem": "295a75a940c58a010a20be16c99393f1b221b78ff0982503083f01480418883d",
+    "LandedCostRequest": "9187fd50be9cc548147a62a168d6fd91d551c730ffa1819f61275129e077c189",
+    "LegalHoldRequest": "cb11106e5b166b0b3a23738b9105f3fba90e6d643c93277356701619191761d1",
+    "LineItemRequest": "138078f2dd09eff50a0828d36b382ddba28c3cc9844e0d587d8d4cdbd5a818de",
+    "LocationCreateRequest": "98b919bbecda13fe6c5230c9640969704a4f2a35eaf27a240f525c29b392ab4e",
+    "LocationTransferRequest": "21ad38fbbcf0e78bc0a8c2c998345a1d484f4c7faaa9afa4149b01fc6ec3dd16",
+    "LocationUpdateRequest": "697030129545e0e715ed436c85aef49d0556f22f24e7f0cc45c71863f306beba",
+    "LoginRequest": "1bc29672e67b957ad2e0d1304a792c838742f932d6966c2ce2391c8f10d0192e",
+    "LoginResponse": "2b054a33a3fc15eae524d526ecd240718fd5c21948dab1b6c1ae6e3defa29d01",
+    "LotCreateRequest": "3d00bb9c37ce3e9125069f209dde0eb87472f7a4aef744e694aae6d3715498b3",
+    "LoyaltyAccrualModel": "7e09c962df7b71066850d39d87f97afcf54fce0fe16792996acada28b02dac19",
+    "LoyaltyReversalModel": "8ca80eadf8d9b62c213a623117d2f844815080953999014c6dbac7b4d6e406fc",
+    "MaskDataRequest": "24d3be8c0f0105a2d6545fc4df3bdbb782db32bb8ad076a6a939d69666663c56",
+    "MathExpectationRequest": "246c627dbb284606435cddd4cccf4451ddeb2d62240caab3d9266316c464eb1f",
+    "MeanRequest": "447bcffbaa09e1b1bc0aa6bcff5f687b360bbdf66cf0d72abac46c7ce1e5e2f6",
+    "MedianRequest": "a36b3da4c2906f27302a3c2f1d6154254c98e19be63001798e6fcd09cffd7e9c",
+    "MembershipUpdateModel": "673583ae123a6ece27593e3791aa7d2fa71b71fcb2ea37b4c641a0ce67b71688",
+    "MfaVerifyRequest": "b1e0689db47e0a1d82059f120538d91df8ff2b013d3f990f9f8e4844d4eb23af",
+    "ModelMonitorRequest": "12b4eaa3b6e1c30f22ede42a1ecec397c05c3d20a5e0cc8f4a46ee553828d383",
+    "ModelRegisterRequest": "ff1ab795eee247562bfc7235ff4181efadd1ddf03e47fcff699e984e7510b490",
+    "MultipleComparisonsRequest": "55ddc87a5318131f389d25acd7cb86e569c1b359cea4d172ecf40b6460d50b8b",
+    "NotificationPreferenceRequest": "9828b2a03406977ba819cf9f8e71311b5aaac891c638810ad1973141dd655ef4",
+    "NotificationReadRequest": "1518471a0d47766143763b824df78ce8fc2ddcf3e7bd30b2bc88df2263b99c59",
+    "NumericalStabilityRequest": "7c6ef1a7c853ee17c3c52d36d8c3026e0e74815618ab17326c90c24c909353ea",
+    "OnboardingSetupModel": "6dd4989808a1d654c50cad6169325a69c95b42ed0ef67647001e16cddf7b3ea9",
+    "OperationalDatasetExtractRequest": "e5c5c89ba58f3d907d64a3aa406380a9b606b12f41b4ca8dc90df97ddd6751c5",
+    "OperationalModeRequest": "b9eda41dce42f303aa8c6748cb3428069db5a3596b682de94ded5a3f723e363d",
+    "OrderCancelRequest": "ea6dad84df366a927bdfa5c0cc8a0a78e16e587e80a17ed4f91d583419332b2a",
+    "OrderCreateModel": "b157f37758eb880c6a0566bbf12b16ce74860ce927f820fb636609db4b071625",
+    "OrderFulfillPartialModel": "cdf829ddcf3231fd36ff9f637f04a094dc72772c5d1432d7ceceb7984473c081",
+    "OrderShortageResolution": "564aedcf7c18ad129715d82421b56379669fa665e685f9436dcfe027b2d9f8ef",
+    "OutgoingFetchRequest": "9407405a3ee4fea6596b6e8514124cffdda60359e94fd4670dac071484a93e68",
+    "OutliersAnalysisRequest": "2757b89fede7b5e6be39207e316e20a0278b465c7ae146b9e51309b050d8cf1f",
+    "PasswordResetConfirmModel": "99acd493b07c6e4749a791b2d53163c7663607b5be1fb2e5e8d3949ff2612b84",
+    "PasswordResetRequestModel": "62cbdbfbe6aa5b427ecd295fab3016cbf1849709e0d391d20f9d1858c2afd65b",
+    "PaymentAllocationRequest": "6b0f78fa1245bd42d9600160375a8d1ef37dae51bcabf0acc3b789a01413c7a1",
+    "PaymentCreateRequest": "232ae63f41c895b48315524dde8f011a73cb034f498ec3a519c767ad01d4862f",
+    "PaymentDisputeRequest": "e06d7a79ec73caf3e37e19762c0d1d5f087adce7dd763596e5b58afe501c08c8",
+    "PaymentIntentConfirmRequest": "018f7fced4e49256800f6b244558f72565ec055e5a8e6f187c11d6df2b32ccec",
+    "PaymentIntentCreateRequest": "c04a5254039ca9bac0bd97f0729122662da4cfca0144cf784083c631fd3acd24",
+    "PaymentIntentSyncRequest": "071e606cf257e76c14a93ac92b36697874e22964bed3ed7779b2cd7eb105ea68",
+    "PaymentMethodCreateRequest": "d8d29acce8217587ea8a89c5b1627aca731da71f97b3c8a4ca63295b131732c2",
+    "PaymentMethodUpdateRequest": "d1678cb496f046ba63590c233631fbde0be39430680392c07913c1213354fa56",
+    "PaymentReversalRequest": "f57684b331442afc3c68518bfa1993a4e1015ac84aa8c6e1017910d65f9f12bd",
+    "PeriodCloseModel": "a1046d38362bf81ba046f4ae1d632b40b11469a1c623f4b464960729b19e5ee8",
+    "PeriodReopenModel": "2426ee0e6e03e8d841dc5fea469bccf9ec1c8a8d736721ade6fcdf57912125f6",
+    "PhysicalCountRequest": "0dc3d62930448701278e5097143f61665cd75ae95a83be6f32e65d059f954514",
+    "PickingCreateRequest": "10080fd86d6136285792d2703060b3b434807a017f725312a4933fe9da80b831",
+    "PickingScanRequest": "3d78cfd105599e2156f65371e1e6da9d0d411599e0a93e7e90686c8be967c4b0",
+    "PickingVerifyRequest": "857ed8ea3e9046069795954ed4579f0b545b995478ff507dee4c9a983eaa7366",
+    "PreferenceResetModel": "ada82c3c367c339cba4432b30e3ae9e3a5e0bd72fc698334a35ef876f18ad282",
+    "PreregisterHypothesisRequest": "5529adbdcba0c3d569820c9a096a742a389feadf995833982f9a9e50be17b591",
+    "PriceListCreateModel": "4483c0c3085f79b3bb27e99e95bbb242b3d2e4ace92be35e33957cbeef6cc90c",
+    "PriceListItemCreateModel": "b2fec4b4d891473011999cb488df8920e3e75beda8bb943d64e2d209abf9152f",
+    "PriceListItemUpdateModel": "90adcfd366c9283bcb6ab87bb692cf22373f2ce345060a1c0f18e2a34d8dbdc4",
+    "PriceListUpdateModel": "976a60c4abbe73d043cd48bcf308d17a5307623f04cd2365324a5fb194ad5ad4",
+    "PricePreviewRequest": "c36d330b5311d2169d4c43ed20d72b00cb2126af8545b5d9d8b6b99cf391df46",
+    "ProbabilityAnalysisSaveRequest": "1fbbfd7a884328b27929519ec3b66f0856474aecbfc4309cc2561ec2de065bfe",
+    "ProbabilityEventsRequest": "649fab8a5c26cc4858fc2c0a4c2458a6af6afd232cd547bd30e0d57cd843e4e6",
+    "ProductCommercialProfileUpdate": "2a3d7482fb20bcb377038244d403fa608e3e480a0a8ebb76a3eaa38f8666c4fa",
+    "ProductCreateModel": "f49b9ef36132a18f93df5983f7eda57dfd16f1ea19e27846d21699b1fa68021a",
+    "ProductDuplicateModel": "c03e69751cbb6a291d76fbae80ebfa832baa7b0c8a76578ff767ddc07a8d479a",
+    "ProductUpdateModel": "33a8421c5d20b05d4ad3c0078521be627065b85e8124588e38be22e4d3f53f48",
+    "ProfileUpdateRequest": "87fb759dad2154132423167555eff08fd8854ba10c15a65a679abcc5649f4b7e",
+    "PromotionCreateModel": "b0962e69af25174fce97cbba20d2ff7af3d496578362efc49bddc66df064d68f",
+    "PromotionUpdateModel": "329c915a6640ffc734b7f0232f9cd3a2d35e2b564386b3ad32a7250292b10487",
+    "ProofOfDeliveryRequest": "b0ceb40b5c1d707190cc67a87bbdef33365f7d3a2401cc7b4394eac99f7238c6",
+    "ProofOfTransferRequest": "e751f3ed1ca2712b63e028b5664460f9f48ca9548eb527ff6655a4edd7227635",
+    "ProofOfTransferVerifyRequest": "5c42dd3b950dc36d9cd2cd73594e6d043eacd1c24ab709d54961288361fbf99c",
+    "PublicQuotationAcceptance": "750b31f9dabf63b8d1bba1897ba4f9acc9380042ab85a8ba85156197430acaa6",
+    "PurchaseOrderCreateRequest": "f48678f58ad8c9a6ef75a1d4eaa533d2c5ab004a9380fccbc65216c1636a6237",
+    "PurchaseOrderUpdateRequest": "466f4efc4f76eda1e44405eb511bc020f47fb2024dc4dd944b5c35084072215f",
+    "PurchaseRequisitionCreateRequest": "0bed3915408bb99a22e2f50416d6933c279b4c9101abcf155e814a84eaa7234d",
+    "PurchaseReturnCreateRequest": "a24d300c359e9a5c83e70f486f30416cbf72ba8bd5e246fda28a847788d72dd5",
+    "PurchaseReturnItem": "fcdc631e208ed6521e8c593e52d0c9cae339a424ef179747ddc44dfa7e9bc1a9",
+    "PurchaseStockLine": "13e93a38cc4b208181da4745fe642bfe049bf5d5e4457a1ab52ca37a2e463fc0",
+    "QuarantineClassifyRequest": "b405f85f1a94837c12e9c9301e8032a738e13c801bf960fb6f0aad4873a3cb16",
+    "QuotaCheckModel": "21b3c72019a87131577dc4be882bbd4b7999bee51f66f8eab988460040f95b80",
+    "QuotationCreateModel": "222e494ef77c6d489bb067859f00506a04d725d3118fcd14a929544cd3081592",
+    "QuotationSendRequest": "d9b01f81954e5109db7376bdb259f08db338ba14aa670a78dffdf86b355c5637",
+    "QuotationVersionModel": "c493bb15fa78f55c75a39c26b2020a4707038f669efd6ae5d704a3c38537801f",
+    "ReadinessResponse": "4a3b36e71bd483bfec760693d874c31cef15cfa4069f812a8cd7d5e814bf97a9",
+    "ReassignPortfolioRequest": "02b51e641ad40f4df91637363ae1069854da0b6711e17232d95335ce4973c251",
+    "ReceiptLine": "b4370469d2d9769a49b7691556955fb92cadb49936d8819059e7a8aced635f8a",
+    "ReceiptLot": "e5dcdd3b8add98914bf100890f16b7615cddfd8fd6497f5d0679992bde1c84bd",
+    "ReconcileRepairRequest": "3dfed757ffefb109ff3089fe7e54cbb3fd6e242c641016b88e6d4a0f1710d285",
+    "ReconcileRequest": "435601536539b55cf23ecab54bf0e8692bcc8b1e89534d9c642a188e2273c9c4",
+    "ReconciliationCreateRequest": "b43937f464f0ad63bce82307b13c2b9e43f2b41084a2a7258dbbd6579c29557a",
+    "ReconciliationLine": "8ff77c9122a117c4399b6d517399e9fc19289e8c393dcb778c252f77537bad15",
+    "ReconciliationResolveRequest": "cee0b73812cb4f2d492c5e1669cf0f81742a6c4c99a868e20cac9a888f4ee736",
+    "RefreshTokenRequest": "c6064d54ab3ea0b775b0bf3766b7b291ce16a05abbdf5b6d3d8d9f96e4eb3ae6",
+    "RefundCreateRequest": "5ef62b3b9c1f901e70c1524bc926c98273774b2712d97ac2c3f6636d0a2976ee",
+    "RefundStatusUpdateRequest": "c8678c0afe9c2344163c646818a82341bd1169c036d7ea8b78d943dd1501dafb",
+    "ReportCompareRequest": "97df02e01a0edc39dfb89f57aab44475f23dee063ec4bd29cb857bfb6ddb6e26",
+    "ReportRunRequest": "db4e906f307eed7026a7c1dc35c7b6e97c4a8dc5f95d075a132d941de9365b96",
+    "ReportScheduleCreateRequest": "bc676a866ec64a6aae8e1f63a1c5d9d07a48129e1215a655cb0584dbda04e659",
+    "ReservationCreateRequest": "b84d02a3806e88d60f00a8471306bcbfaacef7b06fee775855a97d81fe51ae07",
+    "ReservationReleaseRequest": "25ef3ade274f14331273991882e2bda89e816ed0de54fd0033de0e0bedb26a43",
+    "RestoreVerifyRequest": "3e28f24883c8ffbb6a87d969ea375391060f4f36bed0e1dd30e40d208a145720",
+    "ReturnAcceptInspectionItem": "4ce6bf836d1ac6cd2ad052cc4a22048e706ef1b664f1dcb8d305f213a3efc395",
+    "ReturnCancelRequest": "d0f60f0b7c8921fddae94a7b386b9c87e037c996b96ed925a36d489a54614224",
+    "ReturnExchangeItem": "d07d2d40c7f1dc788eb7f8d69f55e2c5352a1a3f8475296311dfc096468f9eba",
+    "ReturnExchangeRequest": "6caa1a1ac749e3d21d821da91e7a6d8a36f59b764d63fc9935a9e0af885cabd6",
+    "ReturnInspectionItem": "8e3e4f68817c83e232a57f114d9ef31d93903103ebf9449e8f68d39c25e06a06",
+    "ReturnItemRequest": "a6c74fd40a39bc7d86d26164f9f3382c2f143289a0d5d21d71521e0672f677c1",
+    "ReturnLine": "cacad96ff74b04cf4481b440eec40b94730013069bd0ed78374705de9dcaa61a",
+    "RoleCloneModel": "1ebff882b56fb21cbd7920bd3cfdedd35e5b107a01a2e09e1581b66582a370f8",
+    "RoleCreateModel": "1a420e54f73888ce17e87b8cb08eeb75aa9870a26a43ab195063ec40ec978d7b",
+    "RoleUpdateModel": "7f782af3293b59fb3a6430918b895939be1772946b396ff4b68832b984bc8cae",
+    "SalesRepCreateRequest": "0e3ab47e5e32f842a24407b0d7a13e4fa836194baf68921e3fd42a709ad7d98a",
+    "SalesRepUpdateRequest": "a593680ff8f2227c3a20e4321dbf65380a4d55c9859d27999cec34d8079a91f3",
+    "SalesTargetCreateRequest": "3bf6c356dc7f7002a45c6f5da00b5a2b29001287d427ab94dc7a866a199916be",
+    "SamplingRequest": "64585a5fd78a3783b1c17f90df7fad484c1e97994e636ca119e83ebc665c9a92",
+    "SanitizeInputRequest": "ac62f0f29ce4e2a58fa4d8048a3098eb7d66430def1390f6ccd2cc76bc7a7bfd",
+    "SavedViewCreateRequest": "e0ac7e63c2258948c851407c332858b97353df9d66de4b9c99ef4983729d9cdf",
+    "SavedViewUpdateRequest": "ca47497c4e55ce2403f45ad87a8c53fb18d338562e483dc7c149dcd4a18288f2",
+    "ScenarioCompareRequest": "c5c986a2bd7a9d4d59924de72a18435a7911c076bfd535cbce113df8d84e1dbf",
+    "SerialCreateRequest": "10766e7dd4682aa34d6ba00d98d0a1f33075df3717c7f98ae1dc858f78caf0c0",
+    "SerialSellRequest": "b74b72d2b412336a45966c731cf6ab65629127170e77f4bef3b5a88b8b2e9f4a",
+    "SettingRequest": "970e34ab2c7f4eaef163d908dd5076c253f0e78fdabd024bf346674f2e876591",
+    "SettingsUpdateModel": "c12f13876b4d316ea8948477fe92c649450a9c2c71ba86222e3f358fde3d9518",
+    "SmoothedBayesRequest": "0abf9f818bb7f75e143941ca8d1707719fbadd797103b745505da478132010ed",
+    "SsoLoginRequest": "4881bfd5c515812282d28005369f074c67eca4abb2f5dabbb2a00690ac3d81b3",
+    "StdevDetailedRequest": "644ace8249f6a5f9fb8b48fe787044abb1a0b01298889145283873ba876e4ad5",
+    "StockLine": "06042682931293d88b52982120abd73cc53b74aeb7a7f7b7bb20eaa5aa791839",
+    "StockRuleRequest": "36a1b876ffe59243bd13875895536c45801f26c6ab36cd120513ba69f3260965",
+    "StoreCreditApplyRequest": "6c6db8ec80075977d6d8e2d2c9a1ae95b932d016eb5b7c09e6a0ca04723fc4e3",
+    "StructuredConditionModel": "5032f66a020fd2e7072c6f90ac14bbf0387f2e47631a37405354bba05a45554f",
+    "SudoVerifyRequest": "2234ed70372617d1cd086974752857dc3837392a2aeaf612a1a182b14c396202",
+    "SupplierCreateRequest": "494fdd9f0eca728ac871ef73689c30a252937576ebbadeaae534acc7aa3843d7",
+    "SupplierUpdateRequest": "12607415a82305e77c0b1670a8ea5de0ac3a4cc16bf1aec5df2b0c7825a6510d",
+    "SupportGrantCreateRequest": "3979ce0e69f7d8448d62bc31bac7c5a20d34c0ad98e999925fae6cb61ced32d1",
+    "TaskCreateRequest": "0e2a7f9bf7e8c743bd618012fe79063649568c622ed7b7735d013068bcf00276",
+    "TaskUpdateRequest": "46cfd16a6fb5e7fbcaeb57c190c24c535eb1b1350d56cf8511e5b4e33af6bba2",
+    "TaxRuleModel": "2067f0f1525b920283e09cc1a94ba61d23c3cdb505040000c23457c51fa03198",
+    "TemporalLeakageValidationRequest": "1dd2508077c0c0e51f87fb41d9473fa61987b6bc29bea523f8a833fb2c1a5c44",
+    "TheoreticalDistributionRequest": "bd1f5b0444fbaf46e6bc66dcc0a35ea42e811498b8e95363d42d8c4f5f3bc133",
+    "ThreeWayMatchRequest": "19e6c4bba8eeb04c192b780fc593b50a8f3653a55ea923cb2aa9e3ee4b974d2a",
+    "ThreeWayMatchResolveRequest": "39dd28a5388b5412236d1df174fd400f6b68fc2e8e50086bde92f14d7943e951",
+    "TimeSeriesSplitRequest": "4f72bba86e13187734a820859c6f44c59f8ff6d35f9211fef87f1d03a7766f77",
+    "TrackingEventCreateRequest": "117ce2d0ba057d527a08f00ce97d0f14f6f8b9f0e7899513842a49e938f87328",
+    "TransferCreateRequest": "e8a58c80c09e8fc0b57af09940a420af790ef1b793cb99b8d9744bf781534840",
+    "TransferReceiveItem": "58fa435f08dc6cca8697ca303b088d6ff79e78c0c64ee2f11dad760b75ef3dfa",
+    "TransferReceiveRequest": "278b2141db48ba07f25f46ec650ec113ec902d9850b0e9a1d55d5bd7f9fb2816",
+    "UnitConversionCreateModel": "af84f63ae1099646f95dfa67fe46c6cde0c0c700ace6a7f88f3e1423a8634044",
+    "UnitConvertRequest": "a4bfd16ad7a08aa7a69f3b3f0941b79242c1877741dace87ed4d396908579c19",
+    "UnitCreateModel": "8a8ba5e8a5c5b2c28daa92b30b3827337ae37354b0874f90c422759c529e3cd3",
+    "UniverseDefinitionModel": "4f8765cb385e7072c5b1b14252384f77678b31ba2f1f9d750396badf09fdf80c",
+    "UpdateOrderLinesRequest": "21f09a12719972e46837eb5fcaf6dece48772b304f4e94cd730aea8600719a94",
+    "UpdateSaleDraftRequest": "cba11f90729aa7c142014f45250d13690a0a99bea4a5d02ac90d072f80b576e1",
+    "UploadIntentRequest": "a72a4e2c869a2f9ee55a20a78a2ff76c1e69bcf4fede54ed28c10335ecac16f0",
+    "UrlValidationRequest": "2d659c4ba110e90f84c4136750064fa9119d86ca1b76201f5019c66365fc1308",
+    "UserQuarantineRequest": "fb5a68f6b710b98f300d91b9176e8e19ff4f6156c7c4120e165ea3f97eacc86f",
+    "ValidationError": "743962c190f15fa69d7b378974573d9a3d9e0610bb6a1773c81e4898e7b45d56",
+    "ValuationRequest": "1b33e6db192d3298a33dfb3c71a465893d28c8fe5d497abd50a953b331f0b3fb",
+    "VariableAnalyzeRequest": "41f9d3e5ff621d515d868e631365581a1af786e964e4b1fe728cff5ae28b9661",
+    "VariableScale": "e154f3d3b37c73663da6ddebaf1eb250f8de91c9635fe7ce78ee53c6574826bd",
+    "VarianceDetailedRequest": "df46f4f5d5ee2c20f50a1b82e01dcb5f0d454540258851640885eb899194b351",
+    "VariantCreateModel": "81624b199c9c83ac692eb44823f94fd3cb9c54dc455d9a7599eca1e31b237b4e",
+    "VisualSchedule": "9d47f0535fbc86c089e6e0eda99fa482e74e0f7b4baf31fcd3865142df426fa5",
+    "VolumeTierCreateModel": "9dd4f92e3d40d0afe99fec2d88bb247f1b99bc50cf881e148388a8088eeb7e4e",
+    "WarehouseCreateModel": "2143f141d5960c24e276a407bd3090aa1662aa9ff83355f55338af60af02b49a",
+    "WarrantyClaimCreateModel": "04dc89aa351a90cfecf94966c0412e069469c7f577426beade95b592e1ac84a1",
+    "WeightedMeanRequest": "b20b18e8412534a192c7ed25f66c14393df7155d5f5672a2dc6c9e7a18708ab5",
+    "salesia__modules__finance__presentation__router__IntegrationCreateRequest": "803cc257230f0c4f3cea47cfb28248c7b03f4bee8aa5084baa46218c7c6a54a3",
+    "salesia__modules__finance__presentation__router__ReturnAcceptRequest": "a8fed22fe6dfed91bdc7d200610aac3853404e9f169c1a81bf99c13de6ea5020",
+    "salesia__modules__finance__presentation__router__ReturnCreateRequest": "c8f7df65b5246892b323752f8d302479662e9677a77e75cd878d78a35cb55575",
+    "salesia__modules__finance__presentation__router__ReturnRejectRequest": "8262c0c044125e32b74bf4f83c7fb993fe99b7d6cf300a1692ed066e0609ac39",
+    "salesia__modules__finance__presentation__router__ReturnWithoutReceiptRequest": "7abee08fd53cea4649ef8a956e66dcaac0f1637e8098f469ec27f85aa49c6017",
+    "salesia__modules__inventory__presentation__router__ReturnAcceptRequest": "029ddab4ac94a069e4482b57741777cf92133bc28e4fc27f68201d8f228924bf",
+    "salesia__modules__inventory__presentation__router__ReturnCreateRequest": "e7617abbe5e0f9be06e8f393c78627fc9bc46dd951a84edd7a2b964c1b89f84e",
+    "salesia__modules__inventory__presentation__router__ReturnRejectRequest": "698cca9ae10ae9687f0af60f2e4c340807d92ee59b8a73e829d8f9c190b98fc6",
+    "salesia__modules__inventory__presentation__router__ReturnWithoutReceiptRequest": "96a51b8cd5112d57fa8fd04a32f5444f71272d5dc63d1019e3fdf3c8d56721ae",
+    "salesia__modules__operations__presentation__router__IntegrationCreateRequest": "89d8cda6ffef892a00be682bd9a630d540d6f39efe1eb6f75c6e5d4e8b46ba2e"
+  },
+  "tables": {
+    "analytics_artifacts": "729606de1d9cfe893e387dbf03085e5ec02b888919aeec201c7b34966eb5af65",
+    "api_credentials": "d27846c478af38f0489712c2ab76becb7f35183371e29aa8b43c11d0fd7d27e9",
+    "attachments": "26ee2da365733ee6c3949ac408c841c35923e9cffa12f07fa170c23540ae77b9",
+    "audit_logs": "a6d102787fc7a67cd2e9ef125f5a9ca44a44b3e4550da98c5b39ab3d933c37fb",
+    "auth_challenges": "b24b38b8118e70646bcbd251726b0a295745329ed3003a30318feee90d262ab4",
+    "auth_factors": "dc44443374793288e825118c4faf998c483a8b77a1bd33e64dfc765ed1d8bee1",
+    "auth_mail_outbox": "916e4c54cd686c62f96c2da9d48fdb10a6b0b451ccb617efcbfb804baecbd38b",
+    "auth_recovery_codes": "bb644093c7410ad462e7353f2a3dcc13e7518df5a39b9f12f01b51abc9e5b6bb",
+    "auth_sessions": "47ed2ff24477cf1de90f67d3e98a060cc632a09f7b432b853f5faeed5238fc61",
+    "backup_snapshots": "fcc8d20a9581fda50feaaa4d51cf9fe6d8ce7922fcba0349069f7c75af6ec53a",
+    "branches": "17f824942cf561014816667f2b36b6a0d7683f73a58586c7ffa35d4e120ed07a",
+    "cash_sessions": "f62f53d019ed727fbb78eb87adb5bfcddc82c2ce8a11ca5e026d69511a5dcc64",
+    "categories": "4f1ba7b9ffdc80e9a9755ee52a4d0e1eb024fdc81bdeccc1ab993c694f0339f2",
+    "collaboration_approvals": "e754de9c3b05d9c939f75a4aaa4cb8df43fb2079be1b4df77e2a88195c1fd81f",
+    "collaboration_comments": "77e59bd9a6b0ed06474f5c25b66577c43c259dc26b4e61a1bc3dc6b8e48a068a",
+    "collaboration_tasks": "2ad70834c2280b58743086697f4b4ed67ee35fd6f5c29ccb5a860d7f9df0bd26",
+    "commission_settlements": "e714326ce8ccb3b5e08c8d48fd288dd5002ca1936042eb757e70f810617acbc0",
+    "companies": "50acb223d598a491b0e1762c69208324cd481b0c16b1c6d242b0e1719b5e8857",
+    "company_settings": "efec11a8fea0ae5693f26c2eaf87af7dc693e281aaa6eeef994dd4fb99c926fd",
+    "contextual_help_articles": "31bcda7d7c0d4ca950fe164fb0950310118b519b802887187798a8e043b0346f",
+    "coupons": "db8a5a919504080b9c73f45a47de14705fd7d9a7e7b58fecc9624ccaa63cc107",
+    "credit_note_lines": "7bd00d32ce492d742c2aae15217c01ec65b13a5b54a84816b7b4527d7f866ee2",
+    "credit_notes": "b1c1a6cfb582c16fa643b5a65cafe70822ad39a82c947660671b14638da39285",
+    "custom_roles": "7200c76afb53458c9f02d509fc575d9f2be97bbcb0a3e43920ff21f615dd51fc",
+    "customer_activities": "aa3b7049ab260050ef028c5fe0b1e4f5824bf13dfcffc9dec22a16c8832bda54",
+    "customer_addresses": "51d0f20a3bf3417f8c91c21b8aed9b93df8f6625e70f30e9af167ee67f8d8df8",
+    "customer_contacts": "5e1c2416ea82bb1dda35792997a7663247773d73548f712da8f752702797d45f",
+    "customer_credit_movements": "809add63323ad17285fd4dd75410f4eb90da7561322870939d664e2886fc7e9f",
+    "customer_import_batches": "c47a659bd1542ffaba3933d305b6410ced7424b73c44d35515c9f9d4b983545d",
+    "customer_loyalty_ledger": "056138ee086f391c91d56ddc0bf8f1f561ab5ba6ec5969cfbcc3f6eba2dd1c01",
+    "customer_notes": "12f9f1751698a4c14c8939782273d3b25e2fabedc961c8d999dd37ac8e8f7a81",
+    "customer_opportunities": "29f67a188ac53c9101503ff609d2aace3a21fefaa4f9331c5f89f189c971e547",
+    "customer_profiles": "45b68106e6ac6a895687fa7eb163ab18682e6c4c732cd7b3803290a0d76fdad7",
+    "customer_segments": "b93226b418e35649ceae739edde028edafd51e9fbdbccc69d76dcd9187365411",
+    "customers": "7a3f31027793e4abe5e027d8c870c323cbccc0e7c3b08be94a7db2ca48eb4b9d",
+    "dead_letter_jobs": "e5b50d08ba06931b1d742e259a8a856759f29d82fe55bff0881643fa503dff01",
+    "delivery_incidents": "a9bb92d96560105e928f51e2a8f488aaa9335987b8847927d89f04568da6ef51",
+    "delivery_shipments": "3910ad00987a52d0c750ad86b8bcebb7b202c2ffa151757eba624b16c1eb2b30",
+    "delivery_tracking_events": "297727db8c4c2f11bb06c85c380bd1aec90c2a16fbc152518da4cb11a10d5dfe",
+    "document_sequences": "baecec35f03e0f64394dc49f3c9418e47ff45e91b401be0f613f4255e017868b",
+    "external_entity_mappings": "1bef0b4d7ccfeb61c192c3e0e3fc7119e843ceb91d679b07274949ae781b5260",
+    "external_notification_intents": "60b9f4620aa2cbeafaedd1107a3a2f7d7dbe743fb51f77087caeed1cce166fec",
+    "external_sync_cursors": "7ed9cea64fde580b7158fa6b6032d4890852757c09ddb62fd09708db882c9b03",
+    "finance_reconciliation_items": "e77576d09eda0c0466f6baeffe299f20a0bda6c5a00fdaf987ec7898dfcccbe1",
+    "finance_reconciliations": "291f680584a92e324d63c21544f510d98082564c4570af16ffa44926c6bff8c2",
+    "idempotency_records": "68c35ffc643b52e62c59b062e44a1b20821af886238fa2ef5af4e383ce13aef8",
+    "inbox_events": "6150d906443f215aa40c9e7e59b4ee24e4415a998e65b91c5fbf343869eb6abc",
+    "integration_connections": "d0f0a06693ed242fbd81a3d5196c0429d0d0372787f74164806c80e45c2aaad0",
+    "inventory_alerts": "ac0ef51dc492608875d333f2932f412b5652e9e4d0548840eb96c4dfd33f2f89",
+    "inventory_location_stocks": "62d7a860ae1390c7a9a7c2f75a3bc8d9cf02e0eb9029bcabb7aa9cd6dc55b91b",
+    "inventory_lots": "181ad600f9f200b99569f009af4e5eebf065fcefab5c21bf7b1011326a118642",
+    "inventory_picking_lines": "3c15b2e18356914581f272e5247e0e3a1ec562304dda8914e0fa2f38dcd1d865",
+    "inventory_picking_lists": "3a3a5940427729f9d295bf31d768fdd7eb20a7b0a556eb047186fa2f5c38a15b",
+    "inventory_quarantines": "f12f9a0cb24084aa27382f595c0fe794e1b057852f2838ff05a98015af7600fc",
+    "inventory_reconciliations": "46197558b46d90af9f77d03b0c0c86d404a9a39cc88a69a46b9b06facda82edc",
+    "inventory_reservations": "24884648f178d49ed01db676953e26e2dbe048bd3f7b5ae731157c2318eea890",
+    "inventory_serials": "7a47a9e0a9ab1901fb8174710a7e31e36b44786351ec7b4a09faf8cf960b3c7d",
+    "inventory_stock_rules": "b6568afe11b571b8d7793cc711867fc0deb9e2e9c3a76507989873bd4599a7c7",
+    "inventory_stocks": "8b51a5e07db1e53039d7a25011322ddf52fc87e710fd1c88238b2b6fd71ddc38",
+    "inventory_valuation_settings": "4acf5b21015b4ab56778526056796b5604b6b121a509d2a293477b02c8585edf",
+    "jobs": "310faf8c219bdd9e294cc4ada2377321518ed6068cbf817aa4faf92ac14253f5",
+    "kardex_movements": "478d72a468940dbfef814a092949bc527fda39fa0d1dce6b0f658fab7280f416",
+    "landed_cost_adjustments": "99ddd6b8020f678d04e3fe43951493567c417e49ed0a53b3a6e53287ed8f7456",
+    "legal_holds": "e2d8814d4b1731cf7dbe608cb72eedcd8d6730a1972c201cbde8c2dceb681eaf",
+    "login_throttles": "4b6150f67a11830665079554b33a0996a11923ade3ce0ff7168b8b91e837e884",
+    "notification_preferences": "bcac253702c35a2fbe368951e7f73a146699fa5b77fd4d74854ffb58ee6d4224",
+    "notifications": "22a5ea12555000570e144df7f15a0d048de1baa7e81b8696017f68c9cbc365c3",
+    "operation_settings": "90d0aad5b13b9ea5b73d10ea8e9ea1be82d9aed23a3a5ec38304f7487df0d1bf",
+    "orders": "c09c952869de017c6479c823ab9b0ca704e5f056b6fe22617d79cd606b735120",
+    "outbox_events": "ac7e8c0d0617a05f8adb89c6bdd1f267fc85e43eba501f3b70f1ccdf3b7c4ea9",
+    "payment_allocations": "a5de2533c78dfa37dc7e6f342bc4aab2edd001829b439070c526233eae04abb9",
+    "payment_disputes": "13b0c921bb06e6ad126a3a66a5a6a81330873de5e6d4fe9a336abe3d51d38912",
+    "payment_intents": "1d924284d2080cac4214e8060dd74c43cbb1fc2c7fa1a53020a6035c6d9fc41d",
+    "payment_methods": "9243ef9e0f43f5b0f9fda0bfb978a9099a05b3b1b930d28da3b7cdd5a3f2af0e",
+    "payment_refunds": "673d1f82f626bb755bbfe9ff5ba3dd691bd21a22b3d1f6d7d378d815146c7336",
+    "payment_reversals": "e91c312203ae0f3ec22d93086afcd3f5bdc0b3852eacbdedec44fbb5145329c9",
+    "payments": "55cc9247b17a8fce9baee7c5a99a397c2ba2b38067c7f651845f5cf3263160fe",
+    "physical_count_lines": "c6669e94bbe8ea0e1b2e558d8f55eaf53b1baa759e2565e54d80bdebc13c703b",
+    "physical_count_sessions": "dfb7ba6a1560a008ad165256ba36193ea57760d36b88a0e5e4a1e6f79649d4ec",
+    "price_list_items": "86e3f154d9ade4c3243eeeb38865188d113a19dfb81bea6d55d7c1b12cec27e2",
+    "price_lists": "bd700f05a397bb1071808f75173fe59393dcd6b81cc3669743085dd9fde703e8",
+    "product_attachments": "4a17b32c3371569343300555aefa0c3b613506fe042bb2182e9113ec7afb3bf1",
+    "product_barcodes": "35b11a26fcf515c10b3856b8fd4814b800c14205eea99d21b4ef6345e106c6c4",
+    "product_kit_items": "0115bce0cc8606296e4944810e1dac116f9189270dc900f0897e4f3197e0fdc7",
+    "product_price_history": "047707bfbf7f2969801154c4337437cac905287288f5674f22baf2f0e8b28bf7",
+    "product_profiles": "ef6935cc8937e80d809ec64afa64bd1273fd17917b29488b976c669274d44816",
+    "product_variants": "aa621c5c1c536341af8e6175cb9b06f8939e7eac5762325b422246504410eea4",
+    "product_volume_tiers": "a56be81885e2cf0d6b4588c5c4ff6ad88d6f3ccc087e1e5b8057befbcca09b52",
+    "product_warranty_claims": "aa0c9d88031b5c2e436ba79ec08afb89dd02c46a4f8ac3875d5fcfc87f0b990f",
+    "products": "e4b66a45cef3fbf867ae958d3de26f0f2ebc57d21c055e810fbb2f94552e9cb2",
+    "promotions": "9f2b7c4b3c5ba4e750951d0115acf1eacbfaebf8d1f171f997ce88689d7b55c5",
+    "proof_of_deliveries": "3c3041d4f66933ca17c4fe0f5b71de37fb31c922e64ffe015c56b20d1f6f12b0",
+    "purchase_invoice_matches": "cf174d6e16c94a76db967bfd1ae388427f5be332d29d6b580a3172c2b80340f7",
+    "quotations": "32282ed03b969220f4581d18f0eb82249c08ab57337435de53a6ac38bc447ba2",
+    "revoked_tokens": "b51ba6b4e2b348edd54e160ed12d1326dc551c858ab70c9ca3020f2609d17204",
+    "sale_lines": "afabcbb207c54e7840733c033176ed4c603b87ce5725db6b5a2c5c66fc2f3919",
+    "sales": "8037b214a4bd0cda3fad220d9f86e905e103d702e3f4967593be5750679eec13",
+    "sales_representatives": "7aa6d51010bd3ac7e8210ecf50a040bf84bf642b44457e67836d54f162f5da11",
+    "sales_return_lines": "6b296f7b143728577d5251acdd32d20e7d8123c75e799322a6d49daec208cb14",
+    "sales_returns": "b10e5e3e4dbaecf42f33e1f06707477f087aa9cfb0e9b06f953028ba3d9266df",
+    "sales_targets": "4b7973d0b833a9d604d50e85bfce8d5e609f920e86c695851a88f13154e167f9",
+    "saved_views": "f8c32b1496c959bf661ec8fd0caf869b78545cb9b3b58451ad1d838d78f36959",
+    "schedule_executions": "a4550ab4b1e7ed9e0adc0e3fefddbc7f49b5ee5ebbeb720606f71d4906c5a950",
+    "suppliers": "ee8db22874a581304d8299db7ccd237287b3f6ad2a11d7f5b54c747d93339d6c",
+    "supply_documents": "ab85d765720e1c17387e9656c99caadd7872e722a122d0a0bb87e5a705f03406",
+    "supply_lines": "2babc6c7c70761c89fbbd08fbb77b2a5c62a335d1ced8b3db8c1274dd9ec9ca8",
+    "support_grants": "25b744cb50ceefa7d2646d69f5d091970791e2574ef163dd209371fb0801dd92",
+    "transfer_proofs": "b15534d46bad55ed89679fde1196887b75d7ef4469ca4a1aba8e236179b4a581",
+    "unit_conversions": "d58128d4b857c0374861e6f5a25c8eea77205128b9f184343087d5e637a46cdf",
+    "units_of_measure": "2259d88f6d04199c21a944be4300dff17c91ca16a9983520dafa25ef654bed76",
+    "upload_grants": "0ae051febc14c8a873c245374511e498d88b9d7d98c20c56f41ceeb1fc941e49",
+    "users": "60e9a86aed74b3e8b0f8662bdd506a27a8a6b62887bd37d7f6ce24701f4782a5",
+    "warehouse_locations": "284fc35131697806af1c9bd764cea944fcc46de18da38f0d0fc134aee32a15e7",
+    "warehouses": "896a0da51ada0f297b28fe86f4d9e7441bd75f86c1f5e59b7ed9768573ac7d54",
+    "webhook_deliveries": "263d6bd5efd5fad1acd6b1030a3f732ed882a3f798a61cd3c758ba2f9a703c49",
+    "webhook_receipts": "30aed6acfff3147a09f358729243748ced488ddd1bf31a44cdcd43d41a8b28ea",
+    "webhook_subscriptions": "c77715a026c5a0d74eaf13bd213383cc135d5b886cc3684c6889f482a1ffe05a"
+  }
+}
