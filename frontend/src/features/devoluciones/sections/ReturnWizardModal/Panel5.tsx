@@ -1,58 +1,18 @@
+import { PackageCheck, Wallet, ClipboardCheck } from "lucide-react";
+import type { EligibleLine } from "../../types/ReturnWizardModal";
 import type { useReturnWizardModal } from "../../hooks/useReturnWizardModal";
-import { Check, ShieldAlert } from "lucide-react";
-import { EligibleLine } from "../../types/ReturnWizardModal";
 
-export function Panel5({ selectedItems, creditAction, estimatedRefundTotal, currency }: { creditAction: ReturnType<typeof useReturnWizardModal>["creditAction"] } & { selectedItems: EligibleLine[]; estimatedRefundTotal: number; currency: string }) {
-  return (<div className="space-y-6">
-    <div className="grid grid-cols-2 gap-4">
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-4">
-        <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 uppercase tracking-wider">
-          <Check className="h-4 w-4" />
-          Partes listas para procesar
-        </div>
-        <ul className="mt-3 space-y-2 text-xs text-emerald-900">
-          <li className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-600"></span>
-            <span>{selectedItems.length} producto(s) clasificados</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-600"></span>
-            <span>Destino físico validado para cada línea</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-600"></span>
-            <span>Mecanismo comercial {creditAction} seleccionado</span>
-          </li>
-        </ul>
-      </div>
-
-      <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-4">
-        <div className="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wider">
-          <ShieldAlert className="h-4 w-4" />
-          Partes pendientes posteriores
-        </div>
-        <ul className="mt-3 space-y-2 text-xs text-amber-900">
-          <li className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
-            <span>Ingreso efectivo a estantería de almacén</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
-            <span>Conciliación contable en cierre diario</span>
-          </li>
-        </ul>
-      </div>
+export function Panel5({ selectedItems, creditAction, estimatedRefundTotal, currency, quantities, dispositions }: { creditAction: ReturnType<typeof useReturnWizardModal>["creditAction"]; selectedItems: EligibleLine[]; estimatedRefundTotal: number; currency: string; quantities: Record<string, number>; dispositions: Record<string, string> }) {
+  const actionNames = { CREDIT_NOTE: "Ajustar deuda y conservar valor", STORE_CREDIT: "Saldo a favor del cliente", REFUND: "Reembolso de dinero" };
+  const destinations: Record<string, string> = { RESTOCK: "Inventario vendible", QUARANTINE: "Cuarentena", DISPOSE: "Baja / merma" };
+  return <section className="return-review space-y-5">
+    <div className="return-section-heading"><span className="return-wizard-symbol"><ClipboardCheck size={20} /></span><div><h3>Revisa la devolución</h3><p>Comprueba los artículos y el destino del valor antes de continuar.</p></div></div>
+    <div className="return-review-grid">
+      <div className="return-review-card"><h4><PackageCheck size={17} /> Artículos a recibir <span>{selectedItems.length}</span></h4><div className="divide-y divide-slate-100">{selectedItems.map(line => {
+        const key = line.sale_line_id || line.product_id;
+        return <div key={key} className="return-review-line"><div><strong>{line.product_name}</strong><p>{line.sku} · {destinations[dispositions[key] || "RESTOCK"]}</p></div><span>{quantities[key]} un.</span></div>;
+      })}</div></div>
+      <div className="return-review-card"><h4><Wallet size={17} /> Liquidación</h4><strong className="return-review-destination">{actionNames[creditAction]}</strong><p className="return-review-copy">Primero se compensa la deuda de la venta. El excedente se aplica según la opción seleccionada.</p><div className="return-review-amount"><span>Importe estimado</span><strong>{currency} {estimatedRefundTotal.toLocaleString("es-PE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong><small>Incluye impuestos y retenciones aplicables.</small></div></div>
     </div>
-
-    <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs">
-      <div className="flex justify-between py-1">
-        <span className="text-slate-600">Subtotal de devolución:</span>
-        <span className="font-semibold text-slate-800">{currency} {estimatedRefundTotal.toFixed(2)}</span>
-      </div>
-      <div className="flex justify-between py-1 border-t border-slate-200 mt-2 pt-2 text-sm">
-        <span className="font-bold text-slate-900">Total a liquidar:</span>
-        <span className="font-bold text-teal-800">{currency} {estimatedRefundTotal.toFixed(2)}</span>
-      </div>
-    </div>
-  </div>);
+  </section>;
 }

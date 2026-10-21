@@ -57,7 +57,7 @@ export function VentasDevolucionModal({ isOpen, sale, onClose, onSuccess, onOpen
   if (!isOpen || !sale) return null;
   if (view === "new" && detail) return <ReturnWizardModal isOpen saleId={String(identifier)} documentNumber={detail.number || sale.number || "Venta"} customerName={detail.customer_name || sale.customer_name} warehouseId={warehouseId} onClose={onClose} onSuccess={returnId => onSuccess({ returnId })} renderCompletion={(returnId, onBusyChange) => <SaleReturnCompletion onBusyChange={onBusyChange} returnId={returnId} sale={detail} warehouseId={warehouseId} onChanged={() => onSuccess({ returnId })} onOpenSale={onOpenSale} />} />;
   return <ModalSurface labelledBy="sales-return-title" onClose={onClose} blocked={busy} className="sales-return-dialog w-[min(94vw,1000px)]">
-    <article className="sales-return-workspace max-h-[90dvh] overflow-y-auto rounded-2xl border bg-white p-6">
+    <article className="sales-return-workspace return-selection-panel max-h-[90dvh] overflow-y-auto rounded-2xl border bg-white p-6">
       <header className="mb-5 flex items-center justify-between gap-3"><div><h2 id="sales-return-title" className="text-lg font-bold">Devoluciones de {sale.number}</h2><p>{sale.customer_name}</p></div><button type="button" disabled={busy} onClick={onClose}>Cerrar</button></header>
       {error && <div role="alert" className="mb-4 text-red-600">{error}<button type="button" onClick={() => setRevision(value => value + 1)}>Reintentar carga</button></div>}
       {view === "loading" && <p role="status">Cargando venta y devoluciones anteriores…</p>}

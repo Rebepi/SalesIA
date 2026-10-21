@@ -12,8 +12,8 @@ class CustomerCreateModel(BaseModel):
     doc_number: str = Field(..., min_length=1, max_length=32)
     legal_name: str = Field(..., min_length=2, max_length=255)
     address: Optional[str] = Field(default=None, min_length=3, max_length=255)
-    email: Optional[str] = None
-    phone: Optional[str] = None
+    email: Optional[str] = Field(default=None, max_length=255)
+    phone: Optional[str] = Field(default=None, max_length=32)
     credit_limit: Decimal = Field(default=Decimal("0.000000"), ge=0)
     status: Optional[str] = "active"
     assigned_sales_rep_id: Optional[UUID] = None
@@ -25,8 +25,8 @@ class CustomerCreateModel(BaseModel):
 class CustomerUpdateModel(BaseModel):
     version: Optional[int] = None
     legal_name: Optional[str] = None
-    email: Optional[str] = None
-    phone: Optional[str] = None
+    email: Optional[str] = Field(default=None, max_length=255)
+    phone: Optional[str] = Field(default=None, max_length=32)
     credit_limit: Optional[Decimal] = Field(default=None, ge=0)
     status: Optional[str] = None
     assigned_sales_rep_id: Optional[UUID] = None

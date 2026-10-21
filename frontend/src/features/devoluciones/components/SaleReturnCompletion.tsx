@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { apiClient } from "../../../api/client";
 import type { SaleDetailData } from "../../ventas/types/SaleDetailModal";
 import type { ProductItem } from "../../ventas/types/NewSalePOSModal";
+import { ReturnHelp } from "./ReturnHelp";
 import { returnProblem } from "../api/returnFlow";
 
 interface Settlement {
@@ -104,7 +105,7 @@ export function SaleReturnCompletion({ returnId, sale, warehouseId, onChanged, o
   }
   const previousExchange = data?.movements.find(item => item.kind === "exchange")?.reference_id;
   return <section className="sales-return-workspace mt-5 space-y-4 rounded-2xl border p-5" aria-label="Liquidar devolución aceptada">
-    <h3 className="font-bold">Liquidación de la devolución</h3>
+    <h3 className="font-bold">Liquidación de la devolución <ReturnHelp title="Valor disponible y aplicaciones" description="Muestra el valor disponible después de retenciones y aplicaciones. Cada reembolso, cambio o saldo a favor consume parte de ese valor para impedir que se utilice dos veces." /></h3>
     <p className="text-sm text-slate-500">El inventario se procesa al aceptar. Primero se compensa la deuda de esta venta; solo el valor restante puede usarse para saldo a favor, cambio o reembolso. Cada aplicación queda registrada.</p>
     {loading && <p role="status">Consultando valor disponible…</p>}
     {error && <div role="alert" className="text-red-600">{error}<button type="button" disabled={busy} onClick={() => setRevision(value => value + 1)}>Actualizar liquidación</button></div>}

@@ -2,8 +2,8 @@ import type { useReturnWizardModal } from "../../hooks/useReturnWizardModal";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ReturnWizardModalProps } from "../../types/ReturnWizardModal";
 
-export function Panel6({ step, setStep, isSubmitting, onClose, canProceedStep1, independentReviewRequired }: { step: ReturnType<typeof useReturnWizardModal>["step"]; setStep: ReturnType<typeof useReturnWizardModal>["setStep"]; isSubmitting: ReturnType<typeof useReturnWizardModal>["isSubmitting"] } & { onClose: ReturnWizardModalProps["onClose"] } & { canProceedStep1: () => boolean; independentReviewRequired?: boolean }) {
-  return (<footer className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
+export function Panel6({ step, setStep, isSubmitting, onClose, canProceedStep1, independentReviewRequired, formId }: { step: ReturnType<typeof useReturnWizardModal>["step"]; setStep: ReturnType<typeof useReturnWizardModal>["setStep"]; isSubmitting: ReturnType<typeof useReturnWizardModal>["isSubmitting"] } & { onClose: ReturnWizardModalProps["onClose"] } & { canProceedStep1: () => boolean; independentReviewRequired?: boolean; formId?: string }) {
+  return (<footer className="return-wizard-actions">
     {step > 1 ? (
       <button
         type="button"
@@ -38,6 +38,7 @@ export function Panel6({ step, setStep, isSubmitting, onClose, canProceedStep1, 
     ) : (
       <button
         type="submit"
+        form={formId}
         disabled={isSubmitting}
         className="inline-flex items-center gap-2 rounded-xl bg-teal-700 px-6 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-100 disabled:opacity-50"
       >

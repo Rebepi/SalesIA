@@ -1,4 +1,6 @@
 import { SeccionDevolucionConfirmadaConExito } from "../sections/ReturnWizardModal/SeccionDevolucionConfirmadaConExito";
+import { ReturnPendingConfirmation } from "./ReturnPendingConfirmation";
+import { ReturnHelp } from "./ReturnHelp";
 import { Panel2 } from "../sections/ReturnWizardModal/Panel2";
 import { Panel3 } from "../sections/ReturnWizardModal/Panel3";
 import { Panel4 } from "../sections/ReturnWizardModal/Panel4";
@@ -8,9 +10,10 @@ export type { ReturnWizardModalProps } from "../types/ReturnWizardModal";
 export type { EligibleLine } from "../types/ReturnWizardModal";
 import { useReturnWizardModal } from "../hooks/useReturnWizardModal";
 import { FormEvent, useEffect, useRef } from "react";
-import { Check, RotateCcw, X } from "lucide-react";
+import { Check, RotateCcw, X, Package, PackageCheck, Wallet, ClipboardCheck } from "lucide-react";
+import { CustomSelect } from "../../../ui/components/CustomSelect";
 import { apiClient } from "../../../api/client";
-import { returnProblem } from "../api/returnFlow";
+import { returnProblem, allowsFractionalReturn } from "../api/returnFlow";
 import "../../ventas/components/ventas-return.css";
 import { ReturnWizardModalProps } from "../types/ReturnWizardModal";
 
@@ -45,7 +48,10 @@ export function ReturnWizardModal({
   }, 0);
 
   function handleQuantityChange(productId: string, val: number, max: number) {
-    const sanitized = Number.isFinite(val) ? Math.max(0, Math.min(val, max)) : 0;
+    const line = lines.find(item => (item.sale_line_id || item.product_id) === productId);
+    const allowsFractions = allowsFractionalReturn(line);
+    const normalized = allowsFractions ? val : Math.trunc(val);
+    const sanitized = Number.isFinite(normalized) ? Math.max(0, Math.min(normalized, max)) : 0;
     setQuantities((prev) => ({ ...prev, [productId]: sanitized }));
   }
 
@@ -56,7 +62,7 @@ export function ReturnWizardModal({
   function canProceedStep1(): boolean {
     if (selectedItems.length === 0) return false;
     if (reason.trim().length < 3 || reason.trim().length > 255) return false;
-    if (selectedItems.some(line => { const quantity = quantities[line.sale_line_id || line.product_id]; return !Number.isFinite(quantity) || quantity <= 0 || quantity > Number(line.eligible_quantity); })) return false;
+    if (selectedItems.some(line => { const quantity = quantities[line.sale_line_id || line.product_id]; return !Number.isFinite(quantity) || quantity <= 0 || quantity > Number(line.eligible_quantity) || (!allowsFractionalReturn(line) && !Number.isInteger(quantity)); })) return false;
     if ((authorizedException || waiveRetention) && (!canAuthorizeException || exceptionReason.trim().length < 5)) return false;
     if (selectedItems.some(line => {
       const policy = line.return_policy;
@@ -167,17 +173,18 @@ export function ReturnWizardModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="return-wizard-title"
-      className="sales-return-dialog m-auto max-h-[94dvh] max-w-[96vw] overflow-hidden rounded-2xl border-0 bg-transparent p-0"
+      data-stage={awaitingReview ? "pending" : "editing"}
+      className="sales-return-dialog m-auto w-[min(96vw,1100px)] max-h-[94dvh] max-w-[96vw] overflow-hidden rounded-2xl border-0 bg-transparent p-0"
     >
-      <div className="sales-return-workspace app-modal-panel flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
-        <header className="flex items-center justify-between border-b border-slate-200 bg-slate-50 px-6 py-4">
+      <div className={`sales-return-workspace return-wizard-panel app-modal-panel ${awaitingReview ? "is-pending-review" : ""}`}>
+        <header className="return-wizard-header">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-100 text-teal-700">
+            <div className="return-wizard-symbol">
               <RotateCcw className="h-5 w-5" />
             </div>
             <div>
               <h2 id="return-wizard-title" className="text-lg font-semibold text-slate-900">
-                Asistente de Devolución Comercial
+                Devolución de venta
               </h2>
               <p className="text-xs text-slate-500">
                 Documento: <span className="font-medium text-slate-700">{documentNumber}</span> · Cliente:{" "}
@@ -189,46 +196,26 @@ export function ReturnWizardModal({
             type="button"
             onClick={onClose}
             disabled={isSubmitting}
-            className="rounded-lg p-2 text-slate-400 transition hover:bg-slate-200 hover:text-slate-700"
+            className="return-wizard-close"
             aria-label="Cerrar asistente"
           >
             <X className="h-5 w-5" />
           </button>
         </header>
 
-        <nav aria-label="Pasos de la devolución" className="border-b border-slate-200 bg-slate-100/60 px-6 py-3">
-          <ol className="flex items-center justify-between gap-2 text-xs font-medium">
-            <li className={`flex items-center gap-2 ${step === 1 ? "font-bold text-teal-700" : step > 1 ? "text-emerald-700" : "text-slate-400"}`}>
-              <span className={`flex h-6 w-6 items-center justify-center rounded-full ${step === 1 ? "bg-teal-700 text-white" : step > 1 ? "bg-emerald-600 text-white" : "bg-slate-200 text-slate-600"}`}>
-                {step > 1 ? <Check className="h-3.5 w-3.5" /> : "1"}
-              </span>
-              <span>1. Productos</span>
-            </li>
-            <span className="text-slate-300">→</span>
-            <li className={`flex items-center gap-2 ${step === 2 ? "font-bold text-teal-700" : step > 2 ? "text-emerald-700" : "text-slate-400"}`}>
-              <span className={`flex h-6 w-6 items-center justify-center rounded-full ${step === 2 ? "bg-teal-700 text-white" : step > 2 ? "bg-emerald-600 text-white" : "bg-slate-200 text-slate-600"}`}>
-                {step > 2 ? <Check className="h-3.5 w-3.5" /> : "2"}
-              </span>
-              <span>2. Destino físico</span>
-            </li>
-            <span className="text-slate-300">→</span>
-            <li className={`flex items-center gap-2 ${step === 3 ? "font-bold text-teal-700" : step > 3 ? "text-emerald-700" : "text-slate-400"}`}>
-              <span className={`flex h-6 w-6 items-center justify-center rounded-full ${step === 3 ? "bg-teal-700 text-white" : step > 3 ? "bg-emerald-600 text-white" : "bg-slate-200 text-slate-600"}`}>
-                {step > 3 ? <Check className="h-3.5 w-3.5" /> : "3"}
-              </span>
-              <span>3. Crédito y Dinero</span>
-            </li>
-            <span className="text-slate-300">→</span>
-            <li className={`flex items-center gap-2 ${step === 4 ? "font-bold text-teal-700" : "text-slate-400"}`}>
-              <span className={`flex h-6 w-6 items-center justify-center rounded-full ${step === 4 ? "bg-teal-700 text-white" : "bg-slate-200 text-slate-600"}`}>
-                4
-              </span>
-              <span>4. Resumen</span>
-            </li>
-          </ol>
-        </nav>
+        {!isSuccess && <nav aria-label="Pasos de la devolución" className="return-wizard-steps">
+          <ol>{[
+            { title: "Productos", subtitle: "Cantidades y condiciones", icon: Package },
+            { title: "Destino físico", subtitle: "Inspección y almacén", icon: PackageCheck },
+            { title: "Crédito y dinero", subtitle: "Destino de la devolución", icon: Wallet },
+            { title: "Resumen", subtitle: "Revisar y confirmar", icon: ClipboardCheck }
+          ].map((item, index) => <li key={item.title} aria-current={step === index + 1 ? "step" : undefined} data-complete={step > index + 1}>
+            <span className="return-step-symbol">{step > index + 1 ? <Check size={18} /> : <item.icon size={18} />}</span>
+            <span><strong><small>{index + 1}.</small> {item.title}</strong><span className="return-step-description">{item.subtitle}</span></span>
+          </li>)}</ol>
+        </nav>}
 
-        <div className="min-h-0 flex-1 overflow-y-auto p-6">
+        <div className="return-wizard-body">
           {error && (
             <div role="alert" className="mb-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">
               {error}
@@ -243,9 +230,9 @@ export function ReturnWizardModal({
               <p className="mt-3 text-sm">Consultando líneas elegibles de la venta…</p>
             </div>
           ) : isSuccess ? (
-            awaitingReview ? <div role="status" className="space-y-4 rounded-xl border p-5"><h3 className="font-bold">Solicitud de devolución registrada</h3><p>Identificador: {generatedReturnId}</p><p>Está pendiente de revisión independiente. Otra persona autorizada puede abrir esta venta, elegir «Continuar devolución» y aceptarla. Todavía no se han movido existencias ni desembolsado dinero.</p><button type="button" onClick={onClose}>Cerrar solicitud</button></div> : <><SeccionDevolucionConfirmadaConExito generatedReturnId={generatedReturnId} creditAction={creditAction} onClose={onClose} currency={currency} finalValuation={finalValuation} finalSettlement={finalSettlement} hideClose={Boolean(renderCompletion)} />{renderCompletion?.(generatedReturnId, setIsSubmitting)}</>
+            awaitingReview ? <ReturnPendingConfirmation returnId={generatedReturnId} documentNumber={documentNumber} onClose={onClose} /> : <><SeccionDevolucionConfirmadaConExito generatedReturnId={generatedReturnId} creditAction={creditAction} onClose={onClose} currency={currency} finalValuation={finalValuation} finalSettlement={finalSettlement} hideClose={Boolean(renderCompletion)} />{renderCompletion?.(generatedReturnId, setIsSubmitting)}</>
           ) : (
-            <form onSubmit={handleSubmitReturn}>
+            <form id="sales-return-form" onSubmit={handleSubmitReturn}>
               {!lines.some(line => Number(line.eligible_quantity) > 0) && !loading && !error && <p role="status" className="mb-4 rounded-xl border p-4">No quedan unidades entregadas disponibles para devolver. Las devoluciones aceptadas y las solicitudes pendientes ya se descontaron.</p>}
               <fieldset disabled={isSubmitting || Boolean(generatedReturnId)} className="min-w-0">
               {step === 1 && (
@@ -255,15 +242,15 @@ export function ReturnWizardModal({
               {step === 1 && selectedItems.map(line => {
                 const key = line.sale_line_id || line.product_id;
                 const policy = line.return_policy;
-                return <fieldset key={`policy-${key}`} className="my-4 space-y-3 rounded-xl border p-4"><legend className="px-2 text-sm font-semibold">Condiciones de {line.product_name}</legend>{policy && <p className="text-xs text-slate-600">Política {policy.version} · {policy.source === "legacy_default" ? "Condiciones históricas" : `Vigente al vender el ${policy.sold_on}`} · Plazo hasta {line.policy_evaluation?.deadline} · Retención {policy.rule.retention_percentage}% {policy.rule.retention_description}</p>}
+                return <fieldset key={`policy-${key}`} className="return-policy-card my-4 space-y-3"><legend className="px-2 text-sm font-semibold">Condiciones de {line.product_name}</legend>{policy && <p className="text-xs text-slate-600"><ReturnHelp title="Política de devolución" description="Son las condiciones aplicables a este artículo al venderlo: plazo, estados admitidos, evidencia y porcentaje de retención. El sistema las verifica al registrar la solicitud." /> Política {policy.version} · {policy.source === "legacy_default" ? "Condiciones históricas" : `Vigente al vender el ${policy.sold_on}`} · Plazo hasta {line.policy_evaluation?.deadline} · Retención {policy.rule.retention_percentage}% {policy.rule.retention_description}</p>}
                   {line.policy_evaluation?.reasons.filter(item => !["evidence", "condition_missing", "packaging_missing"].includes(item.code)).map(item => <p key={item.code} className="text-xs text-amber-800">{item.message}</p>)}
                   {policy && (!policy.rule.allowed_conditions.includes(conditions[key] || "unused") || !policy.rule.allowed_packaging.includes(packaging[key] || "sealed")) && <p className="text-xs text-amber-800">El estado o empaque seleccionado requiere una excepción permitida por la política.</p>}
-                  <div className="grid gap-3 sm:grid-cols-2"><label className="grid gap-1 text-xs">Estado del artículo<select className="rounded-lg border p-2" value={conditions[key] || "unused"} onChange={event => setConditions(previous => ({ ...previous, [key]: event.target.value }))}>{[["unused", "Sin uso"], ["used", "Usado"], ["damaged", "Dañado"], ["not_applicable", "No aplica"]].map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label><label className="grid gap-1 text-xs">Estado del empaque<select className="rounded-lg border p-2" value={packaging[key] || "sealed"} onChange={event => setPackaging(previous => ({ ...previous, [key]: event.target.value }))}>{[["sealed", "Sellado"], ["opened", "Abierto"], ["missing", "Sin empaque"], ["not_applicable", "No aplica"]].map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label></div>
-                  <label className="grid gap-1 text-xs">Evidencia y sustento {policy?.rule.evidence_required ? "(obligatorio)" : "(opcional)"}<textarea className="rounded-lg border p-2" maxLength={2000} minLength={policy?.rule.evidence_required ? 5 : undefined} value={evidenceNotes[key] || ""} onChange={event => setEvidenceNotes(previous => ({ ...previous, [key]: event.target.value }))} /></label>
+                  <div className="grid gap-3 sm:grid-cols-2"><label className="grid gap-1 text-xs"><span className="return-field-heading">Estado del artículo <ReturnHelp title="Estado del artículo" description="Indica si el producto está sin uso, usado o dañado. Debe coincidir con la inspección y con las condiciones permitidas por la política." /></span><CustomSelect className="rounded-lg border p-2" value={conditions[key] || "unused"} onChange={event => setConditions(previous => ({ ...previous, [key]: event.target.value }))}>{[["unused", "Sin uso"], ["used", "Usado"], ["damaged", "Dañado"], ["not_applicable", "No aplica"]].map(([value, label]) => <option key={value} value={value}>{label}</option>)}</CustomSelect></label><label className="grid gap-1 text-xs"><span className="return-field-heading">Estado del empaque <ReturnHelp title="Estado del empaque" description="Registra si el empaque está sellado, abierto o ausente. Si la política no acepta ese estado, una excepción requiere autorización y justificación." /></span><CustomSelect className="rounded-lg border p-2" value={packaging[key] || "sealed"} onChange={event => setPackaging(previous => ({ ...previous, [key]: event.target.value }))}>{[["sealed", "Sellado"], ["opened", "Abierto"], ["missing", "Sin empaque"], ["not_applicable", "No aplica"]].map(([value, label]) => <option key={value} value={value}>{label}</option>)}</CustomSelect></label></div>
+                  <label className="grid gap-1 text-xs"><span className="return-field-heading">Evidencia y sustento {policy?.rule.evidence_required ? "(obligatorio)" : "(opcional)"} <ReturnHelp title="Evidencia de devolución" description="Describe la falla, la inspección o el sustento de la devolución. Cuando la política lo exige, registra al menos cinco caracteres; una excepción no elimina este requisito." /></span><textarea aria-label={`Evidencia y sustento ${policy?.rule.evidence_required ? "(obligatorio)" : "(opcional)"}`} className="rounded-lg border p-2" maxLength={2000} minLength={policy?.rule.evidence_required ? 5 : undefined} value={evidenceNotes[key] || ""} onChange={event => setEvidenceNotes(previous => ({ ...previous, [key]: event.target.value }))} /></label>
                 </fieldset>;
               })}
               {step === 1 && canAuthorizeException && <label className="my-3 flex gap-2 text-xs"><input type="checkbox" checked={waiveRetention} onChange={event => { setWaiveRetention(event.target.checked); if (event.target.checked) setAuthorizedException(true); }} />Exonerar retenciones con justificación de la excepción</label>}
-              {step === 1 && <p className="my-3 text-xs text-slate-600">Valoración estimada tras retenciones: {currency} {estimatedRefundTotal.toFixed(2)}. La evidencia obligatoria no se omite mediante una excepción.</p>}
+              {step === 1 && <p className="my-3 text-xs text-slate-600">La evidencia obligatoria debe completarse también cuando se autoriza una excepción.</p>}
               {step === 1 && selectedItems.filter(line => (line.serial_numbers?.length || 0) > 0).map(line => {
                 const key = line.sale_line_id || line.product_id;
                 const selected = serialSelections[key] || [];
@@ -280,14 +267,18 @@ export function ReturnWizardModal({
 
               {step === 4 && independentReviewRequired && <p className="mb-4 rounded-xl border p-4 text-sm">La empresa exige revisión independiente: se registrará una solicitud pendiente para que otra persona autorizada la acepte. El inventario y la liquidación se aplican después de esa aceptación.</p>}
               {step === 4 && (
-                <Panel5 selectedItems={selectedItems} creditAction={creditAction} estimatedRefundTotal={estimatedRefundTotal} currency={currency} />
+                <Panel5 quantities={quantities} dispositions={dispositions} selectedItems={selectedItems} creditAction={creditAction} estimatedRefundTotal={estimatedRefundTotal} currency={currency} />
               )}
 
               </fieldset>
-              <Panel6 step={step} setStep={setStep} isSubmitting={isSubmitting} onClose={onClose} canProceedStep1={canProceedStep1} independentReviewRequired={independentReviewRequired} />
+
             </form>
           )}
         </div>
+        {!loading && !isSuccess && <div className="return-wizard-footer">
+          <div className="return-wizard-total"><span>Importe estimado a devolver <ReturnHelp title="Importe estimado" description="Considera el precio neto vendido, los impuestos y las retenciones de los artículos seleccionados. El servidor confirma el valor definitivo al aceptar la devolución." /></span><strong>{currency} {estimatedRefundTotal.toLocaleString("es-PE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong><small>Después de retenciones e impuestos</small></div>
+          <Panel6 step={step} setStep={setStep} isSubmitting={isSubmitting} onClose={onClose} canProceedStep1={canProceedStep1} independentReviewRequired={independentReviewRequired} formId="sales-return-form" />
+        </div>}
       </div>
     </dialog>
   );

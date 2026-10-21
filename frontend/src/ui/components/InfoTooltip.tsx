@@ -95,6 +95,7 @@ export function InfoTooltip({
         aria-label={interactive ? `Ayuda: ${title}` : undefined}
         onKeyDown={event => {
           if (interactive && event.key === "Escape") {
+            event.preventDefault();
             event.stopPropagation();
             pinned.current = false;
             setVisible(false);
@@ -125,7 +126,7 @@ export function InfoTooltip({
         </strong>
         {description}
       </span>,
-      document.body
+      iconRef.current?.closest("dialog") || document.body
     )
     : null;
 
@@ -137,7 +138,7 @@ export function InfoTooltip({
       onFocus={handleOpen}
       onBlur={event => { if (!popupRef.current?.contains(event.relatedTarget as Node) && !iconRef.current?.contains(event.relatedTarget as Node)) { pinned.current = false; setVisible(false); } }}
       onKeyDown={(event) => {
-        if (event.key === "Escape") { pinned.current = false; setVisible(false); }
+        if (event.key === "Escape" && visible) { event.preventDefault(); event.stopPropagation(); pinned.current = false; setVisible(false); }
         if (interactive && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); event.stopPropagation(); const opening = !pinned.current; togglePinned(); if (opening) requestAnimationFrame(() => popupRef.current?.focus({ preventScroll: true })); }
       }}
     >

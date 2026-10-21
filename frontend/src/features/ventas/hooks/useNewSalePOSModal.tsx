@@ -131,6 +131,9 @@ export function useNewSalePOSModal({ isOpen, onClose, onSaleCreated, initialCust
   const [busy, setBusy] = useState(false);
 
   const [error, setError] = useState("");
+  const [catalogError, setCatalogError] = useState("");
+  const [pricingError, setPricingError] = useState("");
+  const [pricingRevision, setPricingRevision] = useState(0);
 
   const [customerDrawerOpen, setCustomerDrawerOpen] = useState(false);
 
@@ -214,9 +217,13 @@ export function useNewSalePOSModal({ isOpen, onClose, onSaleCreated, initialCust
   useEffect(() => {
     if (!isOpen || !cart.length) {
       setPricing({});
+      setPricingError("");
+      setPricingBusy(false);
       return;
     }
     const controller = new AbortController();
+    setPricingBusy(true);
+    setPricingError("");
     const timer = window.setTimeout(async () => {
       setPricingBusy(true);
       try {
@@ -225,33 +232,36 @@ export function useNewSalePOSModal({ isOpen, onClose, onSaleCreated, initialCust
             .filter(line => !line.is_free_concept)
             .map(line => transporte.solicitarDatos({ controller, line, customer, couponCode }))
         );
-        setPricing(Object.fromEntries(rows.map(row => [row.product_id, row])));
-        setError("");
+        if (!controller.signal.aborted) {
+          setPricing(Object.fromEntries(rows.map(row => [row.product_id, row])));
+          setPricingError("");
+        }
       } catch (requestError: unknown) {
-        if ((requestError as { name?: string })?.name !== "AbortError") {
-          setError(requestError && typeof requestError === "object" && "detail" in requestError ? String((requestError as { detail: unknown }).detail) : "No se pudo calcular el precio comercial.");
+        if (!controller.signal.aborted && (requestError as { name?: string })?.name !== "AbortError") {
+          setPricing({});
+          setPricingError(requestError && typeof requestError === "object" && "detail" in requestError ? String((requestError as { detail: unknown }).detail) : "No se pudo calcular el precio comercial.");
         }
       } finally {
         if (!controller.signal.aborted) setPricingBusy(false);
       }
     }, 300);
     return () => { window.clearTimeout(timer); controller.abort(); };
-  }, [isOpen, cart, customer?.id, couponCode]);
+  }, [isOpen, cart, customer?.id, couponCode, pricingRevision]);
 
   useEffect(() => {
     if (!isOpen || !warehouseId) return;
     const controller = new AbortController();
     const timer = window.setTimeout(async () => {
       setProductsBusy(true);
+      setCatalogError("");
       try {
         const params = new URLSearchParams({ warehouse_id: warehouseId, limit: "30", offset: String(productOffset) });
         if (search.trim()) params.set("search", search.trim());
         const response = await transporte.solicitarDatos2({ params, controller });
-        setProducts(response.items || []);
-        setProductTotal(response.total_count || 0);
+        if (!controller.signal.aborted) { setProducts(response.items || []); setProductTotal(response.total_count || 0); setCatalogError(""); }
       } catch (requestError: unknown) {
-        if ((requestError as { name?: string })?.name !== "AbortError") {
-          setError("No se pudo consultar la disponibilidad de productos.");
+        if (!controller.signal.aborted && (requestError as { name?: string })?.name !== "AbortError") {
+          setCatalogError("No se pudo consultar la disponibilidad de productos.");
         }
       } finally {
         if (!controller.signal.aborted) setProductsBusy(false);
@@ -312,7 +322,7 @@ export function useNewSalePOSModal({ isOpen, onClose, onSaleCreated, initialCust
         }
       }
       if (branchResult.status === "fulfilled") setBranches(branchResult.value);
-      if (walkInResult.status === "fulfilled" && !customer) {
+      if (walkInResult.status === "fulfilled" && (!customer || customer.id === "walk-in-default")) {
         setCustomer(walkInResult.value);
       }
       if (repResult.status === "fulfilled") {
@@ -413,6 +423,10 @@ export function useNewSalePOSModal({ isOpen, onClose, onSaleCreated, initialCust
           selected = option ? option.data : ({ id: custParam, legal_name: "Cliente", doc_type: "DNI", doc_number: "", code: "CLI" } as CustomerItem);
         }
       }
+    }
+    if (selected.id === "walk-in-default") {
+      try { selected = await transporte.solicitarLoadContext5(); }
+      catch { setError("No se pudo preparar el consumidor final. Vuelve a seleccionarlo antes de continuar."); return; }
     }
     setCustomer(selected);
     const cleanDoc = selected.doc_number?.replace(/\D/g, "") || "";
@@ -538,6 +552,9 @@ export function useNewSalePOSModal({ isOpen, onClose, onSaleCreated, initialCust
     if (!cart.length) {
       return "Falta agregar productos a la venta.";
     }
+    if (!customer || customer.id === "walk-in-default") return "Selecciona un cliente válido o vuelve a elegir Consumidor final.";
+    if (pricingBusy) return "Espera a que termine la verificación de precios.";
+    if (pricingError) return "No se pudieron verificar los precios. Reintenta el cálculo antes de confirmar.";
     if (documentType === "INVOICE") {
       const cleanRuc = customer?.doc_number?.replace(/\D/g, "") || "";
       if (customer?.is_walk_in || cleanRuc.length !== 11) {
@@ -576,7 +593,7 @@ export function useNewSalePOSModal({ isOpen, onClose, onSaleCreated, initialCust
       }
     }
     return null;
-  }, [selectedWarehouse, cart, documentType, customer, totals.total, boletaDniThreshold, currency, isCredit, allowCreditSales, creditUnavailable, paymentsValid, checkoutPayments]);
+  }, [selectedWarehouse, cart, documentType, customer, totals.total, boletaDniThreshold, currency, isCredit, allowCreditSales, creditUnavailable, paymentsValid, checkoutPayments, pricingError, pricingBusy]);
 
   const filteredProducts = useMemo(() => {
     return products.filter(p => {
@@ -735,6 +752,9 @@ export function useNewSalePOSModal({ isOpen, onClose, onSaleCreated, initialCust
 
   return {
     ConfirmDialogNode,
+    catalogError,
+    pricingError,
+    retryPricing: () => setPricingRevision(value => value + 1),
     customer,
     setCustomer,
     warehouseId,

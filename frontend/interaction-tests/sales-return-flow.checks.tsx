@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { apiClient } from "../src/api/client";
 import { VentasDevolucionModal } from "../src/features/ventas/components/VentasDevolucionModal";
 import { SaleReturnCompletion } from "../src/features/devoluciones/components/SaleReturnCompletion";
@@ -55,6 +55,8 @@ it("registra una solicitud pendiente cuando se exige revisión independiente sin
   await screen.findByText("Teclado"); await proceed();
   fireEvent.click(screen.getByRole("button", { name: "Enviar solicitud a revisión" }));
   await screen.findByText("Solicitud de devolución registrada");
+  expect(screen.getByRole("dialog", { name: "Devolución de venta" }).getAttribute("data-stage")).toBe("pending");
+  expect(screen.getByText("Pendiente de revisión")).toBeTruthy();
   expect(vi.mocked(apiClient.request).mock.calls.some(([path]) => path.endsWith("/accept"))).toBe(false);
   expect(screen.queryByText("Devolución confirmada con éxito")).toBeNull();
 });
@@ -104,4 +106,92 @@ it("crea una venta de cambio con productos elegidos y permite abrir su diferenci
   fireEvent.click(await screen.findByRole("button", { name: "Ver venta de cambio y registrar diferencia" }));
   expect(open).toHaveBeenCalledWith("s2");
   expect(bodyFor("/api/v1/returns/r1/exchange")).toEqual({ warehouse_id: "w1", replacement_items: [{ product_id: "p2", quantity: "1" }] });
+});
+
+it("impide registrar efectivo sin caja disponible en lugar de inventar un saldo", async () => {
+  vi.mocked(apiClient.request).mockImplementation(async (path, options) => path === "/api/v1/refund-options/pay1" ? { payment_method: "CASH", currency: "PEN", returns: [{ id: "r1", available_amount: "53.10" }], cash_sessions: [] } as never : respond(path, options) as never);
+  render(<SaleReturnCompletion returnId="r1" sale={sale} warehouseId="w1" onChanged={vi.fn()} onBusyChange={vi.fn()} />);
+  fireEvent.change(await screen.findByLabelText("Pago original"), { target: { value: "pay1" } });
+  await screen.findByText("No hay una caja abierta y autorizada en la sede y moneda de este pago.");
+  expect((screen.getByRole("button", { name: "Registrar desembolso" }) as HTMLButtonElement).disabled).toBe(true);
+  expect(vi.mocked(apiClient.request).mock.calls.some(([path]) => path === "/api/v1/refunds")).toBe(false);
+});
+
+it("otorga saldo a favor con el importe disponible esperado y justificación", async () => {
+  const changed = vi.fn();
+  render(<SaleReturnCompletion returnId="r1" sale={sale} warehouseId="w1" onChanged={changed} onBusyChange={vi.fn()} />);
+  fireEvent.click(await screen.findByRole("button", { name: "Saldo a favor" }));
+  fireEvent.click(screen.getByRole("button", { name: "Registrar aplicación" }));
+  await waitFor(() => expect(changed).toHaveBeenCalledOnce());
+  expect(bodyFor("/api/v1/return-settlements/r1/store-credit")).toEqual({ expected_available: "53.10", amount: "53.10", reason: "Liquidación de devolución de venta" });
+});
+
+it("bloquea avance hasta registrar la evidencia y las series exigidas por la política", async () => {
+  vi.mocked(apiClient.request).mockImplementation(async (path, options) => path.endsWith("/eligible") ? { ...eligible, lines: [{ ...eligible.lines[0], serial_numbers: ["SER-1"], return_policy: { ...eligible.lines[0].return_policy, rule: { ...rule, evidence_required: true } } }] } as never : respond(path, options) as never);
+  render(<VentasDevolucionModal isOpen sale={sale} onClose={vi.fn()} onSuccess={vi.fn()} />);
+  await screen.findByText("Teclado");
+  const next = screen.getByRole("button", { name: "Siguiente" }) as HTMLButtonElement;
+  expect(next.disabled).toBe(true);
+  fireEvent.change(screen.getByLabelText("Evidencia y sustento (obligatorio)"), { target: { value: "Artículo con falla documentada" } });
+  expect(next.disabled).toBe(true);
+  fireEvent.click(screen.getByRole("checkbox", { name: "SER-1" }));
+  expect(next.disabled).toBe(false);
+});
+
+it("las flechas avanzan por unidades y la ayuda queda dentro del modal", async () => {
+  const close = vi.fn();
+  render(<VentasDevolucionModal isOpen sale={sale} onClose={close} onSuccess={vi.fn()} />);
+  const quantity = await screen.findByRole("spinbutton", { name: "Cantidad a devolver de Teclado" }) as HTMLInputElement;
+  expect(quantity.step).toBe("1");
+  fireEvent.keyDown(quantity, { key: "ArrowDown" });
+  expect(quantity.value).toBe("0");
+  fireEvent.keyDown(quantity, { key: "ArrowUp" });
+  expect(quantity.value).toBe("1");
+  fireEvent.change(quantity, { target: { value: "0.999999" } });
+  expect(quantity.value).toBe("0");
+  fireEvent.click(screen.getByRole("button", { name: "Información sobre Cantidad disponible" }));
+  const help = await screen.findByLabelText("Ayuda: Cantidad disponible");
+  expect(help.closest("dialog")).toBe(screen.getByRole("dialog", { name: "Devolución de venta" }));
+  fireEvent.keyDown(help, { key: "Escape" });
+  expect(close).not.toHaveBeenCalled();
+});
+
+it("conserva cantidades fraccionarias cuando la unidad del producto las admite", async () => {
+  vi.mocked(apiClient.request).mockImplementation(async (path, options) => path.endsWith("/eligible") ? { ...eligible, lines: [{ ...eligible.lines[0], unit_of_measure: "KGM", allow_fractions: true, eligible_quantity: "1.5" }] } as never : respond(path, options) as never);
+  render(<VentasDevolucionModal isOpen sale={sale} onClose={vi.fn()} onSuccess={vi.fn()} />);
+  const quantity = await screen.findByRole("spinbutton", { name: "Cantidad a devolver de Teclado" }) as HTMLInputElement;
+  fireEvent.change(quantity, { target: { value: "0.5" } });
+  expect(quantity.value).toBe("0.5");
+  expect((screen.getByRole("button", { name: "Siguiente" }) as HTMLButtonElement).disabled).toBe(false);
+});
+
+it("cambia cantidades con scroll sin enfocar, respeta límites y evita desplazar el modal", async () => {
+  render(<VentasDevolucionModal isOpen sale={sale} onClose={vi.fn()} onSuccess={vi.fn()} />);
+  const quantity = await screen.findByRole("spinbutton", { name: "Cantidad a devolver de Teclado" }) as HTMLInputElement;
+  expect(document.activeElement).not.toBe(quantity);
+  const down = new WheelEvent("wheel", { deltaY: 100, bubbles: true, cancelable: true });
+  fireEvent(quantity, down);
+  expect(quantity.value).toBe("0");
+  expect(down.defaultPrevented).toBe(true);
+  fireEvent.wheel(quantity, { deltaY: 100 });
+  expect(quantity.value).toBe("0");
+  fireEvent.wheel(quantity, { deltaY: -100 });
+  expect(quantity.value).toBe("1");
+  fireEvent.wheel(quantity, { deltaY: -100 });
+  expect(quantity.value).toBe("1");
+  fireEvent.wheel(quantity, { deltaY: 100, ctrlKey: true });
+  expect(quantity.value).toBe("1");
+  quantity.closest("fieldset")!.disabled = true;
+  fireEvent.wheel(quantity, { deltaY: 100 });
+  expect(quantity.value).toBe("1");
+});
+
+it("mantiene el incremento de una unidad con eventos consecutivos de la rueda", async () => {
+  vi.mocked(apiClient.request).mockImplementation(async (path, options) => path.endsWith("/eligible") ? { ...eligible, lines: [{ ...eligible.lines[0], original_quantity: "5", eligible_quantity: "5" }] } as never : respond(path, options) as never);
+  render(<VentasDevolucionModal isOpen sale={sale} onClose={vi.fn()} onSuccess={vi.fn()} />);
+  const quantity = await screen.findByRole("spinbutton", { name: "Cantidad a devolver de Teclado" }) as HTMLInputElement;
+  act(() => {
+    for (let index = 0; index < 3; index++) quantity.dispatchEvent(new WheelEvent("wheel", { deltaY: -100, cancelable: true }));
+  });
+  expect(quantity.value).toBe("4");
 });

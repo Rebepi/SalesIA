@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { allowsFractionalReturn } from "../api/returnFlow";
 import { apiClient } from "../../../api/client";
 import { useToast } from "../../../ui/toast/ToastContext";
 import { ReturnWizardModalProps } from "../types/ReturnWizardModal";
@@ -92,7 +93,7 @@ export function useReturnWizardModal({ isOpen, saleId }: ReturnWizardModalProps)
         const initDisp: Record<string, "RESTOCK" | "QUARANTINE" | "DISPOSE"> = {};
         for (const line of fetchedLines) {
           const eligible = Number(line.eligible_quantity) || 0;
-          initQty[line.sale_line_id || line.product_id] = eligible > 0 ? Math.min(1, eligible) : 0;
+          initQty[line.sale_line_id || line.product_id] = eligible > 0 ? (allowsFractionalReturn(line) ? Math.min(1, eligible) : Math.min(1, Math.floor(eligible))) : 0;
           initDisp[line.sale_line_id || line.product_id] = "RESTOCK";
         }
         setQuantities(initQty);

@@ -43,7 +43,7 @@ def sale_return_quantities(db, company_id, sales):
     for sale in sales:
         quantities = {}
         for line in sorted(sale.lines, key=lambda item: item.line_number):
-            from_legacy = min(line.quantity, legacy[(sale.id, line.product_id)])
+            from_legacy = min(max(Decimal("0"), line.quantity - direct[(sale.id, line.id)]), legacy[(sale.id, line.product_id)])
             legacy[(sale.id, line.product_id)] -= from_legacy
             quantities[line.id] = min(line.quantity, direct[(sale.id, line.id)] + from_legacy)
         result[sale.id] = quantities

@@ -1,17 +1,18 @@
+import { ReturnHelp } from "../../components/ReturnHelp";
 import type { useReturnWizardModal } from "../../hooks/useReturnWizardModal";
 import { Package } from "lucide-react";
 import { EligibleLine } from "../../types/ReturnWizardModal";
 
 export function Panel3({ selectedItems, quantities, dispositions, handleDispositionChange }: { quantities: ReturnType<typeof useReturnWizardModal>["quantities"]; dispositions: ReturnType<typeof useReturnWizardModal>["dispositions"] } & { selectedItems: EligibleLine[]; handleDispositionChange: (productId: string, disp: "RESTOCK" | "QUARANTINE" | "DISPOSE") => void }) {
   return (<div className="space-y-5">
-    <div className="rounded-xl border border-amber-100 bg-amber-50/60 p-4 text-xs text-amber-900">
+    <div className="return-instructions"><ReturnHelp title="Destino físico del producto" description="Inventario vendible repone existencias disponibles. Cuarentena separa el artículo para revisión y no permite venderlo. Baja o merma lo descarta sin reponer stock. La aceptación aplica este destino." /> 
       Define la inspección física y el destino de cada producto devuelto. Solo la mercancía clasificada
       como vendible (RESTOCK) volverá al inventario disponible.
     </div>
 
     <div className="space-y-3">
       {selectedItems.map((line) => (
-        <div key={line.sale_line_id || line.product_id} className="rounded-xl border border-slate-200 p-4 bg-white">
+        <div key={line.sale_line_id || line.product_id} className="return-inspection-card">
           <div className="flex items-center justify-between">
             <div>
               <div className="font-semibold text-sm text-slate-900">{line.product_name}</div>

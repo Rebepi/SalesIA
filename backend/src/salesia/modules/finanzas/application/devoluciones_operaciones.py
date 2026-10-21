@@ -131,6 +131,8 @@ def get_eligible_return_lines(sale_id: UUID, current_user: AuthenticatedUser, db
         "can_grant_store_credit": True,
         "lines": [
             {
+                "unit_of_measure": ln["unit_of_measure"],
+                "allow_fractions": ln["allow_fractions"],
                 "return_policy": ln["return_policy"],
                 "policy_evaluation": ln["policy_evaluation"],
                 "product_id": str(ln["product_id"]),
@@ -176,6 +178,8 @@ def create_return(payload: ReturnCreateRequest, current_user: AuthenticatedUser,
             raise HTTPException(422, "Agrupa la devolución de una misma línea en un solo registro.")
         if item.quantity > eligible["eligible_quantity"]:
             raise HTTPException(409, "La devolución supera las unidades entregadas que siguen siendo elegibles.")
+        if not eligible.get("allow_fractions", True) and item.quantity != item.quantity.to_integral_value():
+            raise HTTPException(422, "La unidad del producto no admite fracciones. Ingresa una cantidad entera para devolver.")
         serials = item.serial_numbers
         if eligible["serial_numbers"]:
             if item.quantity != item.quantity.to_integral_value() or len(serials) != int(item.quantity) or len(set(serials)) != len(serials) or not set(serials) <= set(eligible["serial_numbers"]):

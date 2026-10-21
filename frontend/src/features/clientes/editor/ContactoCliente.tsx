@@ -12,6 +12,7 @@ export function ContactoCliente({ model }: { model: EditorClienteModel; quickMod
         <input
           type="email"
           id="customer-email"
+          maxLength={255}
           value={formData.email || ""}
           onChange={e => handleChange("email", e.target.value)}
           className="mt-1 w-full rounded-xl border border-slate-300 p-2 text-xs outline-none focus:border-teal-600"
@@ -21,6 +22,9 @@ export function ContactoCliente({ model }: { model: EditorClienteModel; quickMod
         <label htmlFor="customer-phone" className="block text-[11px] font-semibold text-slate-600">Teléfono</label>
         <input
           id="customer-phone"
+          type="tel"
+          minLength={6}
+          maxLength={32}
           value={formData.phone || ""}
           onChange={e => handleChange("phone", e.target.value)}
           className="mt-1 w-full rounded-xl border border-slate-300 p-2 text-xs outline-none focus:border-teal-600"

@@ -21,6 +21,7 @@ def test_eligibility_deducts_requested_and_accepted_returns_and_excludes_reserve
     previous = [SimpleNamespace(lines=[SimpleNamespace(sale_line_id=line_id, product_id=product_id, quantity=Decimal("1"), serial_numbers_json='["A"]')]), SimpleNamespace(lines=[SimpleNamespace(sale_line_id=line_id, product_id=product_id, quantity=Decimal("1"), serial_numbers_json='["B"]')])]
     db = Mock()
     db.scalar.return_value = sale
+    db.execute.return_value.scalars.return_value.all.return_value = []
     db.scalars.side_effect = [Mock(all=Mock(return_value=[line])), Mock(all=Mock(return_value=previous))]
     monkeypatch.setattr(get_sale_eligible_lines, "line_policy", lambda *args: {})
     monkeypatch.setattr(get_sale_eligible_lines, "assess", lambda *args: {})
@@ -30,6 +31,8 @@ def test_eligibility_deducts_requested_and_accepted_returns_and_excludes_reserve
     assert items[0]["returned_quantity"] == Decimal("2")
     assert items[0]["net_unit_price"] == Decimal("20")
     assert items[0]["serial_numbers"] == ["C", "D"]
+    assert items[0]["allow_fractions"] is False
+    assert items[0]["unit_of_measure"] == "NIU"
     sql = str(db.scalars.call_args.args[0].compile(compile_kwargs={"literal_binds": True}))
     assert "requested" in sql and "accepted" in sql
     assert str(company).replace("-", "") in sql.replace("-", "")
@@ -72,6 +75,9 @@ def test_sales_return_badges_use_accepted_quantities_and_allocate_legacy_lines_o
     assert sale_return_status(sale, quantities) == "Parcial"
     assert sale_return_status(sale, {first: Decimal("2"), second: Decimal("3")}) == "Total"
     assert sale_return_status(sale, {}) == "Sin devolución"
+    db.scalars.return_value.all.return_value[0].lines.append(SimpleNamespace(sale_line_id=first, product_id=product, quantity=Decimal("1")))
+    combined = sale_return_quantities(db, company, [sale])[sale_id]
+    assert combined == {first: Decimal("2"), second: Decimal("2")}
     sql = str(returned_quantity_expression(company).compile(compile_kwargs={"literal_binds": True}))
     assert "accepted" in sql
     assert str(company).replace("-", "") in sql.replace("-", "")
@@ -86,3 +92,18 @@ def test_eligibility_reports_independent_review_from_saved_company_policy(monkey
     result = devoluciones_operaciones.get_eligible_return_lines(uuid4(), SimpleNamespace(company_id=uuid4(), permissions=[]), Mock())
     assert result["independent_review_required"] is True
     assert result["can_authorize_exception"] is False
+
+
+def test_whole_unit_returns_reject_fractions_before_recording(monkeypatch):
+    line_id, product_id = uuid4(), uuid4()
+    payload = ReturnCreateRequest(sale_id=uuid4(), warehouse_id=uuid4(), reason="Artículo dañado", items=[{"product_id": product_id, "sale_line_id": line_id, "quantity": "0.5"}])
+    monkeypatch.setattr(devoluciones_operaciones, "claim_request", lambda *args: (None, None))
+    monkeypatch.setattr(devoluciones_operaciones, "require_open_period", lambda *args: None)
+    monkeypatch.setattr(devoluciones_operaciones, "business_date", lambda *args: date(2026, 10, 21))
+    monkeypatch.setattr(devoluciones_operaciones, "_get_sale_eligible_lines", lambda *args: (SimpleNamespace(), [{"sale_line_id": line_id, "product_id": product_id, "eligible_quantity": Decimal("1"), "allow_fractions": False}]))
+    db = Mock()
+    with pytest.raises(HTTPException) as error:
+        devoluciones_operaciones.create_return(payload, SimpleNamespace(company_id=uuid4()), db, "fraction-1")
+    assert error.value.status_code == 422
+    assert "cantidad entera" in error.value.detail
+    db.add.assert_not_called()

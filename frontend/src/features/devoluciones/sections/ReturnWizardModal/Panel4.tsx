@@ -1,3 +1,4 @@
+import { ReturnHelp } from "../../components/ReturnHelp";
 import type { useReturnWizardModal } from "../../hooks/useReturnWizardModal";
 import { DollarSign, Receipt, RotateCcw } from "lucide-react";
 
@@ -5,7 +6,7 @@ export function Panel4({ estimatedRefundTotal, creditAction, setCreditAction, cu
   return <div className="space-y-5">
     <div className="sales-return-mechanism rounded-xl border p-4 text-sm">Importe estimado después de retenciones e impuestos: <strong>{currency} {estimatedRefundTotal.toFixed(2)}</strong>. El servidor calcula el importe definitivo al aceptar.</div>
     <p className="text-sm text-slate-500">Se compensa primero la deuda de la venta original. Elige cómo usar el valor restante. Se generará una nota de crédito comercial interna; este proceso no confirma una emisión electrónica ante SUNAT.</p>
-    <fieldset className="space-y-3"><legend className="mb-2 text-sm font-semibold">Destino del valor de la devolución</legend>
+    <fieldset className="space-y-3"><legend className="mb-2 text-sm font-semibold">Destino del valor de la devolución <ReturnHelp title="Destino del valor de la devolución" description="Primero se compensa la deuda de la venta. El resto puede conservarse para un cambio o reembolso, u otorgarse como saldo a favor. El dinero no se desembolsa al seleccionar una opción; se registra después de aceptar la devolución." /></legend>
       {[
         { id: "CREDIT_NOTE" as const, title: "Ajustar deuda y conservar valor para un cambio", desc: "Conserva el excedente en la liquidación. Después podrás elegir productos de reemplazo, reembolsar o conceder saldo a favor.", icon: Receipt },
         { id: "STORE_CREDIT" as const, title: "Saldo a favor del cliente", desc: "Otorga el excedente como crédito del cliente en esta moneda para sus próximas compras.", icon: DollarSign },

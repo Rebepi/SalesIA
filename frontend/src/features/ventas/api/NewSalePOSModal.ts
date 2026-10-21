@@ -9,7 +9,7 @@ import { BranchItem } from "../types/NewSalePOSModal";
 import { PricingResult } from "../types/NewSalePOSModal";
 
 export function solicitarDatos({ controller, line, customer, couponCode }: { controller: AbortController; line: SaleCartLine; customer: CustomerItem | undefined; couponCode: string }) {
-  return apiClient.request<PricingResult>("/api/v1/prices/preview", { method: "POST", signal: controller.signal, body: JSON.stringify({ product_id: line.product.id, quantity: line.quantity, customer_id: customer?.id || null, coupon_code: couponCode.trim() || null }) });
+  return apiClient.request<PricingResult>("/api/v1/prices/preview", { method: "POST", signal: controller.signal, body: JSON.stringify({ product_id: line.product.id, quantity: line.quantity, customer_id: customer?.id === "walk-in-default" ? null : customer?.id || null, coupon_code: couponCode.trim() || null }) });
 }
 
 export function solicitarDatos2({ params, controller }: { params: URLSearchParams; controller: AbortController }) {

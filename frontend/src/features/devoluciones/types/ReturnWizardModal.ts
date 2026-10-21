@@ -17,6 +17,8 @@ export interface EligibleLine {
   sku: string;
   product_name: string;
   unit_price: string | number;
+  unit_of_measure?: string;
+  allow_fractions?: boolean;
   tax_rate_snapshot?: string | number;
   serial_numbers?: string[];
   return_policy?: {

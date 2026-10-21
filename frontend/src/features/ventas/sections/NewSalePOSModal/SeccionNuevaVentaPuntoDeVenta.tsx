@@ -57,6 +57,9 @@ interface SeccionNuevaVentaPuntoDeVentaProps {
   productOffset: number;
   setProductOffset: React.Dispatch<React.SetStateAction<number>> | ((offset: number) => void);
   error: string;
+  catalogError: string;
+  pricingError: string;
+  retryPricing: () => void;
   cart: SaleCartLine[];
   pricing: Record<string, PricingResult>;
   updateSerials: (productId: string, serials: string[]) => void;
@@ -143,6 +146,9 @@ export function SeccionNuevaVentaPuntoDeVenta({
   productOffset,
   setProductOffset,
   error,
+  catalogError,
+  pricingError,
+  retryPricing,
   cart,
   pricing,
   updateSerials,
@@ -268,6 +274,7 @@ export function SeccionNuevaVentaPuntoDeVenta({
           </button>
         </div>
       </header>
+      {(error || pricingError) && <div role="alert" className="shrink-0 flex flex-wrap items-center justify-between gap-2 border-b border-rose-200 bg-rose-50 px-5 py-2 text-xs text-rose-800 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-200"><span>{pricingError ? `No se pudieron verificar los precios: ${pricingError}` : error}</span>{pricingError && <button type="button" onClick={retryPricing} disabled={pricingBusy} className="rounded-lg border border-current px-3 py-1">Reintentar precios</button>}</div>}
 
       <div className="shrink-0 border-b border-slate-100 dark:border-slate-800 bg-slate-50/40 dark:bg-slate-900/60 px-5 py-2">
         <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-[1fr_1.3fr_1fr_0.8fr]">
@@ -529,11 +536,11 @@ export function SeccionNuevaVentaPuntoDeVenta({
                 <Package className="mb-2 h-8 w-8 text-slate-400 dark:text-slate-500" />
                 <p className="font-semibold text-slate-700 dark:text-slate-200">Elige un almacén para ver productos.</p>
               </div>
-            ) : error ? (
+            ) : catalogError ? (
               <div className="flex h-64 flex-col items-center justify-center rounded-2xl border border-rose-200 bg-rose-50/50 dark:border-rose-900/40 dark:bg-rose-950/30 p-8 text-center text-xs text-rose-800 dark:text-rose-300">
                 <AlertCircle className="mb-2 h-8 w-8 text-rose-500" />
                 <p className="font-bold text-sm">No pudimos cargar el catálogo</p>
-                <p className="mt-1 text-slate-500 dark:text-slate-400">{error}</p>
+                <p className="mt-1 text-slate-500 dark:text-slate-400">{catalogError}</p>
                 <button
                   type="button"
                   onClick={retryLoadProducts}

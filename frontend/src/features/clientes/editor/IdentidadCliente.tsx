@@ -1,3 +1,4 @@
+import { documentoClienteRules, limpiarDocumentoCliente } from "../utils/validacionCliente";
 import { CustomSelect } from "../../../ui/components/CustomSelect";
 import type { useEditorCliente } from "../hooks/useEditorCliente";
 type EditorClienteModel = ReturnType<typeof useEditorCliente>;
@@ -29,10 +30,15 @@ export function IdentidadCliente({ model, quickMode }: { model: EditorClienteMod
         <input
           required
           id="customer-doc_number"
+          minLength={documentoClienteRules(formData.doc_type).min}
+          maxLength={documentoClienteRules(formData.doc_type).max}
+          inputMode={documentoClienteRules(formData.doc_type).numeric ? "numeric" : "text"}
+          pattern={documentoClienteRules(formData.doc_type).pattern}
           value={formData.doc_number}
           onChange={e => {
-            handleChange("doc_number", e.target.value);
-            checkDuplicateDoc(e.target.value);
+            const next = limpiarDocumentoCliente(formData.doc_type, e.target.value);
+            handleChange("doc_number", next);
+            checkDuplicateDoc(next);
           }}
           className="mt-1 w-full rounded-xl border border-slate-300 p-2 text-xs outline-none focus:border-teal-600"
         />
@@ -47,6 +53,8 @@ export function IdentidadCliente({ model, quickMode }: { model: EditorClienteMod
       <input
         required
         id="customer-legal_name"
+        minLength={2}
+        maxLength={255}
         value={formData.legal_name}
         onChange={e => handleChange("legal_name", e.target.value)}
         className="mt-1 w-full rounded-xl border border-slate-300 p-2 text-xs outline-none focus:border-teal-600"
@@ -56,6 +64,8 @@ export function IdentidadCliente({ model, quickMode }: { model: EditorClienteMod
       <label htmlFor="customer-code" className="block text-[11px] font-semibold text-slate-600">Código Interno</label>
       <input
         id="customer-code"
+        minLength={2}
+        maxLength={64}
         value={formData.code}
         onChange={e => handleChange("code", e.target.value)}
         placeholder="Se asignará automáticamente si queda vacío"

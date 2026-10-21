@@ -1,3 +1,4 @@
+import { documentoClienteRules, limpiarDocumentoCliente, errorDocumentoCliente, errorContactoCliente } from "../../clientes/utils/validacionCliente";
 import { CustomSelect } from "../../../ui/components/CustomSelect";
 import { useState, useEffect, useRef, useMemo } from "react";
 import { Search, User, Building2, Check, AlertTriangle, AlertCircle, Plus, X, ChevronDown } from "lucide-react";
@@ -29,6 +30,8 @@ export function PosCustomerSelector({
   const [suggestionMode, setSuggestionMode] = useState("recent");
   const [listError, setListError] = useState("");
   const creatingLock = useRef(false);
+  const walkInLock = useRef(false);
+  const [walkInBusy, setWalkInBusy] = useState(false);
   const [loading, setLoading] = useState(false);
   const [consultingFiscal, setConsultingFiscal] = useState(false);
   const [fiscalLookupResult, setFiscalLookupResult] = useState<{ legal_name: string; doc_type: string; doc_number: string; address?: string; status?: string } | null>(null);
@@ -52,18 +55,6 @@ export function PosCustomerSelector({
     if (!value) return true;
     return Boolean(value.is_walk_in || value.doc_type === "SIN_DOCUMENTO" || value.legal_name?.toLowerCase().includes("consumidor final"));
   }, [value]);
-
-  const defaultWalkInCustomer = useMemo<CustomerItem>(() => ({
-    id: "walk-in-default",
-    code: "CLI-CONSUMIDOR-FINAL",
-    legal_name: "Consumidor final · Sin identificar",
-    doc_type: "SIN_DOCUMENTO",
-    doc_number: "",
-    is_walk_in: true,
-    payment_terms_days: 0,
-    credit_limit: "0",
-    current_balance: "0",
-  }), []);
 
   function recentIds(): string[] {
     try {
@@ -120,7 +111,7 @@ export function PosCustomerSelector({
       setCreateDocType("RUC");
       setCreateDocNumber(clean);
     } else if (searchTerm.trim()) {
-      setCreateLegalName(searchTerm.trim());
+      setCreateLegalName(searchTerm.trim().slice(0, 255));
     }
   }, [searchTerm]);
 
@@ -145,9 +136,20 @@ export function PosCustomerSelector({
     setDuplicateWarning(null);
   }
 
+  async function handleSelectWalkIn() {
+    if (disabled || walkInLock.current) return;
+    walkInLock.current = true; setWalkInBusy(true); setListError(""); setCreateError("");
+    try {
+      const customer = await apiClient.request<CustomerItem>("/api/v1/customers/walk-in/ensure", { method: "POST" });
+      handleSelect({ ...customer, is_walk_in: true });
+    } catch (cause) { const message = customerError(cause); setListError(message); setCreateError(message); }
+    finally { walkInLock.current = false; setWalkInBusy(false); }
+  }
+
   async function handleConsultFiscal() {
     const cleanDoc = createDocNumber.trim();
-    if (!cleanDoc) return;
+    const documentError = errorDocumentoCliente(createDocType, cleanDoc);
+    if (documentError) { setCreateError(documentError); return; }
     setConsultingFiscal(true);
     setCreateError("");
     try {
@@ -174,8 +176,10 @@ export function PosCustomerSelector({
     e.preventDefault();
     e.stopPropagation();
     if (disabled || creatingLock.current) return;
-    if (!createLegalName.trim()) {
-      setCreateError("El nombre o razón social es obligatorio.");
+    const validationError = errorDocumentoCliente(createDocType, createDocNumber) || errorContactoCliente(createPhone, createEmail, createAddress);
+    if (validationError) { setCreateError(validationError); return; }
+    if (createLegalName.trim().length < 2 || createLegalName.trim().length > 255) {
+      setCreateError("El nombre o razón social debe tener entre 2 y 255 caracteres.");
       return;
     }
     if (documentType === "INVOICE" && (createDocType !== "RUC" || createDocNumber.replace(/\D/g, "").length !== 11)) {
@@ -251,7 +255,7 @@ export function PosCustomerSelector({
   const hasAddress = Boolean(createAddress.trim());
 
   return (
-    <div ref={containerRef} className="relative w-full">
+    <div aria-busy={walkInBusy} ref={containerRef} className="relative w-full">
       <label className="mb-0.5 block text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
         Cliente
       </label>
@@ -339,7 +343,8 @@ export function PosCustomerSelector({
               {!searchTerm && loading && <p role="status" className="p-2 text-xs text-slate-500">Cargando clientes…</p>}
               <button
                 type="button"
-                onClick={() => handleSelect(defaultWalkInCustomer)}
+                disabled={disabled || walkInBusy}
+                onClick={() => void handleSelectWalkIn()}
                 className={`flex w-full items-center justify-between rounded-xl p-2.5 text-left transition hover:bg-slate-100 dark:hover:bg-slate-800 ${isWalkIn ? "bg-teal-50 border border-teal-200 dark:bg-teal-950/40 dark:border-teal-800" : "bg-slate-50/60"}`}
               >
                 <div className="flex items-center gap-2.5">
@@ -481,7 +486,7 @@ export function PosCustomerSelector({
                   <CustomSelect
                     aria-label="Tipo de documento"
                     value={createDocType}
-                    onChange={e => { setCreateDocType(e.target.value as typeof createDocType); setFiscalLookupResult(null); }}
+                    onChange={e => { setCreateDocType(e.target.value as typeof createDocType); setCreateDocNumber(""); setFiscalLookupResult(null); setCreateError(""); }}
                     className="w-full rounded-lg border border-slate-300 bg-white p-1.5 text-xs outline-none focus:border-teal-600 dark:border-slate-700 dark:bg-slate-800"
                   >
                     <option value="DNI">DNI</option>
@@ -498,10 +503,14 @@ export function PosCustomerSelector({
                     <input
                       type="text"
                       aria-label="Número de documento"
+                      minLength={documentoClienteRules(createDocType).min}
+                      maxLength={documentoClienteRules(createDocType).max}
+                      pattern={createDocType === "SIN_DOCUMENTO" ? undefined : documentoClienteRules(createDocType).pattern}
+                      inputMode={documentoClienteRules(createDocType).numeric ? "numeric" : "text"}
                       required={createDocType !== "SIN_DOCUMENTO"}
                       disabled={createDocType === "SIN_DOCUMENTO"}
                       value={createDocNumber}
-                      onChange={e => { setCreateDocNumber(e.target.value); setFiscalLookupResult(null); }}
+                      onChange={e => { setCreateDocNumber(limpiarDocumentoCliente(createDocType, e.target.value)); setFiscalLookupResult(null); }}
                       placeholder={createDocType === "RUC" ? "11 dígitos" : createDocType === "DNI" ? "8 dígitos" : "Número"}
                       className="flex-1 rounded-lg border border-slate-300 p-1.5 font-mono text-xs outline-none focus:border-teal-600 dark:border-slate-700 dark:bg-slate-800"
                     />
@@ -545,6 +554,10 @@ export function PosCustomerSelector({
                 </label>
                 <input
                   type="text"
+                  aria-label="Dirección fiscal"
+                  minLength={3}
+                  maxLength={255}
+                  required={documentType === "INVOICE"}
                   value={createAddress}
                   onChange={e => setCreateAddress(e.target.value)}
                   placeholder="Av. Las Magnolias 123, Lima"
@@ -557,6 +570,10 @@ export function PosCustomerSelector({
                   <label className="block text-[10px] font-semibold text-slate-500 mb-0.5">Teléfono (opcional)</label>
                   <input
                     type="tel"
+                    aria-label="Teléfono"
+                    minLength={6}
+                    maxLength={32}
+                    pattern={"\\+?[0-9\\s\\-\\(\\)\\.]{6,32}"}
                     value={createPhone}
                     onChange={e => setCreatePhone(e.target.value)}
                     placeholder="999888777"
@@ -567,6 +584,8 @@ export function PosCustomerSelector({
                   <label className="block text-[10px] font-semibold text-slate-500 mb-0.5">Correo (opcional)</label>
                   <input
                     type="email"
+                    aria-label="Correo electrónico"
+                    maxLength={255}
                     value={createEmail}
                     onChange={e => setCreateEmail(e.target.value)}
                     placeholder="cliente@ejemplo.com"
@@ -622,7 +641,8 @@ export function PosCustomerSelector({
           <div className="mt-2 border-t border-slate-100 pt-2 text-center dark:border-slate-800">
             <button
               type="button"
-              onClick={() => handleSelect(defaultWalkInCustomer)}
+              disabled={disabled || walkInBusy}
+                onClick={() => void handleSelectWalkIn()}
               className="text-[11px] font-semibold text-slate-500 hover:text-slate-800 hover:underline dark:text-slate-400"
             >
               Continuar como consumidor final
